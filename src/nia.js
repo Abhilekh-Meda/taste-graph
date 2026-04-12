@@ -97,6 +97,15 @@ export class NiaClient {
     return res.json();
   }
 
+  async getContext(contextId) {
+    const res = await fetch(`${BASE_URL}/contexts/${contextId}`, {
+      headers: this.headers,
+      signal: AbortSignal.timeout(30_000),
+    });
+    if (!res.ok) throw new Error(`Get context failed [${res.status}]: ${await res.text()}`);
+    return res.json();
+  }
+
   async saveContext({ title, summary, content, tags = [], metadata = {} }) {
     const res = await fetch(`${BASE_URL}/contexts`, {
       method: 'POST',
