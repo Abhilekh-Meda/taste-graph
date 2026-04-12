@@ -1,0 +1,12 @@
+---
+alwaysApply: true
+---
+# Guidelines:
+- Do not create documentations unless explicitly asked for.
+- Comments should be minimal and rare. They should only be used to expain what cannot be inferred from reading the code.
+- Suggest approriate refactors after large changes are made
+- Error modes and error handling should be considered as a part of implementation
+- implementations should bias towars simplicity and not intruducing too much surface area for error
+- format/style should be consistent with the rest of the codebase
+- File/variable names should be descriptive and consistent
+- do research if you are not sure about the documentation
