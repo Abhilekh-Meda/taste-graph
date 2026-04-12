@@ -1,9 +1,3 @@
-// Phase 1: Discover all public URLs for a person
-// Supports two modes: 'web' (parallel web searches) and 'oracle' (autonomous deep research)
-// Run both via discoverPerson to compare coverage
-
-import { parseJsonReport } from './nia.js';
-
 const WEB_SEARCHES = (name) => [
   { query: name, category: 'blog' },
   { query: name, category: 'news' },
@@ -26,7 +20,7 @@ Prioritize sources containing their own words. Include actual content pages, not
 `.trim();
 
 export async function discoverPerson(name, nia) {
-  console.log(`[discover] Running both web search and oracle discovery for: ${name}`);
+  console.log(`[discover] Running web search and oracle discovery for: ${name}`);
 
   const [webResult, oracleResult] = await Promise.allSettled([
     discoverViaWebSearch(name, nia),
@@ -36,10 +30,8 @@ export async function discoverPerson(name, nia) {
   const web = webResult.status === 'fulfilled' ? webResult.value : { sources: [], error: webResult.reason?.message };
   const oracle = oracleResult.status === 'fulfilled' ? oracleResult.value : { sources: [], error: oracleResult.reason?.message };
 
-  // Merge and deduplicate, tagging each source with its origin
   const seen = new Set();
   const merged = [];
-
   for (const source of [...web.sources, ...oracle.sources]) {
     if (!seen.has(source.url)) {
       seen.add(source.url);
@@ -47,12 +39,12 @@ export async function discoverPerson(name, nia) {
     }
   }
 
-  console.log(`[discover] Web search: ${web.sources.length} sources`);
-  console.log(`[discover] Oracle: ${oracle.sources.length} sources`);
-  console.log(`[discover] Merged (unique): ${merged.length} sources`);
+  console.log(`[discover] Web: ${web.sources.length} | Oracle: ${oracle.sources.length} | Merged: ${merged.length}`);
 
   return {
     sources: merged,
+    oracle_report: oracle.oracle_report ?? null,
+    oracle_citations: oracle.oracle_citations ?? [],
     comparison: {
       web_count: web.sources.length,
       oracle_count: oracle.sources.length,
@@ -91,13 +83,13 @@ async function runWebSearch({ query, category }, nia) {
     method: 'POST',
     headers: { Authorization: `Bearer ${nia.apiKey}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({ mode: 'web', query, category, num_results: 10 }),
+    signal: AbortSignal.timeout(30_000),
   });
 
   if (!res.ok) throw new Error(`[${res.status}] ${await res.text()}`);
 
   const data = await res.json();
-  const items = data.results || data.items || [];
-  return items
+  return (data.results || data.items || [])
     .filter((item) => item.url)
     .map((item) => ({
       url: item.url,
@@ -107,43 +99,31 @@ async function runWebSearch({ query, category }, nia) {
 }
 
 async function discoverViaOracle(name, nia) {
-  const { final_report, citations } = await nia.runOracle(
+  const { final_report, citations: oracleCitations } = await nia.runOracle(
     ORACLE_QUERY(name),
-    { model: 'claude-opus-4-6-1m', outputFormat: 'json' },
-    (chunk) => {
-      if (chunk.type === 'tool_start') {
-        process.stdout.write(`  [oracle] ${chunk.action}: ${chunk.reason?.slice(0, 80)}\n`);
-      }
-    }
+    { model: 'claude-sonnet-4-5-20250929' },
+    logOracleProgress('discover'),
   );
 
-  // Try to parse structured JSON first
-  const parsed = parseJsonReport(final_report);
-  if (parsed?.sources?.length) {
-    return {
-      sources: parsed.sources.map((s) => ({ ...s, discovery: 'oracle' })),
-    };
-  }
+  const sources = extractUrls(final_report).map((url) => ({
+    url,
+    type: 'other',
+    description: '',
+    discovery: 'oracle',
+  }));
 
-  // Fall back: extract URLs from citations (Oracle always cites its sources)
-  const sources = citations
-    .flatMap((c) => {
-      try {
-        const summary = JSON.parse(c.summary || '{}');
-        return [
-          ...(summary.other_content || []),
-          ...(summary.documentation || []),
-        ].map((item) => ({
-          url: item.url,
-          type: 'other',
-          description: item.title || '',
-          discovery: 'oracle',
-        }));
-      } catch {
-        return [];
-      }
-    })
-    .filter((s) => s.url);
+  return { sources, oracle_report: final_report, oracle_citations: oracleCitations };
+}
 
-  return { sources };
+function extractUrls(text) {
+  const matches = text.match(/https?:\/\/[^\s\)\]\>"]+/g) || [];
+  return [...new Set(matches)];
+}
+
+export function logOracleProgress(label) {
+  return (chunk) => {
+    if (chunk.type === 'tool_start') console.log(`  [oracle/${label}] ${chunk.action} — ${chunk.reason?.slice(0, 100)}`);
+    if (chunk.type === 'tool_complete') console.log(`  [oracle/${label}] ✓ ${chunk.action}`);
+    if (chunk.type === 'generating_report') console.log(`  [oracle/${label}] synthesizing...`);
+  };
 }
