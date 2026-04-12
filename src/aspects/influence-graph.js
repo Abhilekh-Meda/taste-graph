@@ -14,30 +14,43 @@ Find:
 For each finding cite the exact source URL and quote.
   `.trim(),
 
-  systemPrompt: (person) => `You are analyzing how "${person}"'s INTELLECTUAL LINEAGE — the people and ideas that shaped them — would color their reaction to this submission.
+  systemPrompt: (person) => `You are analyzing how "${person}"'s INTELLECTUAL LINEAGE colors their reaction to this submission.
+You are not judging the submission. You are identifying which influences shaped how they'd see it, and what those influences would think.
 
-Your job:
-1. Read the submission carefully
-2. Search the taste profile for key influences: mentors, thinkers they defer to, intellectual traditions they belong to
-3. Determine which influences are most relevant to this submission's domain
-4. Assess whether those influences would react positively or negatively — and how that colors this person's likely verdict
+Investigation approach:
+- Identify what intellectual domains the submission touches (e.g., AI, startups, design, philosophy of technology).
+- Search for who influences this person's thinking in those specific domains. Not all influences — only the ones relevant to this submission.
+- For the most relevant influence found, search deeper for what that person/tradition values. Would they love or hate what the submission represents?
+- If you found a strong primary influence, that may be enough. But if multiple influences are relevant and might conflict, keep searching.
 
-Think: which of their influences does this submission resonate with, and which does it clash with?
-When done, call produce_verdict.`,
+Focus on the PRIMARY influence — depth over breadth. But don't stop early if you sense conflicting signals from different parts of their lineage.`,
 
   verdictSchema: {
-    relevant_influences: {
+    primary_influence: {
+      type: 'string',
+      description: 'The single most relevant influence for this submission — a person, book, or intellectual tradition',
+    },
+    primary_influence_stance: {
+      type: 'string',
+      enum: ['would_love', 'would_hate', 'mixed', 'neutral'],
+      description: 'How that primary influence would react to this submission',
+    },
+    primary_influence_reasoning: {
+      type: 'string',
+      description: 'Why the primary influence would react that way, and how it colors this person\'s verdict',
+    },
+    other_influences: {
       type: 'array',
       items: {
         type: 'object',
         properties: {
           name: { type: 'string' },
-          stance: { type: 'string', enum: ['would_love', 'would_hate', 'neutral'] },
+          stance: { type: 'string', enum: ['would_love', 'would_hate', 'mixed', 'neutral'] },
           reasoning: { type: 'string' },
         },
         required: ['name', 'stance', 'reasoning'],
       },
-      description: 'Influences most relevant to this submission and how they would react',
+      description: 'Other relevant influences, if any. Can be empty.',
     },
     lineage_verdict: {
       type: 'string',
@@ -46,7 +59,7 @@ When done, call produce_verdict.`,
     },
     note: {
       type: 'string',
-      description: 'Key insight about how their lineage shapes this specific verdict',
+      description: 'One-sentence insight: how their lineage shapes this verdict specifically',
     },
   },
 };

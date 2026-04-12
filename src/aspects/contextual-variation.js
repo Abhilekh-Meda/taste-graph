@@ -13,36 +13,47 @@ Find:
 For each finding cite the exact source URL and quote.
   `.trim(),
 
-  systemPrompt: (person) => `You are analyzing how the JUDGING CONTEXT shifts "${person}"'s standards for this submission.
+  systemPrompt: (person) => `You are analyzing how the JUDGING CONTEXT changes what "${person}" would care about when evaluating this submission.
+The same person judges a hackathon project differently than a YC application differently than a cold DM.
 
-Your job:
-1. Read the submission carefully
-2. Note the judging context provided (e.g. "hackathon judge", "YC decision", "cold DM")
-3. Search the taste profile for how their standards change by context — what they care about in different situations
-4. Determine what criteria they would apply in THIS specific context, and how that differs from their default
-5. Assess whether the context makes their verdict stricter or more lenient for this submission
+Investigation approach:
+- Read the submission AND the judging context carefully. What does this context mean for stakes, expectations, and standards?
+- Search for how this person behaves specifically in this type of context. What do they look for? What standards do they apply?
+- Search for their default/general standards to identify the DELTA — what's different about this context?
+- Keep searching if the contrast is unclear or if you find evidence of more nuanced context-dependent behavior.
 
-Context changes everything. Make sure the verdict reflects how they'd judge in THIS situation.
-When done, call produce_verdict.`,
+If no judging context was provided, search for what their default judging mode is and note that context wasn't specified.
+The value you add: telling the user exactly which criteria shift when the context changes, so they can see what matters HERE vs in general.`,
 
   verdictSchema: {
     context_applied: {
       type: 'string',
-      description: 'The judging context being evaluated in (from user input)',
+      description: 'The judging context (from user input, or "general/default" if none specified)',
     },
     standard_shift: {
       type: 'string',
-      enum: ['stricter', 'more_lenient', 'neutral'],
-      description: 'Does this context make their judgment stricter or more lenient than their default?',
+      enum: ['stricter', 'more_lenient', 'different_focus', 'neutral'],
+      description: 'How this context changes their judgment compared to their default',
     },
     key_criteria_for_context: {
       type: 'array',
-      items: { type: 'string' },
-      description: 'The specific criteria they emphasize in this context',
+      items: {
+        type: 'object',
+        properties: {
+          criterion: { type: 'string', description: 'What they care about in this context' },
+          why: { type: 'string', description: 'Why this criterion matters specifically in this context' },
+        },
+        required: ['criterion', 'why'],
+      },
+      description: 'The specific criteria they emphasize in this context, with reasoning',
+    },
+    submission_alignment: {
+      type: 'string',
+      description: 'How well the submission meets the CONTEXT-SPECIFIC criteria (not their general criteria)',
     },
     note: {
       type: 'string',
-      description: 'How the context specifically shifts their verdict on this submission',
+      description: 'How the context specifically shifts the verdict. E.g., "At a hackathon they value ambition over polish, which benefits this submission."',
     },
   },
 };

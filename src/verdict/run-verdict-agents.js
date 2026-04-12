@@ -44,6 +44,7 @@ export async function runVerdictAgents({
         verdict: result.value.verdict,
         turns: result.value.turns,
         forced: result.value.forced ?? false,
+        final_reasoning: result.value.final_reasoning ?? null,
       };
       console.log(`[verdict-agents] ✓ ${aspect.label} (${result.value.turns.length} search turns)`);
     } else {

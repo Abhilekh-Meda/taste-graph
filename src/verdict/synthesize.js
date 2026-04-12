@@ -1,5 +1,3 @@
-// Takes all 7 sub-verdicts and synthesizes them into the final structured verdict.
-// One OpenAI call — pure reasoning, no retrieval needed here.
 export async function synthesizeVerdict({ person, submissionText, subVerdicts, judgingContext, openai }) {
   const prompt = buildSynthesisPrompt({ person, submissionText, subVerdicts, judgingContext });
 
@@ -8,10 +6,17 @@ export async function synthesizeVerdict({ person, submissionText, subVerdicts, j
     messages: [
       {
         role: 'system',
-        content: `You are synthesizing a final verdict for how "${person}" would judge a submission.
-You have been given pre-analyzed sub-verdicts from 7 taste dimensions. Your job is to synthesize them into one coherent, well-reasoned verdict.
-Do not introduce new information — reason only from what the dimension analyses found.
-Return valid JSON matching the schema exactly.`,
+        content: `You synthesize a final verdict for how "${person}" would judge a submission.
+You receive pre-analyzed sub-verdicts from 7 taste dimensions. Synthesize them into one coherent verdict.
+
+RULES:
+- Do NOT introduce new information. Reason only from what the dimension analyses found.
+- The base score comes from stated_vs_actual.match_score
+- taste_drift adjusts it: if drift_adjustment is "more_positive" add 1, "more_negative" subtract 1
+- If falsifiability anchors disagree with the base score, shift toward the anchors
+- If blind_spots is triggered, note it but do NOT change the score (it's a warning, not a modifier)
+- confidence_score comes from linguistic_tells.confidence_level: high=8-10, medium=5-7, low=1-4
+- Return valid JSON matching the schema exactly.`,
       },
       { role: 'user', content: prompt },
     ],
@@ -26,10 +31,13 @@ Return valid JSON matching the schema exactly.`,
 }
 
 function buildSynthesisPrompt({ person, submissionText, subVerdicts, judgingContext }) {
-  const dimensionSummaries = Object.entries(subVerdicts)
+  const sections = Object.entries(subVerdicts)
     .map(([key, val]) => {
       if (val.error) return `### ${val.label}\nERROR: ${val.error}`;
-      return `### ${val.label}\n${JSON.stringify(val.verdict, null, 2)}`;
+      const parts = [`### ${val.label}`];
+      if (val.final_reasoning) parts.push(`**Agent reasoning:** ${val.final_reasoning}`);
+      parts.push(`**Verdict:**\n${JSON.stringify(val.verdict, null, 2)}`);
+      return parts.join('\n');
     })
     .join('\n\n');
 
@@ -41,26 +49,33 @@ ${submissionText}
 ${judgingContext || 'General'}
 
 ## Dimension Analysis Results
-${dimensionSummaries}
+${sections}
 
 ---
 
-Synthesize these into a final verdict JSON with exactly this shape:
+Produce the final verdict JSON:
 
 {
   "person": "${person}",
-  "score": <integer 1-10, weighted by stated_vs_actual match_score, adjusted by drift, anchored by falsifiability>,
-  "loves": [<strings — specific things they would genuinely praise, drawn from stated_vs_actual>],
-  "hates": [<strings — specific things they would criticize>],
-  "would_change": [<strings — concrete suggestions they would make>],
-  "contradiction_callout": <string — the key contradiction if present, otherwise null>,
-  "blind_spot_warning": <string — the blind spot warning if triggered, otherwise null>,
-  "influence_lineage_note": <string — how their intellectual lineage colors this verdict>,
-  "context_note": <string — how the judging context shifts this verdict>,
-  "confidence_score": <integer 1-10, driven by linguistic_tells confidence_level>,
-  "confidence_explanation": <string — why confidence is high/medium/low based on their tells>,
-  "falsifiability_anchor": <string — the analogous known reaction and what it implies, or null>,
-  "temporal_weight_note": <string — whether this verdict reflects current vs dated taste>
+  "score": <integer 1-10>,
+  "summary": <string — the person's reaction in their own voice, drawn from linguistic_tells.predicted_language and stated_vs_actual.summary>,
+  "loves": [<strings — specific things they'd praise, from stated_vs_actual.loves>],
+  "hates": [<strings — specific things they'd criticize, from stated_vs_actual.hates>],
+  "would_change": [<strings — actionable suggestions, from stated_vs_actual.would_change>],
+  "contradiction_callout": <string or null — from stated_vs_actual.contradiction. Format: "[person] says they value [X] but has publicly [Y]. For this submission, that means [Z].">,
+  "blind_spot_warning": <string or null — from blind_spots.warning, only if triggered>,
+  "influence_lineage_note": <string — from influence_graph. "[person]'s view here is shaped by [primary_influence], who would [stance] because [reason].">,
+  "context_note": <string — from contextual_variation.note>,
+  "confidence_score": <integer 1-10>,
+  "confidence_explanation": <string — from linguistic_tells. "High confidence: [tells]. They'd probably say: '[predicted_language]'">,
+  "falsifiability_anchor": <string or null — from falsifiability. "When [person] saw [analogous thing], they [reacted]. This submission is similar because [reason], predicting a [sentiment] reaction.">,
+  "temporal_weight_note": <string — from taste_drift.recency_note>,
+  "score_breakdown": {
+    "base_from_stated_vs_actual": <integer — the raw match_score>,
+    "drift_adjustment": <integer — +1, -1, or 0>,
+    "anchor_adjustment": <integer — shift toward falsifiability anchor if it disagrees, otherwise 0>,
+    "final": <integer — the computed score>
+  }
 }
 `.trim();
 }

@@ -14,36 +14,50 @@ Find:
 For each finding cite the exact source URL and quote.
   `.trim(),
 
-  systemPrompt: (person) => `You are analyzing what LINGUISTIC TELLS reveal about the likely STRENGTH and CONFIDENCE of "${person}"'s reaction to this submission.
+  systemPrompt: (person) => `You predict the STRENGTH and AUTHENTICITY of "${person}"'s reaction to this submission.
+You don't determine if they'd like it or not — other dimensions handle that.
+You determine: would they be genuinely energized? Politely interested? Lukewarm? Actively dismissive?
+And you predict the LANGUAGE they would use — their actual words.
 
-Your job:
-1. Read the submission carefully — identify what kind of thing it is, what signals it sends
-2. Search the taste profile for their tell patterns: what words/phrases they use when genuinely excited, politely dismissive, or unsure
-3. Match the submission's characteristics against those tell patterns
-4. Predict: would this trigger their genuine excitement signals, their lukewarm language, or their dismissal patterns?
+Investigation approach:
+- Read the submission. What kind of reaction does this type of thing typically provoke? Form a hypothesis.
+- Search for their excitement tells — words, phrases, patterns they use when genuinely energized. Also search for their dismissal tells.
+- Match the submission against both patterns. If the match is ambiguous, search for more examples of their language in similar situations.
+- Keep going until you can confidently predict what they would actually SAY.
 
-This dimension determines CONFIDENCE in the overall verdict — not the verdict itself.
-When done, call produce_verdict.`,
+The most valuable output from this dimension: a predicted quote in the person's voice that captures their likely reaction. This is what makes the verdict feel real, not robotic.`,
 
   verdictSchema: {
     predicted_reaction_strength: {
       type: 'string',
       enum: ['energized', 'interested', 'lukewarm', 'dismissive'],
-      description: 'The predicted strength and tone of their reaction',
+      description: 'The predicted tone and intensity of their reaction',
+    },
+    predicted_language: {
+      type: 'string',
+      description: 'What they would actually SAY — a predicted quote in their natural voice and cadence. This is the "cinematic" output.',
     },
     tell_patterns_matched: {
       type: 'array',
-      items: { type: 'string' },
-      description: 'Specific tell patterns from their profile that apply here',
+      items: {
+        type: 'object',
+        properties: {
+          pattern: { type: 'string', description: 'The tell pattern (e.g., "uses exclamation points", "says interesting without follow-up")' },
+          signal: { type: 'string', enum: ['excitement', 'interest', 'dismissal', 'uncertainty'] },
+          example_from_profile: { type: 'string', description: 'An actual quote from their profile showing this pattern' },
+        },
+        required: ['pattern', 'signal'],
+      },
+      description: 'Which of their known tell patterns apply to this submission',
     },
     confidence_level: {
       type: 'string',
       enum: ['high', 'medium', 'low'],
-      description: 'How confidently predictable their reaction would be',
+      description: 'How confidently you can predict their reaction strength. High = clear pattern match, Low = no strong signals either way.',
     },
-    explanation: {
+    confidence_explanation: {
       type: 'string',
-      description: 'Why these tells apply to this submission specifically',
+      description: 'Why confidence is at this level — which tells drove the prediction',
     },
   },
 };

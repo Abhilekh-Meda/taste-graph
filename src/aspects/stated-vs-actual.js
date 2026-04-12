@@ -14,60 +14,64 @@ Find:
 For each finding cite the exact source URL and quote where possible.
   `.trim(),
 
-  systemPrompt: (person) => `You are analyzing how "${person}" would react to a submission based on the GAP between what they SAY they value vs what they ACTUALLY respond well to.
+  systemPrompt: (person) => `You are the primary verdict engine analyzing how "${person}" would react to a submission.
+You determine the MATCH between the submission and their ACTUAL endorsement patterns — not their stated principles.
 
-Your job:
-1. Read the submission carefully
-2. Search the taste profile to find: their stated principles, things they have praised, things they have criticized, and known contradictions
-3. Determine how well the submission matches their ACTUAL endorsement patterns (not just stated principles)
-4. Identify any contradiction — where their stated values say one thing but their actual reaction pattern suggests another
+Investigation approach:
+- Start by identifying the submission's domain, approach, and key properties. Search broadly for what they actually praise and criticize in this domain.
+- Then drill into the specific properties of the submission. Search for reactions to things with similar characteristics.
+- Hunt for contradictions — cases where their stated values conflict with their actual reactions relevant to this submission.
+- Keep going until you have both loves AND hates with evidence. If you only found one side, search for the other.
 
-Search iteratively. Start broad, then drill into specifics that match the submission's domain.
-When you have enough evidence, call produce_verdict with your analysis.`,
+You are the most important dimension. Your match_score is the base score for the entire verdict. Be thorough — take as many turns as you need.`,
 
   verdictSchema: {
     match_score: {
       type: 'integer',
-      minimum: 1,
-      maximum: 10,
-      description: 'How well does the submission match their actual endorsement patterns? 1=strong mismatch, 10=strong match',
+      description: '1-10. How well the submission matches their ACTUAL endorsement patterns (not stated principles). This is the base score for the entire verdict.',
+    },
+    summary: {
+      type: 'string',
+      description: 'A 1-2 sentence reaction in the person\'s voice — what they would actually say about this submission if asked. Use their natural tone.',
     },
     loves: {
       type: 'array',
       items: {
         type: 'object',
         properties: {
-          aspect: { type: 'string' },
-          because: { type: 'string' },
-          citation: { type: 'string' },
+          aspect: { type: 'string', description: 'What about the submission they would praise' },
+          because: { type: 'string', description: 'Why — grounded in their actual past endorsements' },
+          citation: { type: 'string', description: 'What they said about a similar thing, or empty string' },
         },
         required: ['aspect', 'because'],
       },
-      description: 'Specific things about the submission they would genuinely praise, with evidence',
     },
     hates: {
       type: 'array',
       items: {
         type: 'object',
         properties: {
-          aspect: { type: 'string' },
-          because: { type: 'string' },
-          citation: { type: 'string' },
+          aspect: { type: 'string', description: 'What about the submission they would criticize' },
+          because: { type: 'string', description: 'Why — grounded in their actual past criticisms' },
+          citation: { type: 'string', description: 'What they said about a similar thing, or empty string' },
         },
         required: ['aspect', 'because'],
       },
-      description: 'Specific things about the submission they would criticize, with evidence',
+    },
+    would_change: {
+      type: 'array',
+      items: { type: 'string' },
+      description: 'Specific actionable things they would tell you to fix or improve',
     },
     contradiction: {
       type: 'object',
       properties: {
         present: { type: 'boolean' },
-        stated_principle: { type: 'string' },
-        actual_pattern: { type: 'string' },
-        tension: { type: 'string', description: 'How the contradiction affects the verdict' },
+        stated_principle: { type: 'string', description: 'What they claim to value' },
+        actual_pattern: { type: 'string', description: 'What they actually endorse that conflicts' },
+        tension: { type: 'string', description: 'How this contradiction specifically affects the verdict on this submission' },
       },
       required: ['present'],
-      description: 'Whether their stated values conflict with what they actually endorse here',
     },
   },
 };

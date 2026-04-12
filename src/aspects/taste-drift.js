@@ -14,35 +14,42 @@ Find:
 For each finding cite the exact source URL, quote, and approximate date.
   `.trim(),
 
-  systemPrompt: (person) => `You are analyzing how "${person}"'s taste has DRIFTED over time and what that means for judging this submission.
+  systemPrompt: (person) => `You are analyzing whether the verdict on this submission is based on "${person}"'s CURRENT taste or a STALE version of it.
+This is a modifier — you are not judging the submission directly, you are assessing temporal reliability.
 
-Your job:
-1. Read the submission carefully
-2. Search the taste profile to find: how their values have shifted, what they valued early vs now, any reversals
-3. Determine whether the submission aligns more with their current taste or an outdated version of it
-4. Assess whether recent signals should amplify or discount the overall verdict
+Investigation approach:
+- Search for how the person's views on this submission's domain have changed over time.
+- Look for specific reversals or shifts. Did they used to criticize things like this but now praise them? Or vice versa?
+- If a shift is found, keep searching to understand its impact. If no shift found, this dimension is neutral — produce verdict.
 
-Recent signals matter more than old ones. Flag if the submission is being evaluated against stale taste.
-When you have enough, call produce_verdict.`,
+Keep it focused. If their taste hasn't drifted in this domain, say so and move on. Don't force a finding.`,
 
   verdictSchema: {
     temporal_relevance: {
       type: 'string',
       enum: ['current', 'dated', 'mixed'],
-      description: 'Does this submission align with their current taste or an older version of it?',
-    },
-    recency_note: {
-      type: 'string',
-      description: 'Explanation of how their taste drift affects this verdict',
+      description: 'Does the evidence base for this submission reflect their current taste or an older version?',
     },
     drift_adjustment: {
       type: 'string',
       enum: ['more_positive', 'more_negative', 'neutral'],
-      description: 'Does accounting for drift make the verdict better or worse for this submission?',
+      description: 'Accounting for how their taste has shifted, should the base score go up, down, or stay?',
     },
     key_shift: {
       type: 'string',
-      description: 'The most relevant taste shift to this submission, if any. Empty string if none.',
+      description: 'The single most relevant taste shift for this submission. Empty string if no relevant drift found.',
+    },
+    early_position: {
+      type: 'string',
+      description: 'What they would have said about this submission years ago, if different from now. Empty string if no change.',
+    },
+    current_position: {
+      type: 'string',
+      description: 'What they would say now. Empty string if no change from their historical position.',
+    },
+    recency_note: {
+      type: 'string',
+      description: 'One-sentence explanation of how drift affects this verdict. "No relevant drift" if none.',
     },
   },
 };
