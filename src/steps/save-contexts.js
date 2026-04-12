@@ -9,6 +9,7 @@ function citationUrls(citations) {
 export async function saveToContexts(name, discovery, tasteProfile, nia) {
   console.log('\n[contexts] Saving to Nia Contexts...');
   const personTag = name.toLowerCase().replace(/\s+/g, '-');
+  const contextIds = {};
   const jobs = [];
 
   if (discovery.oracle_report) {
@@ -20,7 +21,10 @@ export async function saveToContexts(name, discovery, tasteProfile, nia) {
         tags: [personTag, 'discovery'],
         metadata: { person: name, type: 'discovery', source_count: discovery.sources.length },
       })
-      .then(() => console.log(`[contexts] ✓ discovery`))
+      .then((saved) => {
+        contextIds.discovery = saved.id;
+        console.log(`[contexts] ✓ discovery (id: ${saved.id})`);
+      })
       .catch((e) => console.error(`[contexts] ✗ discovery: ${e.message}`))
     );
   }
@@ -40,11 +44,15 @@ export async function saveToContexts(name, discovery, tasteProfile, nia) {
         tags: [personTag, key],
         metadata: { person: name, type: 'taste_dimension', dimension: key, citation_count: urls.length },
       })
-      .then(() => console.log(`[contexts] ✓ ${key} (${urls.length} citations)`))
+      .then((saved) => {
+        contextIds[key] = saved.id;
+        console.log(`[contexts] ✓ ${key} (id: ${saved.id})`);
+      })
       .catch((e) => console.error(`[contexts] ✗ ${key}: ${e.message}`))
     );
   }
 
   await Promise.allSettled(jobs);
   console.log('[contexts] Done');
+  return contextIds;
 }

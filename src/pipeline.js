@@ -15,12 +15,13 @@ export async function buildTasteProfile(name, nia) {
 
   const tasteProfile = await runAspectOracles(name, nia, indexedSourceIds);
 
-  await saveToContexts(name, discovery, tasteProfile, nia);
+  const contextIds = await saveToContexts(name, discovery, tasteProfile, nia);
 
   return {
     person: name,
     discovery,
     indexing: { succeeded: succeeded.length, failed: failed.length },
     profile: tasteProfile,
+    contextIds,
   };
 }

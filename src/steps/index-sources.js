@@ -1,18 +1,37 @@
 const POLL_INTERVAL_MS = 5_000;
 const POLL_TIMEOUT_MS = 5 * 60_000;
+const MAX_CONCURRENT = 8;
 
 const SOURCE_TYPE = {
   pdf: 'research_paper',
   github: 'repository',
 };
 
+async function withConcurrencyLimit(tasks, limit) {
+  const results = new Array(tasks.length);
+  let next = 0;
+
+  async function worker() {
+    while (next < tasks.length) {
+      const i = next++;
+      try {
+        results[i] = { status: 'fulfilled', value: await tasks[i]() };
+      } catch (err) {
+        results[i] = { status: 'rejected', reason: err };
+      }
+    }
+  }
+
+  await Promise.all(Array.from({ length: Math.min(limit, tasks.length) }, worker));
+  return results;
+}
+
 export async function indexSources(sources, personName, nia) {
   const indexable = sources.filter((s) => s.url);
-  console.log(`[index] Indexing ${indexable.length} sources for ${personName}`);
+  console.log(`[index] Indexing ${indexable.length} sources for ${personName} (max ${MAX_CONCURRENT} concurrent)`);
 
-  const results = await Promise.allSettled(
-    indexable.map((source) => indexAndWait(source, personName, nia))
-  );
+  const tasks = indexable.map((source) => () => indexAndWait(source, personName, nia));
+  const results = await withConcurrencyLimit(tasks, MAX_CONCURRENT);
 
   const succeeded = [];
   const failed = [];
