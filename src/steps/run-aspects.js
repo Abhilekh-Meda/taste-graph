@@ -62,5 +62,6 @@ async function streamResult(job_id, nia, label) {
     }
   });
 
+  if (!final_report) throw new Error('Oracle returned no report (terminated or timed out)');
   return { final_report, citations };
 }
