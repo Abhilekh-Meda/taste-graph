@@ -1,12 +1,20 @@
-export async function synthesizeVerdict({ person, submissionText, subVerdicts, judgingContext, openai }) {
-  const prompt = buildSynthesisPrompt({ person, submissionText, subVerdicts, judgingContext });
+import { withRetry } from '../retry.js';
 
-  const response = await openai.chat.completions.create({
-    model: 'gpt-4o',
-    messages: [
-      {
-        role: 'system',
-        content: `You synthesize a final verdict for how "${person}" would judge a submission.
+export async function synthesizeVerdict({ person, submissionText, subVerdicts, judgingContext, openai }) {
+  const succeeded = Object.values(subVerdicts).filter((v) => !v.error).length;
+  const failed = Object.values(subVerdicts).filter((v) => v.error).length;
+  console.log(`\n[synthesize] Starting synthesis for ${person} — ${succeeded} sub-verdicts OK, ${failed} failed`);
+
+  const prompt = buildSynthesisPrompt({ person, submissionText, subVerdicts, judgingContext });
+  console.log(`[synthesize] Prompt length: ${prompt.length} chars`);
+
+  const response = await withRetry(
+    () => openai.chat.completions.create({
+      model: 'gpt-5.4',
+      messages: [
+        {
+          role: 'system',
+          content: `You synthesize a final verdict for how "${person}" would judge a submission.
 You receive pre-analyzed sub-verdicts from 7 taste dimensions. Synthesize them into one coherent verdict.
 
 RULES:
@@ -17,14 +25,18 @@ RULES:
 - If blind_spots is triggered, note it but do NOT change the score (it's a warning, not a modifier)
 - confidence_score comes from linguistic_tells.confidence_level: high=8-10, medium=5-7, low=1-4
 - Return valid JSON matching the schema exactly.`,
-      },
-      { role: 'user', content: prompt },
-    ],
-    response_format: { type: 'json_object' },
-  });
+        },
+        { role: 'user', content: prompt },
+      ],
+      response_format: { type: 'json_object' },
+    }),
+    'synthesize'
+  );
 
   try {
-    return JSON.parse(response.choices[0].message.content);
+    const verdict = JSON.parse(response.choices[0].message.content);
+    console.log(`[synthesize] Done — score: ${verdict.score}/10, confidence: ${verdict.confidence_score}/10`);
+    return verdict;
   } catch {
     throw new Error('Synthesis returned invalid JSON');
   }

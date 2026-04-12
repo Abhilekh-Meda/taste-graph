@@ -1,7 +1,7 @@
-import { discoverPerson } from './steps/discover.js';
-import { indexSources } from './steps/index-sources.js';
-import { runAspectOracles } from './steps/run-aspects.js';
-import { saveToContexts } from './steps/save-contexts.js';
+import { discoverPerson } from './discover.js';
+import { indexSources } from './index-sources.js';
+import { runAspectOracles } from './run-aspects.js';
+import { saveToContexts } from './save-contexts.js';
 
 export async function buildTasteProfile(name, nia) {
   console.log(`\n=== Building taste profile for: ${name} ===\n`);

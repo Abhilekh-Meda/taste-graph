@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { writeFile, mkdir } from 'fs/promises';
 import { NiaClient } from './nia.js';
-import { buildTasteProfile } from './pipeline.js';
+import { buildTasteProfile } from './retrieval/pipeline.js';
 
 const name = process.argv[2];
 if (!name) { console.error('Usage: node src/main.js "Person Name"'); process.exit(1); }

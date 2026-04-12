@@ -1,0 +1,9 @@
+What makes a startup idea good isn't the idea itself — it's how precisely it describes a real problem.
+
+Most people pitch solutions. The best founders I've talked to pitch problems so specific that you can immediately imagine the person who has that problem. "Lawyers waste 3 hours a day reformatting documents that Word keeps breaking" is a startup idea. "AI for legal" is not.
+
+The other thing nobody talks about: the best startup ideas feel slightly embarrassing to say out loud. Like they're too small. "We help restaurant owners know which menu items to cut" sounds ridiculous until you realize every restaurant owner lies awake thinking about this and nobody has solved it well.
+
+Schlep blindness is real but the opposite failure mode is more common: people work on problems they'd be embarrassed to admit don't really matter. Status-seeking dressed up as ambition.
+
+The question I keep coming back to: would you build this even if it never made money? If the answer is yes, that's a strong signal. Not because passion makes you persistent (that's the naive reading), but because it means you understand the problem deeply enough that you can't not build it. Understanding at that level is rare and it's the actual competitive advantage, not the code.

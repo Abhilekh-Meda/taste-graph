@@ -1,4 +1,4 @@
-import { ASPECTS } from '../aspects/index.js';
+import { ASPECTS } from '../exploration/index.js';
 import { logOracleProgress } from './discover.js';
 
 const MODELS = ['claude-sonnet-4-5-20250929', 'claude-opus-4-6'];

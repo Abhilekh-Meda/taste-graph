@@ -1,4 +1,4 @@
-import { ASPECTS } from '../aspects/index.js';
+import { ASPECTS } from '../exploration/index.js';
 import { runAspectAgent } from './aspect-agent.js';
 
 // Runs all aspect agents in parallel against the same submission.
@@ -7,7 +7,7 @@ import { runAspectAgent } from './aspect-agent.js';
 export async function runVerdictAgents({
   person,
   contextIds,
-  submissionBlock,
+  submissionBlocks,
   judgingContext,
   nia,
   openai,
@@ -26,7 +26,7 @@ export async function runVerdictAgents({
         aspect,
         person,
         contextId,
-        submissionBlock,
+        submissionBlocks,
         judgingContext,
         nia,
         openai,
