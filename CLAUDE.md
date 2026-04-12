@@ -37,4 +37,4 @@ Confidence score — explained by their linguistic tells, not just a number
 Falsifiability accuracy score — how well the model has predicted their known past reactions, with methodology visible
 
 
-
+Do note this is a hackathon.
