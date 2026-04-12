@@ -67,6 +67,7 @@ export class NiaClient {
       }
     });
 
+    if (!finalReport) throw new Error('Oracle returned no report (terminated or timed out)');
     return { final_report: finalReport, citations };
   }
 

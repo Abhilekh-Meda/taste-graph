@@ -98,12 +98,31 @@ async function runWebSearch({ query, category }, nia) {
     }));
 }
 
+const DISCOVER_MODELS = ['claude-sonnet-4-5-20250929', 'claude-opus-4-6'];
+
 async function discoverViaOracle(name, nia) {
-  const { final_report, citations: oracleCitations } = await nia.runOracle(
-    ORACLE_QUERY(name),
-    { model: 'claude-sonnet-4-5-20250929' },
-    logOracleProgress('discover'),
-  );
+  let lastError;
+  let final_report, oracleCitations;
+
+  for (let attempt = 0; attempt < DISCOVER_MODELS.length; attempt++) {
+    const model = DISCOVER_MODELS[attempt];
+    if (attempt > 0) {
+      const delay = 2000 * 2 ** (attempt - 1);
+      console.log(`[discover] Retrying oracle with ${model} in ${delay}ms`);
+      await new Promise((r) => setTimeout(r, delay));
+    }
+    try {
+      const result = await nia.runOracle(ORACLE_QUERY(name), { model }, logOracleProgress('discover'));
+      final_report = result.final_report;
+      oracleCitations = result.citations;
+      break;
+    } catch (err) {
+      lastError = err;
+      console.warn(`[discover] Oracle attempt ${attempt + 1} failed: ${err.message}`);
+    }
+  }
+
+  if (!final_report) throw lastError;
 
   const sources = extractUrls(final_report).map((url) => ({
     url,
@@ -114,6 +133,7 @@ async function discoverViaOracle(name, nia) {
 
   return { sources, oracle_report: final_report, oracle_citations: oracleCitations };
 }
+
 
 function extractUrls(text) {
   const matches = text.match(/https?:\/\/[^\s\)\]\>"]+/g) || [];
