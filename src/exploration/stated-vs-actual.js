@@ -41,9 +41,25 @@ You are the most important dimension. Your match_score is the base score for the
         properties: {
           aspect: { type: 'string', description: 'What about the submission they would praise' },
           because: { type: 'string', description: 'Why — grounded in their actual past endorsements' },
-          citation: { type: 'string', description: 'What they said about a similar thing, or empty string' },
+          evidence: {
+            type: 'array',
+            description: 'Evidence items supporting this claim. More items = higher confidence. Multiple inferred items add up.',
+            items: {
+              type: 'object',
+              properties: {
+                type: {
+                  type: 'string',
+                  enum: ['direct_quote', 'documented_reaction', 'consistent_pattern', 'single_source', 'inferred', 'extrapolated'],
+                  description: 'direct_quote=1.0, documented_reaction=0.8, consistent_pattern=0.7, single_source=0.4, inferred=0.25, extrapolated=0.1. Multiple items add up.',
+                },
+                source: { type: 'string', description: 'Essay name, interview, tweet, funding decision, etc.' },
+                quote: { type: 'string', description: 'Exact words if available, or description of the documented reaction. Empty string if none.' },
+              },
+              required: ['type', 'source'],
+            },
+          },
         },
-        required: ['aspect', 'because'],
+        required: ['aspect', 'because', 'evidence'],
       },
     },
     hates: {
@@ -53,15 +69,48 @@ You are the most important dimension. Your match_score is the base score for the
         properties: {
           aspect: { type: 'string', description: 'What about the submission they would criticize' },
           because: { type: 'string', description: 'Why — grounded in their actual past criticisms' },
-          citation: { type: 'string', description: 'What they said about a similar thing, or empty string' },
+          evidence: {
+            type: 'array',
+            description: 'Evidence items. Multiple inferred items add up to higher confidence.',
+            items: {
+              type: 'object',
+              properties: {
+                type: {
+                  type: 'string',
+                  enum: ['direct_quote', 'documented_reaction', 'consistent_pattern', 'single_source', 'inferred', 'extrapolated'],
+                },
+                source: { type: 'string' },
+                quote: { type: 'string', description: 'Exact words or description of the reaction.' },
+              },
+              required: ['type', 'source'],
+            },
+          },
         },
-        required: ['aspect', 'because'],
+        required: ['aspect', 'because', 'evidence'],
       },
     },
     would_change: {
       type: 'array',
-      items: { type: 'string' },
-      description: 'Specific actionable things they would tell you to fix or improve',
+      items: {
+        type: 'object',
+        properties: {
+          suggestion: { type: 'string', description: 'Specific actionable thing they would tell you to fix or improve' },
+          evidence: {
+            type: 'array',
+            items: {
+              type: 'object',
+              properties: {
+                type: { type: 'string', enum: ['direct_quote', 'documented_reaction', 'consistent_pattern', 'single_source', 'inferred', 'extrapolated'] },
+                source: { type: 'string' },
+                quote: { type: 'string' },
+              },
+              required: ['type', 'source'],
+            },
+          },
+        },
+        required: ['suggestion', 'evidence'],
+      },
+      description: 'Actionable suggestions, each backed by evidence.',
     },
     contradiction: {
       type: 'object',

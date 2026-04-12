@@ -11,7 +11,9 @@ export async function runAspectAgent({
   judgingContext,
   nia,
   openai,
+  onProgress,
 }) {
+  const emit = onProgress ?? (() => {});
   const personTag = person.toLowerCase().replace(/\s+/g, '-');
   const tools = [buildSearchTool(), buildVerdictTool(aspect.verdictSchema)];
 
@@ -49,6 +51,7 @@ export async function runAspectAgent({
 
     const thinkArgs = JSON.parse(thinkMsg.tool_calls[0].function.arguments);
     console.log(`[agent/${aspect.key}] Reasoning: ${thinkArgs.reasoning.slice(0, 200)}...`);
+    emit({ type: 'verdict:agent_think', data: { key: aspect.key, reasoning_preview: thinkArgs.reasoning.slice(0, 200) } });
     messages.push({ role: 'tool', tool_call_id: thinkMsg.tool_calls[0].id, content: 'OK' });
 
     console.log(`[agent/${aspect.key}] Turn ${i + 1} — ACT`);
@@ -78,6 +81,7 @@ export async function runAspectAgent({
     // search_profile — execute all queries in parallel
     const queries = actArgs.queries;
     console.log(`[agent/${aspect.key}] → SEARCH (${queries.length} queries): ${queries.join(' | ')}`);
+    emit({ type: 'verdict:agent_search', data: { key: aspect.key, queries } });
     const content = await searchBatch({ queries, person, personTag, aspect, contextId, nia });
     console.log(`[agent/${aspect.key}] Search returned ${content.length} chars`);
 

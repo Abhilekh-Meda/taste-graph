@@ -11,7 +11,9 @@ export async function runVerdictAgents({
   judgingContext,
   nia,
   openai,
+  onProgress,
 }) {
+  const emit = onProgress ?? (() => {});
   console.log(`[verdict-agents] Running ${ASPECTS.length} aspect agents in parallel for ${person}`);
 
   const results = await Promise.allSettled(
@@ -22,6 +24,8 @@ export async function runVerdictAgents({
         return Promise.reject(new Error(`No saved context for ${aspect.key}`));
       }
 
+      emit({ type: 'verdict:agent_start', data: { key: aspect.key, label: aspect.label } });
+
       return runAspectAgent({
         aspect,
         person,
@@ -30,6 +34,7 @@ export async function runVerdictAgents({
         judgingContext,
         nia,
         openai,
+        onProgress: emit,
       });
     })
   );
@@ -47,12 +52,14 @@ export async function runVerdictAgents({
         final_reasoning: result.value.final_reasoning ?? null,
       };
       console.log(`[verdict-agents] ✓ ${aspect.label} (${result.value.turns.length} search turns)`);
+      emit({ type: 'verdict:agent_done', data: { key: aspect.key, label: aspect.label } });
     } else {
       subVerdicts[aspect.key] = {
         label: aspect.label,
         error: result.reason?.message,
       };
       console.error(`[verdict-agents] ✗ ${aspect.label}: ${result.reason?.message}`);
+      emit({ type: 'verdict:agent_done', data: { key: aspect.key, label: aspect.label, error: result.reason?.message } });
     }
   });
 

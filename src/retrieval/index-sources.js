@@ -5,7 +5,8 @@ const SOURCE_TYPE = {
   github: 'repository',
 };
 
-export async function indexSources(sources, personName, nia) {
+export async function indexSources(sources, personName, nia, emit) {
+  emit = emit ?? (() => {});
   const indexable = sources.filter((s) => s.url);
   console.log(`[index] Indexing ${indexable.length} sources for ${personName} (max ${MAX_CONCURRENT} concurrent)`);
 
@@ -18,6 +19,7 @@ export async function indexSources(sources, personName, nia) {
   results.forEach((result, i) => {
     if (result.status === 'fulfilled') {
       succeeded.push({ source: indexable[i], niasource: result.value });
+      emit({ type: 'profile:source_indexed', data: { url: indexable[i].url, type: indexable[i].type } });
     } else {
       failed.push({ source: indexable[i], error: result.reason?.message });
       console.error(`[index] Failed: ${indexable[i].url} — ${result.reason?.message}`);

@@ -1,9 +1,29 @@
 import { withRetry } from '../retry.js';
+import { deriveConfidence, deriveOverallConfidence, deriveFalsifiabilityAccuracy } from '../confidence.js';
 
 export async function synthesizeVerdict({ person, submissionText, subVerdicts, judgingContext, openai }) {
   const succeeded = Object.values(subVerdicts).filter((v) => !v.error).length;
   const failed = Object.values(subVerdicts).filter((v) => v.error).length;
   console.log(`\n[synthesize] Starting synthesis for ${person} — ${succeeded} sub-verdicts OK, ${failed} failed`);
+
+  // Pull structured loves/hates/would_change from stated_vs_actual and enrich with computed confidence.
+  // We do NOT ask the synthesis model to regenerate them — it would lose the evidence chain.
+  const sva = subVerdicts.stated_vs_actual?.verdict ?? {};
+  const loves        = enrichItems(sva.loves ?? []);
+  const hates        = enrichItems(sva.hates ?? []);
+  const would_change = enrichItems(sva.would_change ?? []);
+
+  // Derive overall confidence from the evidence corpus — not from LLM self-report.
+  const confidence_score = deriveOverallConfidence(sva.loves, sva.hates);
+  console.log(`[synthesize] Derived confidence_score: ${confidence_score}/10 from ${(sva.loves?.length ?? 0) + (sva.hates?.length ?? 0)} items`);
+
+  // Derive falsifiability accuracy from anchor data — not from LLM self-report.
+  const fv = subVerdicts.falsifiability?.verdict ?? {};
+  const falsifiability_accuracy = deriveFalsifiabilityAccuracy(fv.anchors, fv.anchors_agree);
+  console.log(`[synthesize] Falsifiability accuracy: ${falsifiability_accuracy.estimated_pct ?? 'n/a'}% (${falsifiability_accuracy.based_on_n_anchors} anchors)`);
+
+  // Pull context variance from contextual_variation
+  const cv = subVerdicts.contextual_variation?.verdict ?? {};
 
   const prompt = buildSynthesisPrompt({ person, submissionText, subVerdicts, judgingContext });
   console.log(`[synthesize] Prompt length: ${prompt.length} chars`);
@@ -23,7 +43,7 @@ RULES:
 - taste_drift adjusts it: if drift_adjustment is "more_positive" add 1, "more_negative" subtract 1
 - If falsifiability anchors disagree with the base score, shift toward the anchors
 - If blind_spots is triggered, note it but do NOT change the score (it's a warning, not a modifier)
-- confidence_score comes from linguistic_tells.confidence_level: high=8-10, medium=5-7, low=1-4
+- Do NOT produce loves, hates, would_change, confidence_score, or falsifiability_accuracy — those are computed externally and injected.
 - Return valid JSON matching the schema exactly.`,
         },
         { role: 'user', content: prompt },
@@ -34,12 +54,67 @@ RULES:
   );
 
   try {
-    const verdict = JSON.parse(response.choices[0].message.content);
-    console.log(`[synthesize] Done — score: ${verdict.score}/10, confidence: ${verdict.confidence_score}/10`);
-    return verdict;
+    const partial = JSON.parse(response.choices[0].message.content);
+    console.log(`[synthesize] Done — score: ${partial.score}/10`);
+
+    // Merge model output (narrative, score) with deterministically computed fields
+    return {
+      person,
+      score: partial.score,
+      summary: partial.summary,
+
+      // Structured with evidence + computed confidence — never flat strings
+      loves,
+      hates,
+      would_change,
+
+      contradiction_callout: partial.contradiction_callout ?? null,
+      blind_spot_warning: partial.blind_spot_warning ?? null,
+      influence_lineage_note: partial.influence_lineage_note,
+      context_note: partial.context_note,
+
+      // Computed from evidence corpus, not self-reported
+      confidence_score,
+      confidence_explanation: partial.confidence_explanation,
+
+      // Context variance with deltas
+      context_variance: {
+        applied_context: cv.context_applied ?? 'general',
+        score_delta: cv.score_delta ?? 0,
+        standard_shift: cv.standard_shift ?? 'neutral',
+        alternative_contexts: cv.alternative_contexts ?? [],
+        note: cv.note ?? null,
+      },
+
+      // Falsifiability grounded in anchor evidence, accuracy derived
+      falsifiability: {
+        anchors: fv.anchors ?? [],
+        anchors_agree: fv.anchors_agree ?? null,
+        anchored_sentiment: fv.anchored_sentiment ?? 'unknown',
+        anchor_note: fv.anchor_note ?? null,
+        accuracy: falsifiability_accuracy,
+      },
+
+      temporal_weight_note: partial.temporal_weight_note,
+
+      score_breakdown: {
+        base_from_stated_vs_actual: partial.score_breakdown?.base_from_stated_vs_actual ?? partial.score,
+        drift_adjustment: partial.score_breakdown?.drift_adjustment ?? 0,
+        anchor_adjustment: partial.score_breakdown?.anchor_adjustment ?? 0,
+        final: partial.score,
+      },
+    };
   } catch {
     throw new Error('Synthesis returned invalid JSON');
   }
+}
+
+// Enrich each item with a computed confidence object derived from its evidence array.
+function enrichItems(items) {
+  return (items ?? []).map((item) => ({
+    ...item,
+    confidence: deriveConfidence(item.evidence ?? []),
+  }));
 }
 
 function buildSynthesisPrompt({ person, submissionText, subVerdicts, judgingContext }) {
@@ -65,22 +140,16 @@ ${sections}
 
 ---
 
-Produce the final verdict JSON:
+Produce the following JSON (loves/hates/would_change/confidence_score/falsifiability_accuracy are injected separately — do NOT generate them):
 
 {
-  "person": "${person}",
   "score": <integer 1-10>,
   "summary": <string — the person's reaction in their own voice, drawn from linguistic_tells.predicted_language and stated_vs_actual.summary>,
-  "loves": [<strings — specific things they'd praise, from stated_vs_actual.loves>],
-  "hates": [<strings — specific things they'd criticize, from stated_vs_actual.hates>],
-  "would_change": [<strings — actionable suggestions, from stated_vs_actual.would_change>],
   "contradiction_callout": <string or null — from stated_vs_actual.contradiction. Format: "[person] says they value [X] but has publicly [Y]. For this submission, that means [Z].">,
   "blind_spot_warning": <string or null — from blind_spots.warning, only if triggered>,
   "influence_lineage_note": <string — from influence_graph. "[person]'s view here is shaped by [primary_influence], who would [stance] because [reason].">,
   "context_note": <string — from contextual_variation.note>,
-  "confidence_score": <integer 1-10>,
   "confidence_explanation": <string — from linguistic_tells. "High confidence: [tells]. They'd probably say: '[predicted_language]'">,
-  "falsifiability_anchor": <string or null — from falsifiability. "When [person] saw [analogous thing], they [reacted]. This submission is similar because [reason], predicting a [sentiment] reaction.">,
   "temporal_weight_note": <string — from taste_drift.recency_note>,
   "score_breakdown": {
     "base_from_stated_vs_actual": <integer — the raw match_score>,

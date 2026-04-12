@@ -96,7 +96,7 @@ export class NiaClient {
     }, 'nia.getSource');
   }
 
-  async waitForSource(sourceId, { maxWaitMs = 120_000, pollMs = 3_000 } = {}) {
+  async waitForSource(sourceId, { maxWaitMs = 300_000, pollMs = 3_000 } = {}) {
     const deadline = Date.now() + maxWaitMs;
     while (Date.now() < deadline) {
       const source = await this.getSource(sourceId);
@@ -131,7 +131,7 @@ export class NiaClient {
         method: 'POST',
         headers: this.headers,
         body: JSON.stringify(body),
-        signal: AbortSignal.timeout(120_000),
+        signal: AbortSignal.timeout(300_000),
       });
       if (!res.ok) throw new Error(`Document agent failed [${res.status}]: ${await res.text()}`);
       return res.json();

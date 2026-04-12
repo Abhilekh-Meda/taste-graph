@@ -19,8 +19,10 @@ YouTube, PDFs of their writing.
 Prioritize sources containing their own words. Include actual content pages, not just homepages.
 `.trim();
 
-export async function discoverPerson(name, nia) {
+export async function discoverPerson(name, nia, emit) {
+  emit = emit ?? (() => {});
   console.log(`[discover] Running web search and oracle discovery for: ${name}`);
+  emit({ type: 'profile:discovery', data: { message: `Searching the web for ${name}...` } });
 
   const [webResult, oracleResult] = await Promise.allSettled([
     discoverViaWebSearch(name, nia),
@@ -40,6 +42,7 @@ export async function discoverPerson(name, nia) {
   }
 
   console.log(`[discover] Web: ${web.sources.length} | Oracle: ${oracle.sources.length} | Merged: ${merged.length}`);
+  emit({ type: 'profile:discovery', data: { message: `Found ${merged.length} sources`, sources_found: merged.length } });
 
   return {
     sources: merged,

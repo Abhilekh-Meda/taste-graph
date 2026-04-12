@@ -108,27 +108,15 @@ async function ingestUrl(url, nia) {
 }
 
 async function ingestPdf(url, nia) {
-  console.log(`[ingest] Uploading PDF to Nia: ${url}`);
+  console.log(`[ingest] Indexing PDF via Nia: ${url}`);
 
-  const filename = url.split('/').pop()?.split('?')[0] || 'submission.pdf';
-  const { upload_url, gcs_path } = await nia.getUploadUrl(filename);
-
-  const pdfRes = await fetch(url, { signal: AbortSignal.timeout(60_000) });
-  if (!pdfRes.ok) throw new Error(`Failed to download PDF [${pdfRes.status}]: ${url}`);
-  const pdfBytes = await pdfRes.arrayBuffer();
-
-  await fetch(upload_url, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/pdf' },
-    body: pdfBytes,
-    signal: AbortSignal.timeout(60_000),
-  });
-
+  // Let Nia fetch and parse the PDF directly by URL — no need to download bytes ourselves.
+  // gcs_path upload path is only for local files not accessible by URL.
   const source = await nia.createSource({
-    type: 'research_paper',
+    type: 'documentation',
+    url,
     is_pdf: true,
-    gcs_path,
-    display_name: filename,
+    only_main_content: false,
   });
 
   await nia.waitForSource(source.id);
@@ -139,41 +127,62 @@ async function ingestPdf(url, nia) {
   const citations = formatCitations(doc.citations);
   const fullText = citations ? `${summary}\n\nCitations:\n${citations}` : summary;
 
+  const filename = url.split('/').pop()?.split('?')[0] || 'document.pdf';
   return {
-    blocks: [
-      { type: 'text', text: `[PDF: ${filename}]\n\n${fullText}` },
-    ],
+    blocks: [{ type: 'text', text: `[PDF: ${filename}]\n\n${fullText}` }],
     text: `[PDF: ${filename}]\n\n${fullText}`,
-    source: { id: source.id, type: 'research_paper', url },
+    source: { id: source.id, type: 'documentation', url },
   };
 }
 
 async function ingestGitHub(url, repoSlug, nia) {
   console.log(`[ingest] Indexing GitHub repo: ${repoSlug}`);
 
-  const [source, readme] = await Promise.all([
-    nia.createSource({ type: 'repository', repository: repoSlug }),
-    fetchReadme(repoSlug),
-  ]);
+  const githubToken = process.env.NIA_GITHUB_TOKEN;
+  const [readme, repoMeta] = await Promise.all([fetchReadme(repoSlug), fetchRepoMeta(repoSlug)]);
 
-  await nia.waitForSource(source.id);
-  console.log(`[ingest] Repo source ready: ${source.id}`);
+  // Try Nia deep indexing — requires a GitHub token. Skip gracefully if unavailable.
+  let agentSummary = null;
+  if (githubToken) {
+    try {
+      const source = await nia.createSource({ type: 'repository', repository: repoSlug, github_token: githubToken });
+      await nia.waitForSource(source.id);
+      console.log(`[ingest] Repo source ready: ${source.id}`);
+      const doc = await nia.runDocumentAgent(
+        source.id,
+        'What is this project? Summarize the README, key features, architecture, tech stack, and purpose.',
+      );
+      agentSummary = doc.answer ?? null;
+      const text = buildGitHubText(repoSlug, readme, repoMeta, agentSummary);
+      return { blocks: [{ type: 'text', text }], text, source: { id: source.id, type: 'repository', url } };
+    } catch (err) {
+      console.warn(`[ingest] Nia GitHub indexing failed: ${err.message} — falling back to README-only`);
+    }
+  } else {
+    console.log(`[ingest] No NIA_GITHUB_TOKEN — using README + GitHub API fallback`);
+  }
 
-  const doc = await nia.runDocumentAgent(
-    source.id,
-    'What is this project? Summarize the README, key features, architecture, tech stack, and purpose.',
-  );
+  const text = buildGitHubText(repoSlug, readme, repoMeta, agentSummary);
+  return { blocks: [{ type: 'text', text }], text };
+}
 
-  const agentSummary = doc.answer ?? '';
-  const text = readme
-    ? `[GitHub: ${repoSlug}]\n\nREADME:\n${readme}\n\nDeep analysis:\n${agentSummary}`
-    : `[GitHub: ${repoSlug}]\n\n${agentSummary}`;
+function buildGitHubText(repoSlug, readme, repoMeta, agentSummary) {
+  const parts = [`[GitHub: ${repoSlug}]`];
+  if (repoMeta) parts.push(`Description: ${repoMeta.description ?? 'n/a'} | Stars: ${repoMeta.stargazers_count ?? '?'} | Language: ${repoMeta.language ?? 'n/a'} | Topics: ${(repoMeta.topics ?? []).join(', ') || 'none'}`);
+  if (readme) parts.push(`\nREADME:\n${readme}`);
+  if (agentSummary) parts.push(`\nDeep analysis:\n${agentSummary}`);
+  return parts.join('\n');
+}
 
-  return {
-    blocks: [{ type: 'text', text }],
-    text,
-    source: { id: source.id, type: 'repository', url },
-  };
+async function fetchRepoMeta(repoSlug) {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${repoSlug}`, {
+      headers: { Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
+      signal: AbortSignal.timeout(10_000),
+    });
+    if (!res.ok) return null;
+    return res.json();
+  } catch { return null; }
 }
 
 async function fetchReadme(repoSlug) {

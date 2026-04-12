@@ -51,6 +51,23 @@ The value you add: telling the user exactly which criteria shift when the contex
       type: 'string',
       description: 'How well the submission meets the CONTEXT-SPECIFIC criteria (not their general criteria)',
     },
+    score_delta: {
+      type: 'integer',
+      description: 'How much this context shifts the score vs their default (+3 = more favorable in this context, -2 = less favorable). Range: -5 to +5.',
+    },
+    alternative_contexts: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          context_name: { type: 'string', description: 'Name of this alternative context, e.g. "YC application", "cold email pitch", "public keynote"' },
+          score_delta: { type: 'integer', description: 'How this context shifts the score vs default. Range: -5 to +5.' },
+          key_difference: { type: 'string', description: 'The one thing that changes most in this context' },
+        },
+        required: ['context_name', 'score_delta', 'key_difference'],
+      },
+      description: '2-3 other contexts for this person and how the score would shift in each. Makes the contextual variance visible.',
+    },
     note: {
       type: 'string',
       description: 'How the context specifically shifts the verdict. E.g., "At a hackathon they value ambition over polish, which benefits this submission."',
