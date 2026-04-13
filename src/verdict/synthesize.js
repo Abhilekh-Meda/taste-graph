@@ -1,7 +1,8 @@
 import { withRetry } from '../retry.js';
 import { deriveConfidence, deriveOverallConfidence, deriveFalsifiabilityAccuracy } from '../confidence.js';
 
-export async function synthesizeVerdict({ person, submissionText, subVerdicts, judgingContext, openai }) {
+export async function synthesizeVerdict({ person, submissionText, subVerdicts, judgingContext, openai, onProgress }) {
+  const emit = onProgress ?? (() => {});
   const succeeded = Object.values(subVerdicts).filter((v) => !v.error).length;
   const failed = Object.values(subVerdicts).filter((v) => v.error).length;
   console.log(`\n[synthesize] Starting synthesis for ${person} — ${succeeded} sub-verdicts OK, ${failed} failed`);
@@ -27,6 +28,8 @@ export async function synthesizeVerdict({ person, submissionText, subVerdicts, j
 
   const prompt = buildSynthesisPrompt({ person, submissionText, subVerdicts, judgingContext });
   console.log(`[synthesize] Prompt length: ${prompt.length} chars`);
+
+  emit({ type: 'verdict:synthesis_progress', data: { message: `Weighing ${succeeded} dimensions against the submission...` } });
 
   const response = await withRetry(
     () => openai.chat.completions.create({
@@ -56,6 +59,7 @@ RULES:
   try {
     const partial = JSON.parse(response.choices[0].message.content);
     console.log(`[synthesize] Done — score: ${partial.score}/10`);
+    emit({ type: 'verdict:synthesis_progress', data: { message: `Score determined: ${partial.score}/10 — assembling final verdict` } });
 
     // Merge model output (narrative, score) with deterministically computed fields
     return {

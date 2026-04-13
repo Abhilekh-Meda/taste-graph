@@ -38,10 +38,12 @@ async function runWithRetry(aspect, name, nia, dataSources, emit) {
     if (attempt > 0) {
       const delay = 2000 * 2 ** (attempt - 1);
       console.log(`[aspects] Retrying "${aspect.label}" with ${model} in ${delay}ms`);
+      emit({ type: 'profile:aspect_progress', data: { key: aspect.key, message: `Retrying ${aspect.label} with different model...` } });
       await new Promise((r) => setTimeout(r, delay));
     }
 
     try {
+      emit({ type: 'profile:aspect_progress', data: { key: aspect.key, message: `Launching oracle for ${aspect.label}...` } });
       const { job_id } = await nia.createOracleJob(aspect.query(name), { dataSources, model });
       console.log(`[aspects] Launched: ${aspect.label} (${model}, job: ${job_id})`);
       emit({ type: 'profile:aspect_progress', data: { key: aspect.key, message: `Researching ${aspect.label}...` } });
@@ -63,7 +65,13 @@ async function streamResult(job_id, nia, label, emit) {
   await nia.streamOracleJob(job_id, (chunk) => {
     log(chunk);
     if (chunk.type === 'tool_start') {
-      emit({ type: 'profile:aspect_progress', data: { key: label, message: `${chunk.action} — ${(chunk.reason ?? '').slice(0, 100)}` } });
+      emit({ type: 'profile:aspect_progress', data: { key: label, message: `${chunk.action}: ${(chunk.reason ?? '').slice(0, 80)}` } });
+    }
+    if (chunk.type === 'tool_complete') {
+      emit({ type: 'profile:aspect_progress', data: { key: label, message: `Completed: ${chunk.action}` } });
+    }
+    if (chunk.type === 'generating_report') {
+      emit({ type: 'profile:aspect_progress', data: { key: label, message: 'Compiling findings...' } });
     }
     if (chunk.type === 'complete' && chunk.result) {
       final_report = chunk.result.final_report ?? '';

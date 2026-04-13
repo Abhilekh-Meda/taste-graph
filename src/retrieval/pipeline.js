@@ -9,7 +9,7 @@ export async function buildTasteProfile(name, nia, onProgress) {
   emit({ type: 'profile:start', data: { person: name } });
 
   const discovery = await discoverPerson(name, nia, emit);
-  console.log(`[pipeline] Discovered ${discovery.sources.length} sources | comparison:`, discovery.comparison);
+  console.log(`[pipeline] Discovered ${discovery.sources.length} sources`);
   emit({ type: 'profile:discovery_done', data: { sources_found: discovery.sources.length, comparison: discovery.comparison } });
 
   emit({ type: 'profile:indexing', data: { count: discovery.sources.length } });
@@ -20,6 +20,7 @@ export async function buildTasteProfile(name, nia, onProgress) {
 
   const tasteProfile = await runAspectOracles(name, nia, indexedSourceIds, emit);
 
+  emit({ type: 'profile:saving', data: { message: 'Saving taste profile to memory...' } });
   const contextIds = await saveToContexts(name, discovery, tasteProfile, nia);
 
   emit({ type: 'profile:done', data: { dimensions: Object.keys(tasteProfile).length } });

@@ -35,7 +35,7 @@ export async function runAspectAgent({
 
   for (let i = 0; i < MAX_TURNS; i++) {
     console.log(`[agent/${aspect.key}] Turn ${i + 1} — THINK`);
-    // Phase 1: THINK — model must reason before acting
+    emit({ type: 'verdict:agent_turn', data: { key: aspect.key, turn: i + 1, max: MAX_TURNS, phase: 'thinking' } });
     const thinkResponse = await withRetry(
       () => openai.chat.completions.create({
         model: 'gpt-5.4',
@@ -55,7 +55,7 @@ export async function runAspectAgent({
     messages.push({ role: 'tool', tool_call_id: thinkMsg.tool_calls[0].id, content: 'OK' });
 
     console.log(`[agent/${aspect.key}] Turn ${i + 1} — ACT`);
-    // Phase 2: ACT — model must search or produce verdict
+    emit({ type: 'verdict:agent_turn', data: { key: aspect.key, turn: i + 1, max: MAX_TURNS, phase: 'acting' } });
     const actResponse = await withRetry(
       () => openai.chat.completions.create({
         model: 'gpt-5.4',
@@ -82,8 +82,9 @@ export async function runAspectAgent({
     const queries = actArgs.queries;
     console.log(`[agent/${aspect.key}] → SEARCH (${queries.length} queries): ${queries.join(' | ')}`);
     emit({ type: 'verdict:agent_search', data: { key: aspect.key, queries } });
-    const content = await searchBatch({ queries, person, personTag, aspect, contextId, nia });
+    const content = await searchBatch({ queries, person, personTag, aspect, contextId, nia, emit });
     console.log(`[agent/${aspect.key}] Search returned ${content.length} chars`);
+    emit({ type: 'verdict:agent_search_done', data: { key: aspect.key, chars: content.length } });
 
     turns.push({
       turn: i + 1,
@@ -97,6 +98,7 @@ export async function runAspectAgent({
   }
 
   console.log(`[agent/${aspect.key}] Hit turn limit — forcing verdict`);
+  emit({ type: 'verdict:agent_think', data: { key: aspect.key, reasoning_preview: 'Reached investigation limit, producing verdict...' } });
   // Close out any dangling tool calls so OpenAI doesn't reject the message chain
   const pendingToolCallIds = new Set();
   for (const msg of messages) {

@@ -10,7 +10,15 @@ export async function indexSources(sources, personName, nia, emit) {
   const indexable = sources.filter((s) => s.url);
   console.log(`[index] Indexing ${indexable.length} sources for ${personName} (max ${MAX_CONCURRENT} concurrent)`);
 
-  const tasks = indexable.map((source) => () => indexAndWait(source, personName, nia));
+  let indexed = 0;
+  const tasks = indexable.map((source, i) => () => {
+    emit({ type: 'profile:source_indexing', data: { url: source.url, type: source.type, index: i, total: indexable.length } });
+    return indexAndWait(source, personName, nia).then((result) => {
+      indexed++;
+      emit({ type: 'profile:source_indexed', data: { url: source.url, type: source.type, indexed, total: indexable.length } });
+      return result;
+    });
+  });
   const results = await withConcurrencyLimit(tasks, MAX_CONCURRENT);
 
   const succeeded = [];
@@ -19,7 +27,6 @@ export async function indexSources(sources, personName, nia, emit) {
   results.forEach((result, i) => {
     if (result.status === 'fulfilled') {
       succeeded.push({ source: indexable[i], niasource: result.value });
-      emit({ type: 'profile:source_indexed', data: { url: indexable[i].url, type: indexable[i].type } });
     } else {
       failed.push({ source: indexable[i], error: result.reason?.message });
       console.error(`[index] Failed: ${indexable[i].url} — ${result.reason?.message}`);

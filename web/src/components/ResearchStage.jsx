@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import SpiderChart, { DIMENSIONS } from './SpiderChart.jsx';
 
 const DIMENSION_DESCRIPTIONS = {
@@ -11,8 +11,21 @@ const DIMENSION_DESCRIPTIONS = {
   falsifiability: 'Anchoring against known reactions',
 };
 
+function useElapsed() {
+  const [elapsed, setElapsed] = useState(0);
+  useEffect(() => {
+    const start = Date.now();
+    const id = setInterval(() => setElapsed(Math.floor((Date.now() - start) / 1000)), 1000);
+    return () => clearInterval(id);
+  }, []);
+  const m = Math.floor(elapsed / 60);
+  const s = elapsed % 60;
+  return m > 0 ? `${m}m ${s}s` : `${s}s`;
+}
+
 export default function ResearchStage({ person, events, dimensions, phase }) {
   const feedRef = useRef(null);
+  const elapsed = useElapsed();
 
   useEffect(() => {
     if (feedRef.current) {
@@ -29,6 +42,9 @@ export default function ResearchStage({ person, events, dimensions, phase }) {
           ? 'Synthesizing verdict'
           : 'Working...';
 
+  const activeDims = Object.values(dimensions).filter((d) => d.status === 'active').length;
+  const doneDims = Object.values(dimensions).filter((d) => d.status === 'done').length;
+
   return (
     <div className="research-stage">
       <div className="research-header">
@@ -36,7 +52,17 @@ export default function ResearchStage({ person, events, dimensions, phase }) {
         <p>Reconstructing taste topology</p>
       </div>
 
-      <div className="research-phase-label">{phaseLabel}</div>
+      <div className="research-phase-label">
+        {phaseLabel}
+        <span className="elapsed-time">{elapsed}</span>
+      </div>
+
+      {(activeDims > 0 || doneDims > 0) && (
+        <div className="dimension-progress-summary">
+          {doneDims}/{DIMENSIONS.length} dimensions complete
+          {activeDims > 0 && ` · ${activeDims} active`}
+        </div>
+      )}
 
       <SpiderChart dimensions={dimensions} />
 
@@ -66,16 +92,21 @@ export default function ResearchStage({ person, events, dimensions, phase }) {
         })}
       </div>
 
-      {events.length > 0 && (
-        <div className="live-feed" ref={feedRef}>
-          {events.map((ev, i) => (
+      <div className="live-feed" ref={feedRef}>
+        {events.length === 0 ? (
+          <div className="feed-item">
+            <span className="feed-label">Starting </span>
+            Connecting to server...
+          </div>
+        ) : (
+          events.map((ev, i) => (
             <div className="feed-item" key={i}>
               {ev.label && <span className="feed-label">{ev.label} </span>}
               {ev.message}
             </div>
-          ))}
-        </div>
-      )}
+          ))
+        )}
+      </div>
     </div>
   );
 }

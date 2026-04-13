@@ -78,6 +78,10 @@ export default function App() {
         addFeedEvent(event.data.label, event.data.error ? `Error: ${event.data.error}` : 'Complete');
         break;
 
+      case 'profile:saving':
+        addFeedEvent('Profile', event.data.message);
+        break;
+
       case 'profile:done':
         addFeedEvent('Profile', event.data.cached ? 'Using cached profile' : 'Taste profile complete');
         break;
@@ -85,6 +89,14 @@ export default function App() {
       case 'verdict:ingesting':
         setPhase('verdict-agents');
         addFeedEvent('Ingest', `Processing ${event.data.item_count} item(s)...`);
+        break;
+
+      case 'verdict:ingest_item':
+        addFeedEvent('Ingest', `Reading item ${event.data.index + 1}/${event.data.total}: ${event.data.item}`);
+        break;
+
+      case 'verdict:ingest_progress':
+        addFeedEvent('Ingest', event.data.message);
         break;
 
       case 'verdict:ingested':
@@ -116,6 +128,10 @@ export default function App() {
       case 'verdict:synthesizing':
         setPhase('synthesizing');
         addFeedEvent('Synthesis', 'Synthesizing final verdict...');
+        break;
+
+      case 'verdict:synthesis_progress':
+        addFeedEvent('Synthesis', event.data.message);
         break;
 
       case 'verdict:done':
@@ -166,7 +182,7 @@ export default function App() {
       <div className="app-header">
         <h1 className="app-title">TasteGraph</h1>
         <p className="app-subtitle">
-          Reconstruct how any expert actually thinks — then judge your work through their eyes
+          Index any expert's taste, then judge anything through their eyes
         </p>
       </div>
 

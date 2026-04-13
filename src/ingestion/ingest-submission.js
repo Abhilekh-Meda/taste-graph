@@ -9,9 +9,13 @@ const DOC_AGENT_QUERY = 'Describe everything in this document comprehensively �
 // nia:    NiaClient instance
 //
 // Returns { blocks: ContentBlock[], text: string, sources: SourceMeta[] }
-export async function ingestSubmission(items, label, nia) {
+export async function ingestSubmission(items, label, nia, onProgress) {
+  const emit = onProgress ?? (() => {});
   console.log(`\n[ingest] Processing ${items.length} item(s)${label ? ` — "${label}"` : ''}`);
-  const results = await Promise.all(items.map((item) => ingestOne(item.trim(), nia)));
+  const results = await Promise.all(items.map((item, i) => {
+    emit({ type: 'verdict:ingest_item', data: { index: i, total: items.length, item: item.trim().slice(0, 100) } });
+    return ingestOne(item.trim(), nia, emit);
+  }));
 
   const blocks = [];
   const textParts = [];
@@ -32,25 +36,30 @@ export async function ingestSubmission(items, label, nia) {
   return { blocks, text: textParts.join('\n\n---\n\n'), sources };
 }
 
-async function ingestOne(input, nia) {
+async function ingestOne(input, nia, emit) {
+  emit = emit ?? (() => {});
   console.log(`[ingest] Item: "${input.slice(0, 80)}${input.length > 80 ? '...' : ''}"`);
 
   if (!input.startsWith('http://') && !input.startsWith('https://')) {
     console.log(`[ingest] → plain text (${input.length} chars)`);
+    emit({ type: 'verdict:ingest_progress', data: { message: `Reading text (${input.length} chars)` } });
     return { blocks: [{ type: 'text', text: input }], text: input };
   }
 
   if (IMAGE_EXTENSIONS.test(input)) {
     console.log(`[ingest] → image (extension match)`);
+    emit({ type: 'verdict:ingest_progress', data: { message: `Attaching image: ${input.slice(0, 60)}` } });
     return ingestImage(input);
   }
 
   const githubMatch = input.match(GITHUB_REPO_RE);
   if (githubMatch) {
     console.log(`[ingest] → GitHub repo: ${githubMatch[1]}`);
-    return ingestGitHub(input, githubMatch[1], nia);
+    emit({ type: 'verdict:ingest_progress', data: { message: `Analyzing GitHub repo: ${githubMatch[1]}` } });
+    return ingestGitHub(input, githubMatch[1], nia, emit);
   }
 
+  emit({ type: 'verdict:ingest_progress', data: { message: `Checking content type: ${input.slice(0, 60)}` } });
   console.log(`[ingest] HEAD check: ${input}`);
   const headRes = await fetch(input, { method: 'HEAD', signal: AbortSignal.timeout(10_000) }).catch(() => null);
   const contentType = headRes?.headers.get('content-type') ?? '';
@@ -58,16 +67,19 @@ async function ingestOne(input, nia) {
 
   if (/^image\//.test(contentType)) {
     console.log(`[ingest] → image (content-type)`);
+    emit({ type: 'verdict:ingest_progress', data: { message: `Attaching image: ${input.slice(0, 60)}` } });
     return ingestImage(input);
   }
 
   if (contentType.includes('application/pdf')) {
     console.log(`[ingest] → PDF`);
-    return ingestPdf(input, nia);
+    emit({ type: 'verdict:ingest_progress', data: { message: `Parsing PDF: ${input.slice(0, 60)}` } });
+    return ingestPdf(input, nia, emit);
   }
 
   console.log(`[ingest] → web URL`);
-  return ingestUrl(input, nia);
+  emit({ type: 'verdict:ingest_progress', data: { message: `Indexing page: ${input.slice(0, 60)}` } });
+  return ingestUrl(input, nia, emit);
 }
 
 function ingestImage(url) {
@@ -80,8 +92,10 @@ function ingestImage(url) {
   };
 }
 
-async function ingestUrl(url, nia) {
+async function ingestUrl(url, nia, emit) {
+  emit = emit ?? (() => {});
   console.log(`[ingest] Indexing URL in Nia: ${url}`);
+  emit({ type: 'verdict:ingest_progress', data: { message: `Indexing page content...` } });
 
   const source = await nia.createSource({
     type: 'documentation',
@@ -90,9 +104,11 @@ async function ingestUrl(url, nia) {
     only_main_content: true,
   });
 
+  emit({ type: 'verdict:ingest_progress', data: { message: `Waiting for page to be indexed...` } });
   await nia.waitForSource(source.id);
   console.log(`[ingest] Source ready: ${source.id}`);
 
+  emit({ type: 'verdict:ingest_progress', data: { message: `Reading and analyzing page content...` } });
   const doc = await nia.runDocumentAgent(source.id, DOC_AGENT_QUERY);
   const summary = doc.answer ?? '';
   const citations = formatCitations(doc.citations);
@@ -107,11 +123,11 @@ async function ingestUrl(url, nia) {
   };
 }
 
-async function ingestPdf(url, nia) {
+async function ingestPdf(url, nia, emit) {
+  emit = emit ?? (() => {});
   console.log(`[ingest] Indexing PDF via Nia: ${url}`);
+  emit({ type: 'verdict:ingest_progress', data: { message: `Uploading PDF for analysis...` } });
 
-  // Let Nia fetch and parse the PDF directly by URL — no need to download bytes ourselves.
-  // gcs_path upload path is only for local files not accessible by URL.
   const source = await nia.createSource({
     type: 'documentation',
     url,
@@ -119,9 +135,11 @@ async function ingestPdf(url, nia) {
     only_main_content: false,
   });
 
+  emit({ type: 'verdict:ingest_progress', data: { message: `Parsing PDF pages...` } });
   await nia.waitForSource(source.id);
   console.log(`[ingest] PDF source ready: ${source.id}`);
 
+  emit({ type: 'verdict:ingest_progress', data: { message: `Extracting content from PDF...` } });
   const doc = await nia.runDocumentAgent(source.id, DOC_AGENT_QUERY);
   const summary = doc.answer ?? '';
   const citations = formatCitations(doc.citations);
@@ -135,9 +153,11 @@ async function ingestPdf(url, nia) {
   };
 }
 
-async function ingestGitHub(url, repoSlug, nia) {
+async function ingestGitHub(url, repoSlug, nia, emit) {
+  emit = emit ?? (() => {});
   console.log(`[ingest] Indexing GitHub repo: ${repoSlug}`);
 
+  emit({ type: 'verdict:ingest_progress', data: { message: `Fetching README and metadata for ${repoSlug}...` } });
   const githubToken = process.env.NIA_GITHUB_TOKEN;
   const [readme, repoMeta] = await Promise.all([fetchReadme(repoSlug), fetchRepoMeta(repoSlug)]);
 

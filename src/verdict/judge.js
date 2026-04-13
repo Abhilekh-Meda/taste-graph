@@ -23,7 +23,7 @@ export async function judge({ person, items, label, judgingContext, profileDir, 
 
   emit({ type: 'verdict:ingesting', data: { item_count: items.length } });
   console.log('[judge] Ingesting submission...');
-  const submission = await ingestSubmission(items, label, nia);
+  const submission = await ingestSubmission(items, label, nia, emit);
   console.log(`[judge] Ingested ${submission.blocks.length} content blocks, ${submission.sources.length} Nia sources`);
   emit({ type: 'verdict:ingested', data: { blocks: submission.blocks.length, sources: submission.sources.length } });
 
@@ -45,6 +45,7 @@ export async function judge({ person, items, label, judgingContext, profileDir, 
     subVerdicts,
     judgingContext,
     openai,
+    onProgress: emit,
   });
 
   emit({ type: 'verdict:done', data: { verdict } });
