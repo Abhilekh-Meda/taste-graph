@@ -136,7 +136,8 @@ export async function runAspectAgent({
   return { verdict: forced, turns, aspect_key: aspect.key, forced: true, final_reasoning: lastThinking };
 }
 
-async function searchBatch({ queries, person, personTag, aspect, contextId, nia }) {
+async function searchBatch({ queries, person, personTag, aspect, contextId, nia, emit }) {
+  emit = emit ?? (() => {});
   console.log(`[agent/${aspect.key}] searchBatch: ${queries.length} queries against context ${contextId}`);
   const searches = queries.map(async (q) => {
     try {
@@ -170,6 +171,7 @@ async function searchBatch({ queries, person, personTag, aspect, contextId, nia 
   }
 
   console.log(`[agent/${aspect.key}] Sparse results — loading full context ${contextId}`);
+  emit({ type: 'verdict:agent_search', data: { key: aspect.key, queries: ['Loading full taste context...'] } });
   try {
     const ctx = await nia.getContext(contextId);
     console.log(`[agent/${aspect.key}] Full context loaded: ${ctx.content?.length ?? 0} chars`);

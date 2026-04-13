@@ -1,0 +1,2813 @@
+[
+  {
+    "type": "demo:input",
+    "data": {
+      "person": "Arlan Rakhmetzhanov",
+      "context": "hackathon judge",
+      "item": "test_submission.txt"
+    },
+    "_ms": 0
+  },
+  {
+    "type": "demo:submit",
+    "_ms": 3000
+  },
+  {
+    "type": "profile:start",
+    "data": {
+      "person": "Arlan Rakhmetzhanov"
+    },
+    "_ms": 3500
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "Searching for Arlan Rakhmetzhanov's public presence..."
+    },
+    "_ms": 4300
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "Searching for Arlan Rakhmetzhanov's public presence..."
+    },
+    "_ms": 5275
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "Deep-searching blogs, interviews, essays, tweets..."
+    },
+    "_ms": 6492
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "web_search: Arlan Rakhmetzhanov founder startup essays interviews"
+    },
+    "_ms": 7456
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "web_search: Arlan Rakhmetzhanov YC Nozomi AI startup"
+    },
+    "_ms": 8493
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "Completed: web_search"
+    },
+    "_ms": 9860
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "read_url: reading arlanrakh.com"
+    },
+    "_ms": 10975
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "Completed: read_url"
+    },
+    "_ms": 12439
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "web_search: Arlan Rakhmetzhanov substack writing philosophy"
+    },
+    "_ms": 13738
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "Completed: web_search"
+    },
+    "_ms": 14961
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "read_url: reading LinkedIn profile and posts"
+    },
+    "_ms": 16188
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "Completed: read_url"
+    },
+    "_ms": 17355
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "web_search: Arlan Rakhmetzhanov opinions AI tools codegen taste"
+    },
+    "_ms": 18334
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "Completed: web_search"
+    },
+    "_ms": 19498
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "read_url: reading YouTube interview transcript"
+    },
+    "_ms": 20542
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "Completed: read_url"
+    },
+    "_ms": 21986
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "web_search: Arlan Rakhmetzhanov hackathon judging preferences"
+    },
+    "_ms": 23120
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "Completed: web_search"
+    },
+    "_ms": 24152
+  },
+  {
+    "type": "profile:discovery",
+    "data": {
+      "message": "Compiling discovery report..."
+    },
+    "_ms": 25122
+  },
+  {
+    "type": "profile:discovery_done",
+    "data": {
+      "sources_found": 12,
+      "comparison": null
+    },
+    "_ms": 26622
+  },
+  {
+    "type": "profile:indexing",
+    "data": {
+      "count": 12
+    },
+    "_ms": 27422
+  },
+  {
+    "type": "profile:source_indexing",
+    "data": {
+      "url": "https://www.arlanrakh.com/",
+      "type": "website",
+      "index": 0,
+      "total": 12
+    },
+    "_ms": 27772
+  },
+  {
+    "type": "profile:source_indexed",
+    "data": {
+      "url": "https://www.arlanrakh.com/",
+      "type": "website",
+      "indexed": 1,
+      "total": 12
+    },
+    "_ms": 28395
+  },
+  {
+    "type": "profile:source_indexing",
+    "data": {
+      "url": "https://substack.com/@arlanrakhmetzhanov",
+      "type": "substack",
+      "index": 1,
+      "total": 12
+    },
+    "_ms": 28745
+  },
+  {
+    "type": "profile:source_indexed",
+    "data": {
+      "url": "https://substack.com/@arlanrakhmetzhanov",
+      "type": "substack",
+      "indexed": 2,
+      "total": 12
+    },
+    "_ms": 29642
+  },
+  {
+    "type": "profile:source_indexing",
+    "data": {
+      "url": "https://x.com/arlanr",
+      "type": "twitter",
+      "index": 2,
+      "total": 12
+    },
+    "_ms": 29992
+  },
+  {
+    "type": "profile:source_indexed",
+    "data": {
+      "url": "https://x.com/arlanr",
+      "type": "twitter",
+      "indexed": 3,
+      "total": 12
+    },
+    "_ms": 30743
+  },
+  {
+    "type": "profile:source_indexing",
+    "data": {
+      "url": "https://www.linkedin.com/in/arlan-rakhmetzhanov",
+      "type": "linkedin",
+      "index": 3,
+      "total": 12
+    },
+    "_ms": 31093
+  },
+  {
+    "type": "profile:source_indexed",
+    "data": {
+      "url": "https://www.linkedin.com/in/arlan-rakhmetzhanov",
+      "type": "linkedin",
+      "indexed": 4,
+      "total": 12
+    },
+    "_ms": 31858
+  },
+  {
+    "type": "profile:source_indexing",
+    "data": {
+      "url": "https://github.com/arlanrakh",
+      "type": "github",
+      "index": 4,
+      "total": 12
+    },
+    "_ms": 32208
+  },
+  {
+    "type": "profile:source_indexed",
+    "data": {
+      "url": "https://github.com/arlanrakh",
+      "type": "github",
+      "indexed": 5,
+      "total": 12
+    },
+    "_ms": 33194
+  },
+  {
+    "type": "profile:source_indexing",
+    "data": {
+      "url": "https://www.producthunt.com/@arlanrakh",
+      "type": "product hunt",
+      "index": 5,
+      "total": 12
+    },
+    "_ms": 33544
+  },
+  {
+    "type": "profile:source_indexed",
+    "data": {
+      "url": "https://www.producthunt.com/@arlanrakh",
+      "type": "product hunt",
+      "indexed": 6,
+      "total": 12
+    },
+    "_ms": 34231
+  },
+  {
+    "type": "profile:source_indexing",
+    "data": {
+      "url": "https://skillful.sh/authors/arlanrakh",
+      "type": "blog",
+      "index": 6,
+      "total": 12
+    },
+    "_ms": 34581
+  },
+  {
+    "type": "profile:source_indexed",
+    "data": {
+      "url": "https://skillful.sh/authors/arlanrakh",
+      "type": "blog",
+      "indexed": 7,
+      "total": 12
+    },
+    "_ms": 35319
+  },
+  {
+    "type": "profile:source_indexing",
+    "data": {
+      "url": "https://www.linkedin.com/posts/arlan-rakhmetzhanov_i-got-into-yc-s25...",
+      "type": "linkedin post",
+      "index": 7,
+      "total": 12
+    },
+    "_ms": 35669
+  },
+  {
+    "type": "profile:source_indexed",
+    "data": {
+      "url": "https://www.linkedin.com/posts/arlan-rakhmetzhanov_i-got-into-yc-s25...",
+      "type": "linkedin post",
+      "indexed": 8,
+      "total": 12
+    },
+    "_ms": 36599
+  },
+  {
+    "type": "profile:source_indexing",
+    "data": {
+      "url": "https://www.linkedin.com/posts/arlan-rakhmetzhanov_i-am-a-high-schooler...",
+      "type": "linkedin post",
+      "index": 8,
+      "total": 12
+    },
+    "_ms": 36949
+  },
+  {
+    "type": "profile:source_indexed",
+    "data": {
+      "url": "https://www.linkedin.com/posts/arlan-rakhmetzhanov_i-am-a-high-schooler...",
+      "type": "linkedin post",
+      "indexed": 9,
+      "total": 12
+    },
+    "_ms": 37703
+  },
+  {
+    "type": "profile:source_indexing",
+    "data": {
+      "url": "https://www.youtube.com/watch?v=7hukPKD4Bhs",
+      "type": "youtube",
+      "index": 9,
+      "total": 12
+    },
+    "_ms": 38053
+  },
+  {
+    "type": "profile:source_indexed",
+    "data": {
+      "url": "https://www.youtube.com/watch?v=7hukPKD4Bhs",
+      "type": "youtube",
+      "indexed": 10,
+      "total": 12
+    },
+    "_ms": 38818
+  },
+  {
+    "type": "profile:source_indexing",
+    "data": {
+      "url": "https://www.youtube.com/watch?v=KBY0z6jSQsA",
+      "type": "youtube",
+      "index": 10,
+      "total": 12
+    },
+    "_ms": 39168
+  },
+  {
+    "type": "profile:source_indexed",
+    "data": {
+      "url": "https://www.youtube.com/watch?v=KBY0z6jSQsA",
+      "type": "youtube",
+      "indexed": 11,
+      "total": 12
+    },
+    "_ms": 40162
+  },
+  {
+    "type": "profile:source_indexing",
+    "data": {
+      "url": "https://substack.com/home/post/p-153399793",
+      "type": "substack",
+      "index": 11,
+      "total": 12
+    },
+    "_ms": 40512
+  },
+  {
+    "type": "profile:source_indexed",
+    "data": {
+      "url": "https://substack.com/home/post/p-153399793",
+      "type": "substack",
+      "indexed": 12,
+      "total": 12
+    },
+    "_ms": 41474
+  },
+  {
+    "type": "profile:indexing_done",
+    "data": {
+      "indexed": 12,
+      "failed": 0
+    },
+    "_ms": 41974
+  },
+  {
+    "type": "profile:aspect_start",
+    "data": {
+      "key": "stated_vs_actual",
+      "label": "Stated values vs actual reactions"
+    },
+    "_ms": 42024
+  },
+  {
+    "type": "profile:aspect_start",
+    "data": {
+      "key": "taste_drift",
+      "label": "Taste drift over time"
+    },
+    "_ms": 42074
+  },
+  {
+    "type": "profile:aspect_start",
+    "data": {
+      "key": "blind_spots",
+      "label": "Blind spots and systematic misjudgments"
+    },
+    "_ms": 42124
+  },
+  {
+    "type": "profile:aspect_start",
+    "data": {
+      "key": "influence_graph",
+      "label": "Intellectual lineage and influences"
+    },
+    "_ms": 42174
+  },
+  {
+    "type": "profile:aspect_start",
+    "data": {
+      "key": "contextual_variation",
+      "label": "How judgment shifts by context"
+    },
+    "_ms": 42224
+  },
+  {
+    "type": "profile:aspect_start",
+    "data": {
+      "key": "linguistic_tells",
+      "label": "Linguistic signals of approval and disapproval"
+    },
+    "_ms": 42274
+  },
+  {
+    "type": "profile:aspect_start",
+    "data": {
+      "key": "falsifiability",
+      "label": "Known public reactions for model testing"
+    },
+    "_ms": 42324
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "contextual_variation",
+      "message": "Analyzing how judgment shifts by stakes..."
+    },
+    "_ms": 43141
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "blind_spots",
+      "message": "Searching for documented misjudgments..."
+    },
+    "_ms": 43809
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "linguistic_tells",
+      "message": "Indexing excitement and disapproval signals..."
+    },
+    "_ms": 44415
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "taste_drift",
+      "message": "Analyzing early vs recent public statements..."
+    },
+    "_ms": 45176
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "falsifiability",
+      "message": "Building ground-truth dataset of known reactions..."
+    },
+    "_ms": 45801
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "stated_vs_actual",
+      "message": "Extracting stated principles from essays and posts..."
+    },
+    "_ms": 46463
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "influence_graph",
+      "message": "Identifying intellectual influences..."
+    },
+    "_ms": 47255
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "contextual_variation",
+      "message": "web_search: Arlan Rakhmetzhanov hackathon vs investment judgment"
+    },
+    "_ms": 47970
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "blind_spots",
+      "message": "web_search: Arlan Rakhmetzhanov wrong predictions errors"
+    },
+    "_ms": 48790
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "linguistic_tells",
+      "message": "web_search: Arlan Rakhmetzhanov writing style linguistic patterns"
+    },
+    "_ms": 49363
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "taste_drift",
+      "message": "web_search: Arlan Rakhmetzhanov evolution views AI startups over time"
+    },
+    "_ms": 50188
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "falsifiability",
+      "message": "web_search: Arlan Rakhmetzhanov praised projects products documented reactions"
+    },
+    "_ms": 50874
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "stated_vs_actual",
+      "message": "web_search: Arlan stated values entrepreneurship first principles"
+    },
+    "_ms": 51656
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "influence_graph",
+      "message": "web_search: Arlan Rakhmetzhanov influences mentors Paul Graham Karpathy"
+    },
+    "_ms": 52341
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "contextual_variation",
+      "message": "Completed: web_search"
+    },
+    "_ms": 53168
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "blind_spots",
+      "message": "Completed: web_search"
+    },
+    "_ms": 53910
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "linguistic_tells",
+      "message": "Completed: web_search"
+    },
+    "_ms": 54719
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "taste_drift",
+      "message": "Completed: web_search"
+    },
+    "_ms": 55519
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "falsifiability",
+      "message": "Completed: web_search"
+    },
+    "_ms": 56191
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "stated_vs_actual",
+      "message": "Completed: web_search"
+    },
+    "_ms": 56736
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "influence_graph",
+      "message": "Completed: web_search"
+    },
+    "_ms": 57328
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "contextual_variation",
+      "message": "Comparing hackathon praise patterns vs serious critique..."
+    },
+    "_ms": 57932
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "blind_spots",
+      "message": "Analyzing systematic biases in endorsement patterns..."
+    },
+    "_ms": 58726
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "linguistic_tells",
+      "message": "read_url: corpus analysis of posts and essays"
+    },
+    "_ms": 59493
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "taste_drift",
+      "message": "Comparing 2023 posts to 2025 writing..."
+    },
+    "_ms": 60198
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "falsifiability",
+      "message": "Identifying testable reaction predictions..."
+    },
+    "_ms": 60825
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "stated_vs_actual",
+      "message": "Cross-referencing against documented reactions..."
+    },
+    "_ms": 61605
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "influence_graph",
+      "message": "read_url: analyzing referenced figures in writing"
+    },
+    "_ms": 62302
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "contextual_variation",
+      "message": "read_url: analyzing context-specific reactions"
+    },
+    "_ms": 63018
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "blind_spots",
+      "message": "web_search: Arlan Rakhmetzhanov bias blind spots judgment"
+    },
+    "_ms": 63677
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "linguistic_tells",
+      "message": "Completed: read_url"
+    },
+    "_ms": 64444
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "taste_drift",
+      "message": "read_url: reading What I Learned in 2024"
+    },
+    "_ms": 65086
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "falsifiability",
+      "message": "read_url: collecting public endorsements and criticisms"
+    },
+    "_ms": 65689
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "stated_vs_actual",
+      "message": "read_url: analyzing LinkedIn engagement patterns"
+    },
+    "_ms": 66298
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "influence_graph",
+      "message": "Completed: read_url"
+    },
+    "_ms": 66846
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "contextual_variation",
+      "message": "Completed: read_url"
+    },
+    "_ms": 67422
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "blind_spots",
+      "message": "Completed: web_search"
+    },
+    "_ms": 68122
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "linguistic_tells",
+      "message": "Mapping approval markers: hustle language, agency emphasis..."
+    },
+    "_ms": 68685
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "taste_drift",
+      "message": "Completed: read_url"
+    },
+    "_ms": 69505
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "falsifiability",
+      "message": "Completed: read_url"
+    },
+    "_ms": 70162
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "stated_vs_actual",
+      "message": "Completed: read_url"
+    },
+    "_ms": 70937
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "influence_graph",
+      "message": "Mapping influence topology: PG, Karpathy, YC culture..."
+    },
+    "_ms": 71533
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "contextual_variation",
+      "message": "Mapping context variance across scenarios..."
+    },
+    "_ms": 72327
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "blind_spots",
+      "message": "Mapping error categories..."
+    },
+    "_ms": 72909
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "linguistic_tells",
+      "message": "Mapping disapproval markers: wrapper skepticism, low-agency signals..."
+    },
+    "_ms": 73464
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "taste_drift",
+      "message": "Mapping temporal shifts in domain interest..."
+    },
+    "_ms": 74078
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "falsifiability",
+      "message": "Computing estimated model accuracy..."
+    },
+    "_ms": 74825
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "stated_vs_actual",
+      "message": "Mapping gap between stated meritocracy and prestige signals..."
+    },
+    "_ms": 75444
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "influence_graph",
+      "message": "Tracing aesthetic lineage from Silicon Valley canon..."
+    },
+    "_ms": 76070
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "contextual_variation",
+      "message": "Compiling findings..."
+    },
+    "_ms": 76831
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "blind_spots",
+      "message": "Compiling findings..."
+    },
+    "_ms": 77553
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "linguistic_tells",
+      "message": "Compiling findings..."
+    },
+    "_ms": 78301
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "taste_drift",
+      "message": "Compiling findings..."
+    },
+    "_ms": 78868
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "falsifiability",
+      "message": "Compiling findings..."
+    },
+    "_ms": 79411
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "stated_vs_actual",
+      "message": "Compiling findings..."
+    },
+    "_ms": 80232
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "influence_graph",
+      "message": "Compiling findings..."
+    },
+    "_ms": 80802
+  },
+  {
+    "type": "profile:aspect_done",
+    "data": {
+      "key": "contextual_variation",
+      "label": "How judgment shifts by context"
+    },
+    "_ms": 81699
+  },
+  {
+    "type": "profile:aspect_done",
+    "data": {
+      "key": "blind_spots",
+      "label": "Blind spots and systematic misjudgments"
+    },
+    "_ms": 82824
+  },
+  {
+    "type": "profile:aspect_done",
+    "data": {
+      "key": "linguistic_tells",
+      "label": "Linguistic signals of approval and disapproval"
+    },
+    "_ms": 83662
+  },
+  {
+    "type": "profile:aspect_done",
+    "data": {
+      "key": "falsifiability",
+      "label": "Known public reactions for model testing"
+    },
+    "_ms": 84645
+  },
+  {
+    "type": "profile:aspect_done",
+    "data": {
+      "key": "taste_drift",
+      "label": "Taste drift over time"
+    },
+    "_ms": 85769
+  },
+  {
+    "type": "profile:aspect_done",
+    "data": {
+      "key": "stated_vs_actual",
+      "label": "Stated values vs actual reactions"
+    },
+    "_ms": 86804
+  },
+  {
+    "type": "profile:aspect_done",
+    "data": {
+      "key": "influence_graph",
+      "label": "Intellectual lineage and influences"
+    },
+    "_ms": 87841
+  },
+  {
+    "type": "profile:saving",
+    "data": {
+      "message": "Saving taste profile to memory..."
+    },
+    "_ms": 89341
+  },
+  {
+    "type": "profile:done",
+    "data": {
+      "dimensions": 7
+    },
+    "_ms": 91341
+  },
+  {
+    "type": "status",
+    "data": {
+      "phase": "verdict",
+      "message": "Judging submission..."
+    },
+    "_ms": 92000
+  },
+  {
+    "type": "verdict:ingesting",
+    "data": {
+      "item_count": 1
+    },
+    "_ms": 92001
+  },
+  {
+    "type": "verdict:ingest_item",
+    "data": {
+      "index": 0,
+      "total": 1,
+      "item": "TasteGraph: An Engine for Reconstructing How Experts Actually Think\n\n---\n\nWHAT WE BUILT\n\nTasteGraph "
+    },
+    "_ms": 92001
+  },
+  {
+    "type": "verdict:ingest_progress",
+    "data": {
+      "message": "Reading text (36541 chars)"
+    },
+    "_ms": 92001
+  },
+  {
+    "type": "verdict:ingested",
+    "data": {
+      "blocks": 2,
+      "sources": 0
+    },
+    "_ms": 92002
+  },
+  {
+    "type": "verdict:agent_start",
+    "data": {
+      "key": "stated_vs_actual",
+      "label": "Stated values vs actual reactions"
+    },
+    "_ms": 92002
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "stated_vs_actual",
+      "turn": 1,
+      "max": 6,
+      "phase": "thinking"
+    },
+    "_ms": 92003
+  },
+  {
+    "type": "verdict:agent_start",
+    "data": {
+      "key": "taste_drift",
+      "label": "Taste drift over time"
+    },
+    "_ms": 92006
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "taste_drift",
+      "turn": 1,
+      "max": 6,
+      "phase": "thinking"
+    },
+    "_ms": 92007
+  },
+  {
+    "type": "verdict:agent_start",
+    "data": {
+      "key": "blind_spots",
+      "label": "Blind spots and systematic misjudgments"
+    },
+    "_ms": 92007
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "blind_spots",
+      "turn": 1,
+      "max": 6,
+      "phase": "thinking"
+    },
+    "_ms": 92007
+  },
+  {
+    "type": "verdict:agent_start",
+    "data": {
+      "key": "influence_graph",
+      "label": "Intellectual lineage and influences"
+    },
+    "_ms": 92007
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "influence_graph",
+      "turn": 1,
+      "max": 6,
+      "phase": "thinking"
+    },
+    "_ms": 92007
+  },
+  {
+    "type": "verdict:agent_start",
+    "data": {
+      "key": "contextual_variation",
+      "label": "How judgment shifts by context"
+    },
+    "_ms": 92008
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "contextual_variation",
+      "turn": 1,
+      "max": 6,
+      "phase": "thinking"
+    },
+    "_ms": 92008
+  },
+  {
+    "type": "verdict:agent_start",
+    "data": {
+      "key": "linguistic_tells",
+      "label": "Linguistic signals of approval and disapproval"
+    },
+    "_ms": 92008
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "linguistic_tells",
+      "turn": 1,
+      "max": 6,
+      "phase": "thinking"
+    },
+    "_ms": 92008
+  },
+  {
+    "type": "verdict:agent_start",
+    "data": {
+      "key": "falsifiability",
+      "label": "Known public reactions for model testing"
+    },
+    "_ms": 92008
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "falsifiability",
+      "turn": 1,
+      "max": 6,
+      "phase": "thinking"
+    },
+    "_ms": 92008
+  },
+  {
+    "type": "verdict:agent_think",
+    "data": {
+      "key": "stated_vs_actual",
+      "reasoning_preview": "We need judge how Arlan Rakhmetzhanov would react as hackathon judge, based on actual endorsement patterns. We have no web search tools, so must infer from known patterns if any. Need analyze submissi"
+    },
+    "_ms": 96164
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "stated_vs_actual",
+      "turn": 1,
+      "max": 6,
+      "phase": "acting"
+    },
+    "_ms": 96164
+  },
+  {
+    "type": "verdict:agent_think",
+    "data": {
+      "key": "contextual_variation",
+      "reasoning_preview": "We need judge in context of hackathon judge, specifically how Arlan Rakhmetzhanov would care differently in this context. No web search tools available, so rely on submission and context, note lack of"
+    },
+    "_ms": 96388
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "contextual_variation",
+      "turn": 1,
+      "max": 6,
+      "phase": "acting"
+    },
+    "_ms": 96388
+  },
+  {
+    "type": "verdict:agent_think",
+    "data": {
+      "key": "taste_drift",
+      "reasoning_preview": "We need assess whether verdict on this submission would rely on Arlan Rakhmetzhanov's current vs stale taste in domain of hackathon judging / AI tooling / taste-modeling products. However we have no s"
+    },
+    "_ms": 96677
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "taste_drift",
+      "turn": 1,
+      "max": 6,
+      "phase": "acting"
+    },
+    "_ms": 96677
+  },
+  {
+    "type": "verdict:agent_think",
+    "data": {
+      "key": "blind_spots",
+      "reasoning_preview": "We need binary blind-spot check for Arlan Rakhmetzhanov as hackathon judge. Need identify categories: AI evaluation tool, meta-judging/taste modeling, agentic research UI, likely demo-heavy/research f"
+    },
+    "_ms": 96799
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "blind_spots",
+      "turn": 1,
+      "max": 6,
+      "phase": "acting"
+    },
+    "_ms": 96799
+  },
+  {
+    "type": "verdict:agent_think",
+    "data": {
+      "key": "linguistic_tells",
+      "reasoning_preview": "We only have the submission and no browsing/search tools beyond think, so I need to infer Arlan Rakhmetzhanov's likely reaction from the judging context and the content. I should assess typical hackat"
+    },
+    "_ms": 97476
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "linguistic_tells",
+      "turn": 1,
+      "max": 6,
+      "phase": "acting"
+    },
+    "_ms": 97476
+  },
+  {
+    "type": "verdict:agent_think",
+    "data": {
+      "key": "falsifiability",
+      "reasoning_preview": "We need judge this hackathon submission anchored to known public reactions from Arlan Rakhmetzhanov, but I have no web search tool, only think. So I must rely on any known public reactions in memory. "
+    },
+    "_ms": 98574
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "falsifiability",
+      "turn": 1,
+      "max": 6,
+      "phase": "acting"
+    },
+    "_ms": 98574
+  },
+  {
+    "type": "verdict:agent_think",
+    "data": {
+      "key": "influence_graph",
+      "reasoning_preview": "We need identify Arlan Rakhmetzhanov's intellectual lineage relevant to this submission and infer how those influences color his reaction as a hackathon judge. We have no web search tools, only think."
+    },
+    "_ms": 99099
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "influence_graph",
+      "turn": 1,
+      "max": 6,
+      "phase": "acting"
+    },
+    "_ms": 99099
+  },
+  {
+    "type": "verdict:agent_search",
+    "data": {
+      "key": "taste_drift",
+      "queries": [
+        "Arlan Rakhmetzhanov hackathon judge AI tools wrappers research contribution taste modeling temporal drift",
+        "Arlan Rakhmetzhanov views on AI wrappers demos vs real products over time",
+        "Arlan Rakhmetzhanov judging preferences hackathon research products transparency citations current vs past",
+        "Arlan Rakhmetzhanov opinions on evaluation engines expert taste modeling Paul Graham style systems",
+        "Arlan Rakhmetzhanov taste drift autonomous agents visible reasoning streaming UI hackathon"
+      ]
+    },
+    "_ms": 99935
+  },
+  {
+    "type": "verdict:agent_search",
+    "data": {
+      "key": "blind_spots",
+      "queries": [
+        "Arlan Rakhmetzhanov blind spot AI agent demos evaluation wrappers research-heavy hackathon judging",
+        "Arlan Rakhmetzhanov historically misjudged developer tools taste infrastructure meta-evaluation products",
+        "Arlan Rakhmetzhanov bias against ambitious researchy AI products hackathon judge",
+        "Arlan Rakhmetzhanov judgment unreliable on consumerized infrastructure or wrapper-vs-platform submissions",
+        "Arlan Rakhmetzhanov taste profile blind spots autonomous research agents evaluation engines"
+      ]
+    },
+    "_ms": 99941
+  },
+  {
+    "type": "verdict:agent_search",
+    "data": {
+      "key": "stated_vs_actual",
+      "queries": [
+        "Arlan Rakhmetzhanov hackathon judge what he praises AI tooling wrappers research demos transparency evidence dense product UX",
+        "Arlan Rakhmetzhanov actual endorsements criticism hackathon projects agents evaluation infrastructure not just wrapper",
+        "Arlan Rakhmetzhanov tweets interviews likes dislikes startup demos technical depth versus polish",
+        "Arlan Rakhmetzhanov reaction to AI judge systems taste modeling research contribution falsifiability",
+        "Arlan Rakhmetzhanov products he praised ambitious weird legible streaming UI citations methodology"
+      ]
+    },
+    "_ms": 100063
+  },
+  {
+    "type": "verdict:agent_search",
+    "data": {
+      "key": "stated_vs_actual",
+      "queries": [
+        "Loading full taste context..."
+      ]
+    },
+    "_ms": 101304
+  },
+  {
+    "type": "verdict:agent_search_done",
+    "data": {
+      "key": "stated_vs_actual",
+      "chars": 11936
+    },
+    "_ms": 101901
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "stated_vs_actual",
+      "turn": 2,
+      "max": 6,
+      "phase": "thinking"
+    },
+    "_ms": 101901
+  },
+  {
+    "type": "verdict:agent_search",
+    "data": {
+      "key": "taste_drift",
+      "queries": [
+        "Loading full taste context..."
+      ]
+    },
+    "_ms": 101920
+  },
+  {
+    "type": "verdict:agent_search",
+    "data": {
+      "key": "blind_spots",
+      "queries": [
+        "Loading full taste context..."
+      ]
+    },
+    "_ms": 102175
+  },
+  {
+    "type": "verdict:agent_search_done",
+    "data": {
+      "key": "taste_drift",
+      "chars": 8765
+    },
+    "_ms": 102426
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "taste_drift",
+      "turn": 2,
+      "max": 6,
+      "phase": "thinking"
+    },
+    "_ms": 102426
+  },
+  {
+    "type": "verdict:agent_search_done",
+    "data": {
+      "key": "blind_spots",
+      "chars": 6842
+    },
+    "_ms": 102688
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "blind_spots",
+      "turn": 2,
+      "max": 6,
+      "phase": "thinking"
+    },
+    "_ms": 102688
+  },
+  {
+    "type": "verdict:agent_search",
+    "data": {
+      "key": "influence_graph",
+      "queries": [
+        "Arlan Rakhmetzhanov influences intellectual lineage AI design epistemology startup taste judging",
+        "Arlan Rakhmetzhanov Paul Graham rationalist design transparency research taste",
+        "Arlan Rakhmetzhanov writing influences falsifiability product philosophy",
+        "Arlan Rakhmetzhanov hackathon judge what he values builders research UI transparency",
+        "Arlan Rakhmetzhanov lineage preferences autonomous agents research tools"
+      ]
+    },
+    "_ms": 102858
+  },
+  {
+    "type": "verdict:agent_search",
+    "data": {
+      "key": "influence_graph",
+      "queries": [
+        "Loading full taste context..."
+      ]
+    },
+    "_ms": 103901
+  },
+  {
+    "type": "verdict:agent_search_done",
+    "data": {
+      "key": "influence_graph",
+      "chars": 9712
+    },
+    "_ms": 104334
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "influence_graph",
+      "turn": 2,
+      "max": 6,
+      "phase": "thinking"
+    },
+    "_ms": 104334
+  },
+  {
+    "type": "verdict:agent_think",
+    "data": {
+      "key": "blind_spots",
+      "reasoning_preview": "We have one research report already. Need assess if enough. Submission categories: AI/meta-evaluation, taste modeling, research tool, judge simulation, demo-heavy UI. Search result says no evidence of"
+    },
+    "_ms": 105223
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "blind_spots",
+      "turn": 2,
+      "max": 6,
+      "phase": "acting"
+    },
+    "_ms": 105223
+  },
+  {
+    "type": "verdict:agent_think",
+    "data": {
+      "key": "stated_vs_actual",
+      "reasoning_preview": "We have search_profile output with substantial evidence about Arlan's actual endorsement patterns: values fast-building, impressive technical domains, hustle, prestige, YC/PG aesthetics, but skeptical"
+    },
+    "_ms": 106652
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "stated_vs_actual",
+      "turn": 2,
+      "max": 6,
+      "phase": "acting"
+    },
+    "_ms": 106652
+  },
+  {
+    "type": "verdict:agent_think",
+    "data": {
+      "key": "taste_drift",
+      "reasoning_preview": "We now have search_profile results (despite tool listing mismatch) showing Arlan's taste shifts in execution/planning, solo/team, domain expertise, SF proximity. Need assess impact on this submission "
+    },
+    "_ms": 108136
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "taste_drift",
+      "turn": 2,
+      "max": 6,
+      "phase": "acting"
+    },
+    "_ms": 108136
+  },
+  {
+    "type": "verdict:agent_think",
+    "data": {
+      "key": "influence_graph",
+      "reasoning_preview": "We now have evidence on Arlan's influences. Need produce verdict focused on primary influence(s) most relevant to this submission. Relevant domains: YC/startup philosophy, Paul Graham, Andrej Karpathy"
+    },
+    "_ms": 108813
+  },
+  {
+    "type": "verdict:agent_turn",
+    "data": {
+      "key": "influence_graph",
+      "turn": 2,
+      "max": 6,
+      "phase": "acting"
+    },
+    "_ms": 108813
+  },
+  {
+    "type": "verdict:agent_done",
+    "data": {
+      "key": "stated_vs_actual",
+      "label": "Stated values vs actual reactions"
+    },
+    "_ms": 141358
+  },
+  {
+    "type": "verdict:agent_done",
+    "data": {
+      "key": "taste_drift",
+      "label": "Taste drift over time"
+    },
+    "_ms": 141359
+  },
+  {
+    "type": "verdict:agent_done",
+    "data": {
+      "key": "blind_spots",
+      "label": "Blind spots and systematic misjudgments"
+    },
+    "_ms": 141359
+  },
+  {
+    "type": "verdict:agent_done",
+    "data": {
+      "key": "influence_graph",
+      "label": "Intellectual lineage and influences"
+    },
+    "_ms": 141359
+  },
+  {
+    "type": "verdict:agent_done",
+    "data": {
+      "key": "contextual_variation",
+      "label": "How judgment shifts by context"
+    },
+    "_ms": 141359
+  },
+  {
+    "type": "verdict:agent_done",
+    "data": {
+      "key": "linguistic_tells",
+      "label": "Linguistic signals of approval and disapproval"
+    },
+    "_ms": 141359
+  },
+  {
+    "type": "verdict:agent_done",
+    "data": {
+      "key": "falsifiability",
+      "label": "Known public reactions for model testing"
+    },
+    "_ms": 141359
+  },
+  {
+    "type": "verdict:synthesizing",
+    "_ms": 141359
+  },
+  {
+    "type": "verdict:synthesis_progress",
+    "data": {
+      "message": "Weighing 7 dimensions against the submission..."
+    },
+    "_ms": 141360
+  },
+  {
+    "type": "verdict:synthesis_progress",
+    "data": {
+      "message": "Score determined: 8/10 — assembling final verdict"
+    },
+    "_ms": 149999
+  },
+  {
+    "type": "verdict:done",
+    "data": {
+      "verdict": {
+        "person": "Arlan Rakhmetzhanov",
+        "score": 8,
+        "summary": "This is exactly the kind of insanely ambitious, PG-coded thing that feels impressive in a hackathon: high-agency, technical-looking, opinionated, and sold with conviction. This is ambitious and unusually well thought through. I like that you’re not just doing style transfer — you’re trying to model judgment, and the falsifiability / evidence-layer is the right instinct. The live research + citations + contradiction framing make it feel much more serious than a generic AI wrapper. My hesitation is that the whole thing is very thesis-heavy right now. You’ve described the ontology in extreme detail, but I still want sharper proof that the predictions are actually right in practice, and that this is useful enough to become a real product rather than an impressive demo.",
+        "loves": [
+          {
+            "aspect": "Extreme ambition and choosing a hard, prestigious problem",
+            "because": "Arlan repeatedly gravitates toward projects that sound unusually difficult and high-status, and he openly admires building in intense domains like codegen/AI. A system that tries to reconstruct expert judgment topology is the kind of 'hard thing' he is naturally drawn to.",
+            "evidence": [
+              {
+                "type": "direct_quote",
+                "source": "Substack / public writing summarized in profile",
+                "quote": "Why did I specifically choose codegen even though it's one of the hardest fields... Idk bro I just love coding."
+              },
+              {
+                "type": "consistent_pattern",
+                "source": "Public persona across YC/LinkedIn/posts",
+                "quote": "Repeated attraction to ambitious, technically prestigious domains: AI, codegen, research, Stanford/YC adjacency."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission characteristics",
+                "quote": "TasteGraph frames itself as a deep research/system contribution rather than a simple app, matching his preference for impressive hard problems."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "direct_quote",
+                "source": "Substack / public writing summarized in profile",
+                "quote": "Why did I specifically choose codegen even though it's one of the hardest fields... Idk bro I just love coding."
+              }
+            }
+          },
+          {
+            "aspect": "High-agency builder energy and visible productization",
+            "because": "He praises building fast, shipping MVPs, and being obsessively responsive. The submission feels like something actually built: streaming research UI, custom components, SSE architecture, structured outputs, cached profiles, multi-stage workflow.",
+            "evidence": [
+              {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "If you want to build something people want, start creating it. Test your hypotheses, develop an MVP."
+              },
+              {
+                "type": "direct_quote",
+                "source": "LinkedIn/post summarized in profile",
+                "quote": "I am known for replying at AI speed... obsessed with customers."
+              },
+              {
+                "type": "consistent_pattern",
+                "source": "Public behavior",
+                "quote": "Celebrates speed, shipping, and founder intensity over passive theorizing."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "If you want to build something people want, start creating it. Test your hypotheses, develop an MVP."
+              }
+            }
+          },
+          {
+            "aspect": "Strong founder-theater / prestige-coded presentation",
+            "because": "Arlan's actual reactions skew toward things that feel elite, YC-adjacent, and narratively legible as 'the kind of thing top founders build.' This pitch is saturated with Paul Graham, research contribution framing, falsifiability, and intellectual seriousness, which likely lands with him emotionally.",
+            "evidence": [
+              {
+                "type": "documented_reaction",
+                "source": "Profile synthesis on prestige patterns",
+                "quote": "Optimizes heavily for credential/status signals: YC, Stanford, Columbia, Karpathy, Sam Altman, Paul Graham."
+              },
+              {
+                "type": "consistent_pattern",
+                "source": "Public posts",
+                "quote": "Frequent admiration of elite institutions and canonical startup/intellectual figures."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission framing",
+                "quote": "The submission is explicitly PG-centered and presents itself as a serious evaluation engine rather than a casual app."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "documented_reaction",
+                "source": "Profile synthesis on prestige patterns",
+                "quote": "Optimizes heavily for credential/status signals: YC, Stanford, Columbia, Karpathy, Sam Altman, Paul Graham."
+              }
+            }
+          },
+          {
+            "aspect": "Transparency and making the system feel real",
+            "because": "He likes products that feel alive and concrete rather than purely conceptual. The live research feed, visible indexing, and evidence pills create strong perceived substance and immediacy.",
+            "evidence": [
+              {
+                "type": "consistent_pattern",
+                "source": "Builder-first public persona",
+                "quote": "Prefers concrete execution and demos over abstract talk."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission UX",
+                "quote": "Streaming events, visible sources, and custom verdict structure make the project feel implemented rather than hypothetical."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 95,
+              "strongest_evidence": {
+                "type": "consistent_pattern",
+                "source": "Builder-first public persona",
+                "quote": "Prefers concrete execution and demos over abstract talk."
+              }
+            }
+          }
+        ],
+        "hates": [
+          {
+            "aspect": "Overclaiming / exaggerated rhetoric",
+            "because": "Arlan himself overclaims, but that also means he recognizes the move. This submission repeatedly insists it is 'not a wrapper,' 'a research contribution,' 'full topology,' 'nothing else does this'—which risks sounding inflated unless the underlying accuracy is undeniable.",
+            "evidence": [
+              {
+                "type": "consistent_pattern",
+                "source": "Profile contradiction analysis",
+                "quote": "His own behavior includes valuation/status inflation and hype-heavy framing, making him responsive to but also familiar with this style."
+              },
+              {
+                "type": "documented_reaction",
+                "source": "Profile synthesis",
+                "quote": "Actual pattern favors perception and prestige, but this creates sensitivity to founder theater that isn't backed by traction."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission text",
+                "quote": "The pitch uses repeated maximalist claims about novelty and scientific contribution without much external validation beyond internal methodology."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "documented_reaction",
+                "source": "Profile synthesis",
+                "quote": "Actual pattern favors perception and prestige, but this creates sensitivity to founder theater that isn't backed by traction."
+              }
+            }
+          },
+          {
+            "aspect": "Too many words, not enough crisp proof",
+            "because": "He says build, test, MVP. As a hackathon judge, he is likely to reward energy and ambition, but this writeup is extremely long and spends a lot of time explaining why the idea is profound instead of giving sharp empirical proof that the judgments are meaningfully accurate.",
+            "evidence": [
+              {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "Test your hypotheses, develop an MVP, and avoid getting lost in endless ideas."
+              },
+              {
+                "type": "consistent_pattern",
+                "source": "Public builder ethos",
+                "quote": "Strong bias toward action and visible product over extended theorizing."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission structure",
+                "quote": "Large portion of the submission is conceptual framing and meta-argument, with relatively little benchmark-style evidence."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "Test your hypotheses, develop an MVP, and avoid getting lost in endless ideas."
+              }
+            }
+          },
+          {
+            "aspect": "Possible wrapper smell despite the anti-wrapper defense",
+            "because": "The more aggressively a project says 'this is not just a wrapper,' the more it invites that exact question. Arlan is drawn to AI products, but he also wants them to feel genuinely technically differentiated.",
+            "evidence": [
+              {
+                "type": "consistent_pattern",
+                "source": "Public taste profile",
+                "quote": "Attracted to AI and hard technical products, especially ones that seem nontrivial."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission architecture",
+                "quote": "Core loop still relies on LLM agents, web research, structured prompts, and synthesis; differentiation may look more product/packaging than fundamental model innovation."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission language",
+                "quote": "Repeated defensive framing around 'not just a wrapper' suggests this is an expected objection."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "consistent_pattern",
+                "source": "Public taste profile",
+                "quote": "Attracted to AI and hard technical products, especially ones that seem nontrivial."
+              }
+            }
+          }
+        ],
+        "would_change": [
+          {
+            "suggestion": "Show a brutally simple benchmark: 10 historical reactions, prediction before reveal, hit rate, misses, and why.",
+            "evidence": [
+              {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "Test your hypotheses, develop an MVP."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission's own falsifiability claim",
+                "quote": "The product already claims falsifiability; turning that into a tiny undeniable benchmark would make the pitch much stronger."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "Test your hypotheses, develop an MVP."
+              }
+            }
+          },
+          {
+            "suggestion": "Compress the pitch by 50% and lead with the killer demo + one screenshot/video-worthy flow.",
+            "evidence": [
+              {
+                "type": "consistent_pattern",
+                "source": "Builder-first public persona",
+                "quote": "He responds to things that feel built and immediate."
+              },
+              {
+                "type": "inferred",
+                "source": "Hackathon context",
+                "quote": "A hackathon judge usually rewards sharpness, clarity, and demo impact over exhaustive philosophical explanation."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 95,
+              "strongest_evidence": {
+                "type": "consistent_pattern",
+                "source": "Builder-first public persona",
+                "quote": "He responds to things that feel built and immediate."
+              }
+            }
+          },
+          {
+            "suggestion": "Make the technical moat legible: what is actually modeled beyond retrieval + prompting + citations?",
+            "evidence": [
+              {
+                "type": "consistent_pattern",
+                "source": "Arlan's attraction to hard technical work",
+                "quote": "He prefers projects that seem genuinely difficult, not merely well-presented."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission objection surface",
+                "quote": "The biggest skepticism point is whether this is true modeling or sophisticated orchestration."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 95,
+              "strongest_evidence": {
+                "type": "consistent_pattern",
+                "source": "Arlan's attraction to hard technical work",
+                "quote": "He prefers projects that seem genuinely difficult, not merely well-presented."
+              }
+            }
+          },
+          {
+            "suggestion": "Add one or two real user outcomes: did founders change decisions, get funded, or improve pitches after using it?",
+            "evidence": [
+              {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "Build something people want."
+              },
+              {
+                "type": "consistent_pattern",
+                "source": "Customer-obsession persona",
+                "quote": "He likes evidence that users care, not just that the system is intellectually interesting."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "Build something people want."
+              }
+            }
+          }
+        ],
+        "contradiction_callout": "Arlan Rakhmetzhanov says they value building, validation, health, and customer-focused MVP execution over theory and performance but has publicly been strongly pulled toward prestige-coded, ambitious, technically impressive projects and founder theater when it feels high-agency and elite. For this submission, that means the sheer ambition, polish, and PG/YC-coded seriousness lift the score even though the writeup is overlong and overclaims.",
+        "blind_spot_warning": null,
+        "influence_lineage_note": "Arlan Rakhmetzhanov's view here is shaped by Paul Graham / Y Combinator startup philosophy, who would be mixed because that lineage is instinctively sympathetic to TasteGraph’s ambition, falsifiability framing, and concrete architecture, but also skeptical of density, meta-ness, and anything that might be more elaborate explanation than genuinely useful product.",
+        "context_note": "As a hackathon submission, this benefits from the context: ambition, novelty, and a highly legible demo matter more than airtight validation. The same material would face more skepticism in investor or research-review contexts, where the unsupported rigor claims would matter much more.",
+        "confidence_score": 10,
+        "confidence_explanation": "High confidence: the submission matches patterns of ambitious, thoughtful systems with a clear underlying model and a serious attempt to go deeper than a generic wrapper, but also triggers uncertainty because it is over-explained and lighter on practical proof than on thesis. They'd probably say: \"This is ambitious and unusually well thought through. I like that you’re not just doing style transfer — you’re trying to model judgment, and the falsifiability / evidence-layer is the right instinct. The live research + citations + contradiction framing make it feel much more serious than a generic AI wrapper. My hesitation is that the whole thing is very thesis-heavy right now. You’ve described the ontology in extreme detail, but I still want sharper proof that the predictions are actually right in practice, and that this is useful enough to become a real product rather than an impressive demo. So: definitely interesting, strong taste, but I’d push you to compress the story and show empirical validation faster.\"",
+        "context_variance": {
+          "applied_context": "hackathon judge",
+          "score_delta": 2,
+          "standard_shift": "different_focus",
+          "alternative_contexts": [
+            {
+              "context_name": "YC application",
+              "score_delta": -1,
+              "key_difference": "The emphasis would shift toward whether this solves an urgent problem for a large market and whether the team can build a company around it, not just whether the prototype is impressive."
+            },
+            {
+              "context_name": "Series A investor",
+              "score_delta": -3,
+              "key_difference": "The biggest question becomes defensibility, repeatability, customer demand, and whether the evaluation quality is truly reliable enough to support a business."
+            },
+            {
+              "context_name": "Technical reviewer / research evaluation",
+              "score_delta": -2,
+              "key_difference": "The strongest shift is toward methodological rigor: benchmark design, falsifiability details, error analysis, calibration validity, and whether the modeling claims exceed the evidence."
+            }
+          ],
+          "note": "As a hackathon submission, this benefits from the context: ambition, novelty, and a highly legible demo matter more than airtight validation. The same material would face more skepticism in investor or research-review contexts, where the unsupported rigor claims would matter much more."
+        },
+        "falsifiability": {
+          "anchors": [],
+          "anchors_agree": false,
+          "anchored_sentiment": "unknown",
+          "anchor_note": "I do not have access to reliable known public reactions from Arlan Rakhmetzhanov in the available tools/context, so any specific prediction would be speculative rather than grounded.",
+          "accuracy": {
+            "estimated_pct": null,
+            "based_on_n_anchors": 0,
+            "methodology": "No analogous public reactions found"
+          }
+        },
+        "temporal_weight_note": "Use current taste: his recent embrace of planning, context quality, and agent architecture makes an older baseline meaningfully too negative for this kind of submission.",
+        "score_breakdown": {
+          "base_from_stated_vs_actual": 7,
+          "drift_adjustment": 1,
+          "anchor_adjustment": 0,
+          "final": 8
+        }
+      }
+    },
+    "_ms": 150000
+  },
+  {
+    "type": "complete",
+    "data": {
+      "person": "Arlan Rakhmetzhanov",
+      "submission": {
+        "items": [
+          "TasteGraph: An Engine for Reconstructing How Experts Actually Think\n\n---\n\nWHAT WE BUILT\n\nTasteGraph is a system that reconstructs the full topology of how any public expert thinks — not just their stated opinions, but the actual pattern of their taste — and uses it to judge anything you submit to it. You give it a person's name and something to evaluate. It autonomously researches that person across the internet, builds a multi-dimensional taste profile with seven distinct analytical layers, and produces a structured verdict that reads like it came directly from that person's mind — grounded in their documented words, their documented contradictions, and their documented errors.\n\nThe core insight is that taste is pattern recognition, not opinion. Most people's stated values diverge systematically from their actual reactions. A system that only reads someone's essays will produce verdicts that are inconsistent with how they actually respond to things in the real world. TasteGraph is built around closing that gap. It is not a chatbot that writes in someone's style. It is an evaluation engine that models someone's judgment, including the parts of their judgment they would not be able to articulate themselves.\n\n---\n\nTHE EXPERIENCE OF USING IT\n\nYou open TasteGraph to a clean input stage. Three fields: who should judge this, what are you submitting, and in what context should they be judging it. These are not incidental choices. The context field — \"hackathon judge,\" \"Series A investor,\" \"technical reviewer\" — is a first-class input that changes the verdict. You type \"Paul Graham\" in the judge field. You paste your pitch, or drop in a URL, or paste a GitHub link. You select a context. You hit submit.\n\nThe screen transitions immediately into the research stage. This is where TasteGraph shows you something you cannot get from any other system: the actual work.\n\nOn the right side of the screen, a spider chart with seven spokes begins to materialize. Each spoke corresponds to one dimension of taste: stated vs. actual, taste drift, blind spots, influence graph, contextual variation, linguistic tells, falsifiability. The spokes start empty. As research completes for each dimension, its spoke animates inward, filling in. You are watching the taste profile being built in real time, dimension by dimension.\n\nOn the left side, a live feed scrolls. Not a loading spinner. Not a progress bar. A feed of actual events:\n\n\"Profile — Starting taste profile for Paul Graham\"\n\"Discovery — Searching for essays, interviews, documented reactions...\"\n\"Indexed: essay — paulgraham.com/determination.html\"\n\"Indexed: interview — Y Combinator Startup School 2023 transcript\"\n\"Indexed: controversy — delve / Nigerian developer backlash thread\"\n\"Indexed: email — Airbnb funding email exchange, January 2009\"\n\"Stated vs. Actual — Starting...\"\n\"Stated vs. Actual — Extracting stated principles from 12 essays...\"\n\"Stated vs. Actual — Cross-referencing against 47 documented reactions...\"\n\"Blind Spots — Starting...\"\n\"Blind Spots — Analyzing Reddit brand advice, Airbnb market size error...\"\n\"Linguistic Tells — Starting...\"\n\"Linguistic Tells — Mapping excitement, hedge, and disapproval corpora...\"\n\nEvery line in the feed is a real event from the research engine. You can watch Nozomi — our autonomous research oracle — going wider and deeper than any simple web search would. It is not querying once. It is querying separately for each dimension, with each query targeted at extracting specific kinds of signal. The stated vs. actual dimension has its own research path. The blind spots dimension has its own. You can see this happening.\n\nWhile the profile builds, the spider chart spokes fill in one by one as each dimension completes. When all seven spokes are filled, the profile is done. The feed transitions: \"Ingest — Processing your submission...\" \"Ingest — 8 content blocks ready.\" Seven parallel judge agents spin up, one per taste dimension. Each one searches the indexed profile for evidence relevant to your submission. The feed shows their reasoning live:\n\n\"Stated vs. Actual — Analyzing submission...\"\n\"[thinking] The submission claims to solve X, but PG's documented reaction to similar claims suggests he values Y...\"\n\"[thinking] Key tension: stated meritocracy vs. observed cultural specificity...\"\n\"Search — 'PG reaction to research tools' | 'PG taste modeling skepticism' | 'PG AI wrappers'\"\n\nYou can watch the agents think. You can see what they are searching for. You can see them finding things. The spider chart updates as each agent finishes — a spoke that was half-filled while actively being judged goes solid when the agent completes. When all seven agents are done, the synthesis pass runs: \"Synthesis — Synthesizing final verdict...\" And then the screen transitions to the verdict.\n\n---\n\nTHE VERDICT STAGE: WHAT YOU ARE LOOKING AT\n\nThe verdict stage is dense. It is deliberately dense. Every element is load-bearing.\n\nAt the top: the spider chart again, now fully rendered, showing the shape of the expert's taste across all seven dimensions. It is not decorative. The shape tells you something. A person who scores high on linguistic tells and low on falsifiability has a different profile than a person who scores the reverse.\n\nBelow that: a score. A number out of ten, displayed large. Next to it, the person's name and a confidence bar. The confidence bar is not decorative either — it is calibrated by the linguistic tells analysis. Underneath the score: a summary paragraph that reads like the person actually wrote it.\n\nThen the contradiction callout, rendered as a dedicated NuanceBanner with its own visual treatment — not embedded in a paragraph, not a footnote. A card that says something like: \"PG states he values pure meritocracy and idea-first evaluation. But his documented investment decisions show he weights culturally-specific founder traits — communication style, accent clarity, cultural fluency with Silicon Valley norms — at least as heavily as the idea. This verdict accounts for that gap: the score you see is not what a purely stated-values PG would give. It reflects what his documented behavior suggests he would actually give.\" You cannot miss it. It is a structural element of the page.\n\nThen the blind spot warning, also a dedicated card: \"Known blind spot: PG has historically underestimated the value of systems that look like developer tools but are actually taste infrastructure. He told Reddit their name was terrible and suggested alternatives including 'Octopop.' He was wrong by $38 billion. Apply a correction if your submission is in a category he has documented errors about.\" With a specific suggestion for how to adjust.\n\nThen three sections: Would Love, Would Criticize, Would Change. Each section is a list of items. Each item has a confidence bar at the left edge — thin, colored, showing how confident the system is that this specific thing is accurate. Each item has an aspect label and a because clause. The because clause ends with evidence pills — small inline chips that expand on hover to show the exact source: the essay title, the interview quote, the tweet, the documented public reaction from which this inference was drawn. The citations are not vague. \"Because: PG has publicly called this kind of obscured complexity 'dishonest' and said the test of whether something is well-designed is whether it explains itself — see: 'Taste for Makers' (2002), 'Design and Research' (2000).\" The pill shows you the source. The evidence is traceable.\n\nThen a context variance section. Context chips showing alternative judgments: \"Hackathon Judge: +1.5\" (current), \"Series A Investor: −0.5,\" \"Technical Reviewer: +0.8.\" Each chip is labeled with the score delta relative to the current context. Below them, a note explaining what specifically changes between contexts — not just the score but why. \"As a Series A investor, PG would weight defensibility and market structure more heavily; this submission does not address either.\"\n\nThen the methodology section, collapsed by default behind a toggle: \"Methodology & breakdown.\" When you expand it:\n\nScore breakdown: Base 6.5 → Drift adjustment −0.5 → Anchor adjustment +0.3 → Final 6.3. The base comes from the stated vs. actual analysis. The drift adjustment accounts for how PG's taste has shifted over time — his more recent emphasis on clarity and simplicity pulls the score down if the submission is complex. The anchor adjustment accounts for how it compares to things he has publicly praised or criticized.\n\nFalsifiability: \"Estimated 78% accuracy — tested against 23 known public reactions including the Airbnb email exchange, Reddit name controversy, Dropbox solo founder rejection, and Microsoft Is Dead essay predictions.\"\n\nInfluence lineage: \"This verdict is weighted toward PG's Lisp-era hacker aesthetic and his post-2015 emphasis on founder determination; influence from Robert Morris and Jessica Livingston's social evaluation is incorporated.\"\n\nTemporal weight: \"Signals from 2015–present weighted at 1.8x relative to pre-2010 signals; reflects PG's documented shift away from technical language purity toward product sense and founder character.\"\n\nConfidence reasoning: \"High confidence in the love items: the submission's approach to making research visible matches linguistic patterns PG uses when genuinely excited ('to my surprise,' 'the most exciting kind of idea: one that seems both preposterous and true'). Lower confidence in the criticism items: the areas of concern are ones where PG's signals are historically mixed.\"\n\nThis is the full output. Every number has a derivation. Every inference has a citation. Every score has a breakdown. The system is not a black box delivering a verdict — it is showing you how the verdict was constructed.\n\n---\n\nTHE PROBLEM WE ARE SOLVING\n\nThere are many AI tools that will summarize what a person has said publicly or generate text \"in their style.\" None of them do what TasteGraph does: model the full complexity of how someone evaluates things, including where their stated principles contradict their documented behavior, how their taste has shifted over time, what categories they reliably misjudge, who they were influenced by, and how their linguistic patterns signal genuine excitement versus polite approval.\n\nWe care about this because the people whose taste matters most — the early investors, the editors, the builders who have been right about the future — have developed judgment that is genuinely hard to access. They are few, they are busy, they evaluate selectively, and their feedback is not legible to most founders and creators. Getting honest, substantive feedback from Paul Graham is almost impossible. Getting feedback that reflects how he actually judges things — not just what he says he values — is completely impossible by any other means. TasteGraph makes that judgment accessible and decomposable.\n\nWe also care about it because of a specific problem with LLMs. Large language models have taste — implicit aesthetic preferences that shape what they generate — but that taste is usually invisible and unjustifiable. Training a model on an expert's full documented reaction history, including where they contradict themselves, changes the quality of evaluation it can produce. TasteGraph is a bet that encoding the full topology of taste, not just stated values, is a research contribution, not just a product feature.\n\n---\n\nTHE SEVEN LAYERS OF TASTE WE MODEL\n\n1. STATED VS. ACTUAL (The Contradiction Layer)\n\nReal experts contradict themselves. Their essays claim one thing; their documented reactions reveal another. We index both separately and model the gap as a first-class output. Every verdict includes a contradiction callout that surfaces where the person's stated values conflict with their actual historical reactions, and how that tension shifts the specific verdict being rendered.\n\nFor Paul Graham, this gap is wide and well-documented. He explicitly champions meritocracy in his essays: \"Focus on the user,\" \"Make something people want,\" \"The way we got so many female founders was by being less biased.\" But his actual funding decisions weight culturally-specific founder traits heavily — communication style, accent clarity, fit with Silicon Valley conversational norms. He rejected founders for accents \"so strong that people can't understand them\" while claiming pure meritocracy. He praised Airbnb primarily for a cereal box story demonstrating \"resourcefulness and determination\" — a culturally-specific American entrepreneurial narrative — while claiming to evaluate ideas on merit. He admitted: \"I actually have bad judgment of character. I'm not good at judging people. But Jessica — she is very rarely wrong.\" His stated framework is \"make something people want.\" His actual framework is \"be the kind of person who fits the Silicon Valley founder archetype; then we'll help you figure out what to make.\"\n\nTasteGraph indexes both sides and makes the tension explicit in every verdict. The contradiction callout is a dedicated visual element on the page, not a parenthetical.\n\n2. TASTE DRIFT (The Temporal Layer)\n\nPeople's taste changes over time. Early Paul Graham cared intensely about programming language purity — he founded Viaweb in Lisp and wrote extensively about the competitive advantage of language choice. He made confident predictions about Java's failure (\"No one loves it. It's designed for large organizations\"). He wrote \"Microsoft Is Dead\" in 2007.\n\nLater Paul Graham cares much more about founder determination and product sense. His 2020s writing is dominated by clarity, simplicity, and the character of people he wants to fund. The Lisp essays feel like a different person.\n\nA flat snapshot of someone's views — averaging across everything they have ever said — produces a verdict that is true of no particular moment and useful for no particular decision. TasteGraph weights recent signals more heavily than older ones and surfaces the timeline of drift explicitly. The verdict you receive is time-aware. The methodology section shows you the weighting: \"Signals from 2015–present weighted at 1.8x relative to pre-2010 signals.\" You are not getting an average. You are getting the person as they are now, informed by who they were.\n\n3. BLIND SPOTS (The Calibration Layer)\n\nEvery expert has categories of things they systematically misjudge. Paul Graham told Reddit's founders that their company name was \"terrible\" and would be \"poison to potential investors.\" He suggested they abandon the Snoo alien mascot and offered alternatives including \"Octopop.\" Reddit is now worth $38 billion. The alien is tattooed on people's bodies. Graham's consumer brand judgment is documented as systematically unreliable.\n\nHe also described the startup rate as rising with inequality in the years since 1980 — a factual error. The startup rate has actually declined as inequality has risen. His Silicon Valley vantage point distorted his macroeconomic analysis.\n\nTasteGraph models these documented error categories and includes a dedicated blind spot warning card in every verdict. The card tells you what category the submission falls into, whether that overlaps with documented errors, and what correction to apply. The score you see already incorporates this correction — it is not a disclaimer, it is a calculation.\n\n4. INFLUENCE GRAPH (The Lineage Layer)\n\nTaste is social. Paul Graham's aesthetic was shaped by specific people and intellectual traditions: the Lisp hacker culture of MIT and ITA Software, Robert Morris as a technical benchmark, Trevor Blackwell as a model of hacker-engineer excellence, Jessica Livingston as his \"social radar\" for reading people. His entrepreneurial worldview came from running Viaweb and being acquired by Yahoo — a specific set of experiences that shaped what he thinks \"building a company\" means.\n\nWhen you judge something through Paul Graham, you are not judging it through a single person. You are running it through his whole intellectual lineage. The influence lineage note in the methodology section surfaces which parts of that lineage are most activated by your specific submission. If you are submitting something technical, the Lisp-era hacker aesthetic gets weighted. If you are submitting something about founders and character, the post-2010 YC model gets weighted. This affects the output, not just the display.\n\n5. CONTEXTUAL VARIATION (The Stakes Layer)\n\nThe same person judges differently depending on the stakes and framing. Paul Graham at a hackathon is explicitly lowering his bar: novelty and ambition matter more than defensibility. Paul Graham making a YC acceptance decision is weighing whether these are the people he wants to spend the next decade rooting for. Paul Graham writing an essay is in a different mode entirely — essayistic exploration, not investment judgment.\n\nTasteGraph makes context a first-class input. Before you submit, you specify the judging context. The verdict renders for that context, and the context variance section shows you the alternative scores: how the verdict would shift if the context were different, and specifically what changes and why. The diff is shown explicitly. \"As a Series A investor, PG would weight defensibility and market structure more heavily; this submission does not address either, which pulls the score down by 0.5.\" You can see the lever being pulled.\n\n6. LINGUISTIC TELLS (The Confidence Layer)\n\nExperts signal genuine approval and disapproval in specific linguistic patterns that are detectable at scale across a large enough corpus. Paul Graham's tells are well-characterized because he has published extensively and his language is distinctive.\n\nHis excitement markers: \"the most exciting kind of idea\" — reserved for ideas that seem both preposterous and true. \"To my surprise\" — genuine discovery. \"Wonderfully\" — aesthetic appreciation. He reserves \"excited\" specifically for deep intellectual engagement; he distinguishes it explicitly from \"happy.\" He rarely uses \"amazing\" or \"brilliant\" — those are weak signals in his corpus because they are too common.\n\nHis uncertainty markers saturate his essays: \"I suspect,\" \"probably,\" \"my guess is,\" \"it seems,\" \"arguably,\" \"perhaps.\" He stacks them. This extensive hedging is not weakness — it is epistemic rigor. But it means that when he drops the hedges, it signals high confidence. An unhedged claim from Paul Graham is information.\n\nHis disapproval markers are rare and therefore strong: \"terrible mistake,\" \"one of the worst,\" \"appallingly,\" \"waste of time.\" He uses them precisely because he deploys them so infrequently.\n\nTasteGraph indexes these patterns across his full published corpus and uses them to calibrate verdict confidence. The confidence score is not a number derived from statistical confidence — it is derived from the match between the submission and the specific linguistic patterns he uses when genuinely excited versus when being polite. The confidence explanation tells you which tells were activated and what they mean.\n\n7. FALSIFIABILITY (The Accuracy Layer)\n\nThis is what separates TasteGraph from a wrapper.\n\nIf you have built a taste model for someone, you can test it against things they have already publicly reacted to. For Paul Graham, we have a ground-truth dataset of documented reactions:\n\nThe Airbnb email exchange: January 23, 2009. Paul Graham wrote to Fred Wilson: \"There's no reason this couldn't be as big as eBay. And this team is the right one to do it.\" Specific date, specific quote, published email, measurable outcome. Airbnb IPO'd at $75 billion. PG was right. Does the model predict he would have liked Airbnb in 2009? If not, the model is wrong.\n\nThe Reddit name controversy: PG told the founders their name was terrible and suggested \"Octopop.\" He was wrong by $38 billion. Does the model predict he would dislike distinctive, playful consumer brand names? If so, the blind spot is correctly modeled.\n\nThe Dropbox solo founder rejection: Drew Houston was initially rejected for being a solo founder, reapplied with a cofounder, was accepted, built one of YC's biggest successes. Does the model capture PG's aversion to solo founders?\n\nThe Microsoft Is Dead essay: April 2007. \"I can sense that. No one is even afraid of Microsoft anymore.\" Specific public prediction with specific reasoning and an 18-year outcome window.\n\nEvery taste profile includes a published accuracy score: \"Estimated 78% accuracy — tested against 23 known public reactions.\" The methodology is visible. You can see which ground-truth cases were used, which the model predicted correctly, and which it missed. This is a falsifiable claim. A taste model with a published accuracy rate against known reactions is a research contribution, not a demo.\n\n---\n\nHOW THE RESEARCH ENGINE WORKS (NIA / NOZOMI)\n\nTasteGraph uses Nozomi — Nia — as its autonomous research oracle. The key property that makes this work is depth and specificity. When building a taste profile, Nia does not run a single query and summarize the results. It runs a different research campaign for each taste dimension.\n\nFor the stated vs. actual dimension, it searches for documented public reactions — things the person has specifically praised or criticized — and separately searches for their stated principles. It then indexes both in parallel and creates the structural map of where they diverge.\n\nFor the blind spots dimension, it searches for cases where the person was publicly wrong, documented retrospectives where they acknowledged error, and cases where they succeeded despite their own skepticism. The Airbnb cereal box story, the Reddit name advice, the Dropbox rejection — these are not found by a single query. They require targeted searches for \"PG wrong about,\" \"YC rejected company that later succeeded,\" \"Paul Graham reversed position on.\"\n\nFor the linguistic tells dimension, it retrieves the actual text of essays and interviews and runs corpus analysis: what words appear when he is expressing excitement, what hedges cluster around uncertainty, what rare language marks genuine strong disapproval.\n\nThe discovery phase surfaces sources as they are found: essays, interviews, podcast transcripts, controversy threads, investment letters, public posts. The indexing phase shows each source being processed. The aspect-building phase shows each dimension's research running in parallel. At no point is this a black box. You can see what the oracle found, what it indexed, and what it extracted.\n\nAfter profile completion, profiles are cached. Subsequent judgments against the same person skip the profile phase and go directly to verdict generation. The cache means you can submit ten different things to Paul Graham without rebuilding the profile each time — the research is amortized.\n\n---\n\nHOW THE VERDICT ENGINE WORKS\n\nAfter the profile is built, your submission is ingested. TasteGraph accepts text pasted directly, URLs (which Nia fetches and parses), GitHub repositories (which Nia reads), PDFs, and tweets. The submission is broken into content blocks. The ingestion event in the live feed shows you how many blocks were extracted: \"Ingest — 8 content blocks ready.\"\n\nSeven parallel judge agents launch, one per taste dimension. Each agent is seeded with:\n\n- The full indexed profile for its dimension\n- The submission content blocks\n- Search access to retrieve additional evidence\n\nEach agent reasons explicitly about the submission through its dimension's lens. The stated vs. actual agent looks for tensions between what the submission claims and what the person's documented behavior suggests. The blind spots agent looks for overlap with the person's documented error categories. The linguistic tells agent looks for elements of the submission that would activate the person's specific excitement or disapproval signals.\n\nThe agents' reasoning is streamed live to the feed. You can see them thinking. You can see what they search for. You can see them find things. Each agent completes independently; the spider chart spoke for that dimension goes solid when it finishes.\n\nAfter all agents complete, a synthesis pass takes all seven sub-verdicts and produces the final output structure. The synthesis is not an average — it is a weighted combination that accounts for temporal weighting, blind spot corrections, and context adjustments.\n\nThe final verdict arrives as a complete structured object:\n\n- summary: the overall assessment in the person's voice\n- score: a number out of ten\n- confidence_score: calibrated by linguistic tells\n- confidence_explanation: which tells were activated and what they indicate\n- loves: a list of items the person would praise, each with aspect, because, confidence, and evidence citations\n- hates: a list of items they would criticize, same structure\n- would_change: specific suggestions, with evidence\n- contradiction_callout: the gap between stated values and documented behavior, applied to this verdict\n- blind_spot_warning: which error categories apply, with correction suggestion\n- influence_lineage_note: which parts of their intellectual lineage are most relevant here\n- temporal_weight_note: how the time-weighting affected the score\n- context_variance: the applied context score delta plus alternative contexts and their deltas\n- falsifiability: the accuracy estimate and methodology\n\nEvery field in the output is grounded. Citations are traceable. The score has a derivation. The confidence has an explanation. Nothing is generated without a basis.\n\n---\n\nTHE UI AND WHAT MAKES IT REAL\n\nThe design philosophy is: information density in service of legibility. Every element earns its space. Nothing is there for decoration.\n\nThe spider chart is interactive during research (showing live progress as spokes fill in) and static in the verdict (showing the final profile shape). It gives you an immediate visual of the expert's taste topology — you can see at a glance which dimensions are strong signals and which are uncertain.\n\nThe evidence pills are the most load-bearing component. Every inference in the verdict is backed by specific evidence. The pills are small inline chips — \"¹\", \"²\" — that expand on hover to show the source: essay title, quote excerpt, interview context. The citations are not vague (\"PG has said he values X\"). They are specific (\"'The Anatomy of Determination' (2010): 'The test of a startup is not whether it can survive setbacks, but whether it has the quality that makes setbacks irrelevant'\"). You can trace every inference back to a documented source.\n\nThe NuanceBanners for contradiction and blind spot callouts are visually distinct from the rest of the verdict. They are designed to be impossible to miss — yellow-accented, full-width, structurally prominent. The contradiction layer is not a footnote. The blind spot warning is not a disclaimer buried at the bottom. They are first-class elements of the verdict, because they are first-class elements of the truth.\n\nThe confidence bars on each verdict item give you local uncertainty, not just global. You can see that the system is highly confident in one criticism and uncertain about another. A verdict where all bars are full is a different kind of output than a verdict with mixed confidence — and you can see that difference at a glance.\n\nThe context variance chips show alternative judgments as a row of labeled chips, each with a score delta. You can see immediately how the verdict would shift across contexts. This is not an afterthought — it is a visual reminder that judgment is always contextual, and that the verdict you are reading was rendered for a specific context that you specified.\n\nThe methodology section is collapsed by default so it does not overwhelm the verdict. But it is always there, one click away, with the full score derivation, falsifiability accuracy, influence lineage, temporal weight, and confidence reasoning. The system never hides how it works. It just does not force it on you.\n\n---\n\nWHY WE CARE ABOUT LLM TASTE\n\nLanguage models have taste. This is not metaphorical. The patterns in what a model generates — what it finds elegant, what it elides, what it emphasizes, what it considers a well-formed argument versus a weak one — reflect the aesthetic preferences latent in its training. When you ask a model to evaluate something, you are getting a verdict shaped by that latent taste, which is usually invisible, ungrounded, and impossible to audit.\n\nWe think this is a problem worth solving for several reasons.\n\nFirst: the models that will matter most are the ones with good taste — taste that matches what the best builders and thinkers actually care about. Right now, most models have averaged-out taste. They generate what is statistically normal, not what is actually good. The difference between a model that can recognize a genuinely novel idea and one that cannot is a difference in taste, not a difference in capability. Building systems that encode specific, well-documented taste profiles is a path toward evaluation quality that goes beyond generic helpfulness.\n\nSecond: taste is falsifiable. This is the key claim. If you say a model has Paul Graham's taste, you can test it. Did it predict correctly that he would praise Airbnb in 2009? Did it predict he would dislike the Reddit name? Did it capture his blind spot about consumer brand judgment? If not, the taste model is wrong and you can improve it. Most AI evaluation — whether a model is \"helpful,\" \"accurate,\" \"appropriate\" — is not falsifiable in this precise way. TasteGraph is. A taste model that can be tested against known historical reactions is a research contribution, not just a product.\n\nThird: the hard problem is not stated values — it is actual reactions. LLMs can already summarize what someone has written about their values. GPT-4 can tell you what Paul Graham says he cares about. The hard problem is reconstructing how he would respond to something new, given not just what he says he cares about but the full pattern of how he has actually reacted in the past — including the contradictions, the drift, the blind spots, the tells. That is a modeling problem, not a retrieval problem. TasteGraph is our approach to that modeling problem.\n\n---\n\nWHAT YOU CAN SUBMIT\n\nNot just text. A URL, a GitHub repository, a pitch deck PDF, a tweet thread, a Notion doc link. Nozomi handles all of these natively. The submission is fetched, parsed, and broken into content blocks regardless of format.\n\nThis matters because it makes the product feel real rather than a toy. If you are a founder asking \"would Paul Graham fund this?\", you can submit your actual landing page — not a description of it. You can submit your actual GitHub repository — not a summary. The judgment is made against the real artifact, the same way a real person would encounter it.\n\n---\n\nTHE TECHNICAL ARCHITECTURE\n\nBackend: Node.js server with a single /api/judge endpoint that delivers a streaming SSE response. The agent loop runs against the OpenAI API. Profile building uses Nozomi for autonomous research and structured extraction. Profiles are stored as a directory per person with one file per dimension.\n\nProfile structure:\n- profile.json: core structured profile data\n- stated_vs_actual.md: the contradiction layer — stated principles indexed separately from documented reactions, with citations\n- taste_drift.md: temporal model of how the person's expressed values have shifted, with timeline\n- blind_spots.md: documented error categories with specific cases and accuracy analysis\n- influence_graph.md: the intellectual lineage — who shaped them, what that means for evaluation weighting\n- contextual_variation.md: how judgment shifts by context — stakes, framing, audience\n- linguistic_tells.md: excitement signals, uncertainty patterns, disapproval markers, with corpus analysis\n- falsifiability.md: the ground-truth dataset — documented public reactions with dates, quotes, outcomes\n\nFrontend: React with custom SSE streaming via the Fetch API and a ReadableStream reader. Three stages: input, research, verdict. Spider chart visualization built as a custom SVG component. Evidence pills, confidence bars, nuance banners, context chips — each is a custom component built to render a specific kind of structured data from the verdict object.\n\nThe streaming architecture means the UI is never waiting. Every event from the backend arrives in real time. The research phase can take several minutes; the entire design of the research stage — the live feed, the spider chart, the labeled events — is built around making those minutes feel informative rather than dead. You are not watching a spinner. You are watching the oracle work.\n\n---\n\nTHE META-POINT\n\nTasteGraph is submitting itself to TasteGraph. This document is a submission to the Paul Graham profile. The system will now judge, using Paul Graham's indexed taste across all seven dimensions, whether he would like TasteGraph itself.\n\nThis is a useful test. Paul Graham cares deeply about whether something is solving a real problem for real users. He cares whether the founders understand the domain they are operating in. He has strong views about what constitutes a research contribution versus a demo, and documented skepticism about AI products that wrap an existing model without adding fundamental value.\n\nHe also has documented blind spots that are relevant here: he has historically underestimated the value of taste infrastructure and aesthetic modeling. He has been ambivalent about developer tools versus consumer products. He sometimes misses the research contribution in systems that look like products. The blind spot warning card in the verdict TasteGraph produces on itself should account for this.\n\nThe contradiction callout should surface that he says he values pure merit but his actual evaluation would be heavily influenced by whether this feels like \"the kind of thing a determined hacker would build\" — which is a culturally-specific signal, not a neutral one.\n\nThe linguistic tells analysis should look for whether the elements of the submission activate his genuine excitement patterns — the \"most exciting kind of idea: one that seems both preposterous and true\" construction — or whether it would get polite hedged approval.\n\nThe verdict TasteGraph produces on itself will test whether it has actually modeled these things correctly. If it produces a generic positive verdict without engaging the contradiction layer and the blind spot warning, it has failed. If it surfaces the real tensions — that PG would find the falsifiability framing compelling but would be uncertain about market size and would worry about whether this is a wrapper — then the model is working.\n\n---\n\nWHY THIS IS NOT JUST A WRAPPER\n\nThe fundamental challenge is not building another chatbot that summarizes what someone has said. That is solved. Every LLM can do that. The challenge is:\n\n1. Modeling the gap between stated values and actual reactions — requires separately indexing stated principles and documented reactions, then mapping the divergence structurally\n2. Temporal weighting of taste drift — requires timeline-aware synthesis that weights recent signals differently from old ones, not just an average across everything\n3. Blind spot calibration — requires documented error analysis, not just positive signals; requires knowing where the person has been wrong and by how much\n4. Influence graph construction — requires mapping the intellectual lineage and understanding how it weights different parts of the evaluation\n5. Linguistic tell indexing — requires corpus analysis across a person's full published output, not just knowing their topics\n6. Falsifiable accuracy scoring — requires building a ground-truth dataset of known reactions, running predictions against it, and publishing the accuracy with methodology\n\nNone of these are retrieval. All of them are modeling. TasteGraph does all six, in parallel, with visible research, in a streaming UI that makes the depth legible at every step. You can see the oracle discover sources. You can see the profile being built spoke by spoke. You can see the agents reason. You can see every citation. You can expand the methodology and see the derivation of every number.\n\nThat is the contribution: not that we can tell you what Paul Graham thinks, but that we can show you how we know, let you test whether we are right, and give you the full topology of his judgment — including the parts of it he does not know about himself.\n"
+        ],
+        "label": "TasteGraph hackathon submission",
+        "sources": []
+      },
+      "judging_context": "hackathon judge",
+      "sub_verdicts": {
+        "stated_vs_actual": {
+          "label": "Stated values vs actual reactions",
+          "verdict": {
+            "match_score": 7,
+            "summary": "This is exactly the kind of insanely ambitious, PG-coded thing that feels impressive in a hackathon: high-agency, technical-looking, opinionated, and sold with conviction. I'd be into the ambition and the interface, but I'd still push hard on whether this is a real modeling breakthrough or just a very well-packaged wrapper with a lot of words.",
+            "loves": [
+              {
+                "aspect": "Extreme ambition and choosing a hard, prestigious problem",
+                "because": "Arlan repeatedly gravitates toward projects that sound unusually difficult and high-status, and he openly admires building in intense domains like codegen/AI. A system that tries to reconstruct expert judgment topology is the kind of 'hard thing' he is naturally drawn to.",
+                "evidence": [
+                  {
+                    "type": "direct_quote",
+                    "source": "Substack / public writing summarized in profile",
+                    "quote": "Why did I specifically choose codegen even though it's one of the hardest fields... Idk bro I just love coding."
+                  },
+                  {
+                    "type": "consistent_pattern",
+                    "source": "Public persona across YC/LinkedIn/posts",
+                    "quote": "Repeated attraction to ambitious, technically prestigious domains: AI, codegen, research, Stanford/YC adjacency."
+                  },
+                  {
+                    "type": "inferred",
+                    "source": "Submission characteristics",
+                    "quote": "TasteGraph frames itself as a deep research/system contribution rather than a simple app, matching his preference for impressive hard problems."
+                  }
+                ]
+              },
+              {
+                "aspect": "High-agency builder energy and visible productization",
+                "because": "He praises building fast, shipping MVPs, and being obsessively responsive. The submission feels like something actually built: streaming research UI, custom components, SSE architecture, structured outputs, cached profiles, multi-stage workflow.",
+                "evidence": [
+                  {
+                    "type": "direct_quote",
+                    "source": "What I Learned in 2024",
+                    "quote": "If you want to build something people want, start creating it. Test your hypotheses, develop an MVP."
+                  },
+                  {
+                    "type": "direct_quote",
+                    "source": "LinkedIn/post summarized in profile",
+                    "quote": "I am known for replying at AI speed... obsessed with customers."
+                  },
+                  {
+                    "type": "consistent_pattern",
+                    "source": "Public behavior",
+                    "quote": "Celebrates speed, shipping, and founder intensity over passive theorizing."
+                  }
+                ]
+              },
+              {
+                "aspect": "Strong founder-theater / prestige-coded presentation",
+                "because": "Arlan's actual reactions skew toward things that feel elite, YC-adjacent, and narratively legible as 'the kind of thing top founders build.' This pitch is saturated with Paul Graham, research contribution framing, falsifiability, and intellectual seriousness, which likely lands with him emotionally.",
+                "evidence": [
+                  {
+                    "type": "documented_reaction",
+                    "source": "Profile synthesis on prestige patterns",
+                    "quote": "Optimizes heavily for credential/status signals: YC, Stanford, Columbia, Karpathy, Sam Altman, Paul Graham."
+                  },
+                  {
+                    "type": "consistent_pattern",
+                    "source": "Public posts",
+                    "quote": "Frequent admiration of elite institutions and canonical startup/intellectual figures."
+                  },
+                  {
+                    "type": "inferred",
+                    "source": "Submission framing",
+                    "quote": "The submission is explicitly PG-centered and presents itself as a serious evaluation engine rather than a casual app."
+                  }
+                ]
+              },
+              {
+                "aspect": "Transparency and making the system feel real",
+                "because": "He likes products that feel alive and concrete rather than purely conceptual. The live research feed, visible indexing, and evidence pills create strong perceived substance and immediacy.",
+                "evidence": [
+                  {
+                    "type": "consistent_pattern",
+                    "source": "Builder-first public persona",
+                    "quote": "Prefers concrete execution and demos over abstract talk."
+                  },
+                  {
+                    "type": "inferred",
+                    "source": "Submission UX",
+                    "quote": "Streaming events, visible sources, and custom verdict structure make the project feel implemented rather than hypothetical."
+                  }
+                ]
+              }
+            ],
+            "hates": [
+              {
+                "aspect": "Overclaiming / exaggerated rhetoric",
+                "because": "Arlan himself overclaims, but that also means he recognizes the move. This submission repeatedly insists it is 'not a wrapper,' 'a research contribution,' 'full topology,' 'nothing else does this'—which risks sounding inflated unless the underlying accuracy is undeniable.",
+                "evidence": [
+                  {
+                    "type": "consistent_pattern",
+                    "source": "Profile contradiction analysis",
+                    "quote": "His own behavior includes valuation/status inflation and hype-heavy framing, making him responsive to but also familiar with this style."
+                  },
+                  {
+                    "type": "documented_reaction",
+                    "source": "Profile synthesis",
+                    "quote": "Actual pattern favors perception and prestige, but this creates sensitivity to founder theater that isn't backed by traction."
+                  },
+                  {
+                    "type": "inferred",
+                    "source": "Submission text",
+                    "quote": "The pitch uses repeated maximalist claims about novelty and scientific contribution without much external validation beyond internal methodology."
+                  }
+                ]
+              },
+              {
+                "aspect": "Too many words, not enough crisp proof",
+                "because": "He says build, test, MVP. As a hackathon judge, he is likely to reward energy and ambition, but this writeup is extremely long and spends a lot of time explaining why the idea is profound instead of giving sharp empirical proof that the judgments are meaningfully accurate.",
+                "evidence": [
+                  {
+                    "type": "direct_quote",
+                    "source": "What I Learned in 2024",
+                    "quote": "Test your hypotheses, develop an MVP, and avoid getting lost in endless ideas."
+                  },
+                  {
+                    "type": "consistent_pattern",
+                    "source": "Public builder ethos",
+                    "quote": "Strong bias toward action and visible product over extended theorizing."
+                  },
+                  {
+                    "type": "inferred",
+                    "source": "Submission structure",
+                    "quote": "Large portion of the submission is conceptual framing and meta-argument, with relatively little benchmark-style evidence."
+                  }
+                ]
+              },
+              {
+                "aspect": "Possible wrapper smell despite the anti-wrapper defense",
+                "because": "The more aggressively a project says 'this is not just a wrapper,' the more it invites that exact question. Arlan is drawn to AI products, but he also wants them to feel genuinely technically differentiated.",
+                "evidence": [
+                  {
+                    "type": "consistent_pattern",
+                    "source": "Public taste profile",
+                    "quote": "Attracted to AI and hard technical products, especially ones that seem nontrivial."
+                  },
+                  {
+                    "type": "inferred",
+                    "source": "Submission architecture",
+                    "quote": "Core loop still relies on LLM agents, web research, structured prompts, and synthesis; differentiation may look more product/packaging than fundamental model innovation."
+                  },
+                  {
+                    "type": "inferred",
+                    "source": "Submission language",
+                    "quote": "Repeated defensive framing around 'not just a wrapper' suggests this is an expected objection."
+                  }
+                ]
+              }
+            ],
+            "would_change": [
+              {
+                "suggestion": "Show a brutally simple benchmark: 10 historical reactions, prediction before reveal, hit rate, misses, and why.",
+                "evidence": [
+                  {
+                    "type": "direct_quote",
+                    "source": "What I Learned in 2024",
+                    "quote": "Test your hypotheses, develop an MVP."
+                  },
+                  {
+                    "type": "inferred",
+                    "source": "Submission's own falsifiability claim",
+                    "quote": "The product already claims falsifiability; turning that into a tiny undeniable benchmark would make the pitch much stronger."
+                  }
+                ]
+              },
+              {
+                "suggestion": "Compress the pitch by 50% and lead with the killer demo + one screenshot/video-worthy flow.",
+                "evidence": [
+                  {
+                    "type": "consistent_pattern",
+                    "source": "Builder-first public persona",
+                    "quote": "He responds to things that feel built and immediate."
+                  },
+                  {
+                    "type": "inferred",
+                    "source": "Hackathon context",
+                    "quote": "A hackathon judge usually rewards sharpness, clarity, and demo impact over exhaustive philosophical explanation."
+                  }
+                ]
+              },
+              {
+                "suggestion": "Make the technical moat legible: what is actually modeled beyond retrieval + prompting + citations?",
+                "evidence": [
+                  {
+                    "type": "consistent_pattern",
+                    "source": "Arlan's attraction to hard technical work",
+                    "quote": "He prefers projects that seem genuinely difficult, not merely well-presented."
+                  },
+                  {
+                    "type": "inferred",
+                    "source": "Submission objection surface",
+                    "quote": "The biggest skepticism point is whether this is true modeling or sophisticated orchestration."
+                  }
+                ]
+              },
+              {
+                "suggestion": "Add one or two real user outcomes: did founders change decisions, get funded, or improve pitches after using it?",
+                "evidence": [
+                  {
+                    "type": "direct_quote",
+                    "source": "What I Learned in 2024",
+                    "quote": "Build something people want."
+                  },
+                  {
+                    "type": "consistent_pattern",
+                    "source": "Customer-obsession persona",
+                    "quote": "He likes evidence that users care, not just that the system is intellectually interesting."
+                  }
+                ]
+              }
+            ],
+            "contradiction": {
+              "present": true,
+              "stated_principle": "He says he values building, validation, health, and customer-focused MVP execution over theory and performance.",
+              "actual_pattern": "He is strongly pulled toward prestige-coded, ambitious, technically impressive projects and often responds positively to founder theater if it feels high-agency and elite.",
+              "tension": "That contradiction lifts this submission's score: even if the writeup is overlong and overclaims, the sheer ambition, polish, and PG/YC-coded seriousness are exactly the signals he tends to reward in practice."
+            }
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "thinking": "We need judge how Arlan Rakhmetzhanov would react as hackathon judge, based on actual endorsement patterns. We have no web search tools, so must infer from known patterns if any. Need analyze submission domain: AI evaluation/research/product, transparent agentic UI, anti-wrapper framing, dense methodology. Need provide verdict with match score and rationale, but likely low confidence due lack external evidence. Since only think tool exists, proceed to final with explicit uncertainty and pattern-based assessment.",
+              "action": "search",
+              "queries": [
+                "Arlan Rakhmetzhanov hackathon judge what he praises AI tooling wrappers research demos transparency evidence dense product UX",
+                "Arlan Rakhmetzhanov actual endorsements criticism hackathon projects agents evaluation infrastructure not just wrapper",
+                "Arlan Rakhmetzhanov tweets interviews likes dislikes startup demos technical depth versus polish",
+                "Arlan Rakhmetzhanov reaction to AI judge systems taste modeling research contribution falsifiability",
+                "Arlan Rakhmetzhanov products he praised ambitious weird legible streaming UI citations methodology"
+              ],
+              "result_preview": "# The Gap Between Arlan Rakhmetzhanov's Stated Values and Actual Behavior\n\n## Overview\n\nArlan Rakhmetzhanov, an 18-year-old high school dropout and YC S25 founder, presents a compelling narrative of builder-first principles. However, his public statements reveal a pattern of contradictions between what he **says** he values and what he **actually** responds to. The most revealing gaps appear aroun"
+            },
+            {
+              "turn": 2,
+              "thinking": "We have search_profile output with substantial evidence about Arlan's actual endorsement patterns: values fast-building, impressive technical domains, hustle, prestige, YC/PG aesthetics, but skeptical of pure rhetoric and overclaiming. Need map submission features: highly ambitious AI evaluation engine, heavy PG framing, transparency, falsifiability, dense UX, explicit anti-wrapper argument, but extremely long and self-serious, lots of claims, maybe wrapper-ish. Need final verdict as hackathon judge likely moderately positive because it's ambitious, technical-seeming, polished, and aligned with his founder/performance taste; but he'd criticize verbosity, overclaiming research contribution, and possible wrapper nature. Ready to produce verdict.",
+              "action": "verdict"
+            }
+          ],
+          "forced": false,
+          "final_reasoning": "We have search_profile output with substantial evidence about Arlan's actual endorsement patterns: values fast-building, impressive technical domains, hustle, prestige, YC/PG aesthetics, but skeptical of pure rhetoric and overclaiming. Need map submission features: highly ambitious AI evaluation engine, heavy PG framing, transparency, falsifiability, dense UX, explicit anti-wrapper argument, but extremely long and self-serious, lots of claims, maybe wrapper-ish. Need final verdict as hackathon judge likely moderately positive because it's ambitious, technical-seeming, polished, and aligned with his founder/performance taste; but he'd criticize verbosity, overclaiming research contribution, and possible wrapper nature. Ready to produce verdict."
+        },
+        "taste_drift": {
+          "label": "Taste drift over time",
+          "verdict": {
+            "temporal_relevance": "current",
+            "drift_adjustment": "more_positive",
+            "key_shift": "Arlan has shifted from reacting against idea-heavy/planning-heavy startup work toward explicitly valuing context engineering, upfront planning, and architecture in agent systems.",
+            "early_position": "In late 2024 he likely would have been more skeptical that a dense, methodology-heavy AI judging system was too conceptual or overbuilt relative to shipping a simple product fast.",
+            "current_position": "By 2025-2026 he is much more receptive to systems framed as agent infrastructure and context-rich research engines, so he would judge this submission more favorably than his earlier self.",
+            "recency_note": "Use current taste: his recent embrace of planning, context quality, and agent architecture makes an older baseline meaningfully too negative for this kind of submission."
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "thinking": "We need assess whether verdict on this submission would rely on Arlan Rakhmetzhanov's current vs stale taste in domain of hackathon judging / AI tooling / taste-modeling products. However we have no search tools beyond think. So we must reason from available context only. Need note lack of evidence of temporal drift for Arlan. Produce concise verdict that no evidence of taste shift was found, so dimension is neutral / likely current if based on stated current hackathon-judge context, but confidence limited.",
+              "action": "search",
+              "queries": [
+                "Arlan Rakhmetzhanov hackathon judge AI tools wrappers research contribution taste modeling temporal drift",
+                "Arlan Rakhmetzhanov views on AI wrappers demos vs real products over time",
+                "Arlan Rakhmetzhanov judging preferences hackathon research products transparency citations current vs past",
+                "Arlan Rakhmetzhanov opinions on evaluation engines expert taste modeling Paul Graham style systems",
+                "Arlan Rakhmetzhanov taste drift autonomous agents visible reasoning streaming UI hackathon"
+              ],
+              "result_preview": "# Evolution of Arlan Rakhmetzhanov's Taste and Judgment\n\nBased on public statements from 2023-2026, Arlan Rakhmetzhanov's journey shows several clear shifts in thinking—particularly around execution strategy, team building, and the role of planning. What's notable is his **unusual willingness to publicly acknowledge mistakes** for someone so young.\n\n## Early Positions Later Reversed or Softened\n\n#"
+            },
+            {
+              "turn": 2,
+              "thinking": "We now have search_profile results (despite tool listing mismatch) showing Arlan's taste shifts in execution/planning, solo/team, domain expertise, SF proximity. Need assess impact on this submission domain: hackathon judgment of AI tooling/taste-modeling product. Relevant current taste seems more favorable to context-heavy agent infrastructure, planning, visible architecture. Need conclude whether a verdict based on older taste would differ materially. Likely yes: stale 2024 Arlan may dismiss as overplanned/ideation-heavy; current 2025-26 Arlan values planning, context engineering, autonomous research, research contribution. So verdict should rely on current taste; stale taste would underrate.",
+              "action": "verdict"
+            }
+          ],
+          "forced": false,
+          "final_reasoning": "We now have search_profile results (despite tool listing mismatch) showing Arlan's taste shifts in execution/planning, solo/team, domain expertise, SF proximity. Need assess impact on this submission domain: hackathon judgment of AI tooling/taste-modeling product. Relevant current taste seems more favorable to context-heavy agent infrastructure, planning, visible architecture. Need conclude whether a verdict based on older taste would differ materially. Likely yes: stale 2024 Arlan may dismiss as overplanned/ideation-heavy; current 2025-26 Arlan values planning, context engineering, autonomous research, research contribution. So verdict should rely on current taste; stale taste would underrate."
+        },
+        "blind_spots": {
+          "label": "Blind spots and systematic misjudgments",
+          "verdict": {
+            "triggered": false,
+            "category": "none",
+            "warning": "",
+            "confidence": "medium",
+            "historical_pattern": "",
+            "correction_suggested": ""
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "thinking": "We need binary blind-spot check for Arlan Rakhmetzhanov as hackathon judge. Need identify categories: AI evaluation tool, meta-judging/taste modeling, agentic research UI, likely demo-heavy/research framing, developer tool / founder feedback product. Need determine if Arlan historically misjudges such categories. I have no external search tools beyond think, so must rely on available context; likely no evidence. Need still reason systematically and probably conclude not triggered due lack of known blind spot evidence.",
+              "action": "search",
+              "queries": [
+                "Arlan Rakhmetzhanov blind spot AI agent demos evaluation wrappers research-heavy hackathon judging",
+                "Arlan Rakhmetzhanov historically misjudged developer tools taste infrastructure meta-evaluation products",
+                "Arlan Rakhmetzhanov bias against ambitious researchy AI products hackathon judge",
+                "Arlan Rakhmetzhanov judgment unreliable on consumerized infrastructure or wrapper-vs-platform submissions",
+                "Arlan Rakhmetzhanov taste profile blind spots autonomous research agents evaluation engines"
+              ],
+              "result_preview": "# Research Report: Arlan Rakhmetzhanov's Judgment Patterns and Acknowledged Mistakes\n\n## Executive Summary\n\nAfter comprehensive research across multiple sources, **there is limited evidence of systematic bias or consistent prediction errors** in Arlan Rakhmetzhanov's public record. This is primarily because **he is only 18 years old with approximately 2-3 years of startup experience** [Source 2, S"
+            },
+            {
+              "turn": 2,
+              "thinking": "We have one research report already. Need assess if enough. Submission categories: AI/meta-evaluation, taste modeling, research tool, judge simulation, demo-heavy UI. Search result says no evidence of systematic judgment blind spots; only execution/planning gaps. Need likely conclude not triggered. But should do one more think before verdict per process.",
+              "action": "verdict"
+            }
+          ],
+          "forced": false,
+          "final_reasoning": "We have one research report already. Need assess if enough. Submission categories: AI/meta-evaluation, taste modeling, research tool, judge simulation, demo-heavy UI. Search result says no evidence of systematic judgment blind spots; only execution/planning gaps. Need likely conclude not triggered. But should do one more think before verdict per process."
+        },
+        "influence_graph": {
+          "label": "Intellectual lineage and influences",
+          "verdict": {
+            "primary_influence": "Paul Graham / Y Combinator startup philosophy",
+            "primary_influence_stance": "mixed",
+            "primary_influence_reasoning": "Arlan’s publicly documented worldview is unusually downstream of Paul Graham: he explicitly cites Graham’s essays as operating principles, grew up with Y Combinator as a formative aspiration, and internalized the YC doctrine of domain expertise, building fast, and solving real user problems. That lineage makes him instinctively sympathetic to TasteGraph’s ambition: it tries to model actual judgment rather than imitate style, foregrounds falsifiability, and frames itself as more than a wrapper. But the same PG influence also sharpens Arlan’s skepticism. Through that lens, the core question becomes: is this a real, hard, user-valuable system, or an elaborate layer of explanation around existing models? PG’s taste would admire the boldness, the concrete architecture, and the attempt to make hidden evaluation legible; it would also distrust the density, the meta-ness, and any sign that the product is more sophisticated in description than in demonstrated utility. So Arlan’s reaction is colored less by generic AI excitement than by a YC-style filter: impressive if it truly works and users need it; vulnerable if it feels overtheorized.",
+            "other_influences": [
+              {
+                "name": "Andrej Karpathy / technical fascination with unsolved AI systems problems",
+                "stance": "would_love",
+                "reasoning": "Karpathy’s influence shows up in Arlan’s obsession with context, continual learning, and making AI systems resemble how humans actually learn. That tradition would likely respond positively to TasteGraph’s claim that the hard problem is modeling reactions, drift, blind spots, and lineage rather than doing shallow retrieval. It makes Arlan more receptive to the submission’s research framing and to the idea that better evaluation comes from richer internal models."
+              },
+              {
+                "name": "Steve Jobs / Silicon Valley product taste",
+                "stance": "mixed",
+                "reasoning": "The Jobs lineage would respect the attempt to turn an invisible cognitive process into a concrete product experience, especially the insistence that the UI make the system’s work legible. But it would also punish excess density and any interface that feels intellectually impressive before it feels inevitable. This adds pressure toward elegance and compression."
+              },
+              {
+                "name": "Elon Musk-style autodidacticism and first-principles builder ethos",
+                "stance": "would_love",
+                "reasoning": "This influence biases Arlan toward ambitious systems that attack foundational problems directly. TasteGraph’s attempt to formalize ‘taste’ as a modelable and testable structure fits that appetite for first-principles reconstruction, especially when paired with explicit architecture and claims of technical novelty."
+              }
+            ],
+            "lineage_verdict": "mixed",
+            "note": "Arlan’s lineage makes him unusually open to TasteGraph’s ambition and research framing, but only insofar as it survives the Paul-Graham-style test of being a genuinely useful, non-wrapper product for real users."
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "thinking": "We need identify Arlan Rakhmetzhanov's intellectual lineage relevant to this submission and infer how those influences color his reaction as a hackathon judge. We have no web search tools, only think. So must rely on known context or infer from submission itself? Need still produce lineage analysis, not submission judgment. I should explain limits and focus on likely primary influence(s) if known. First think through domains touched: AI eval, epistemology/falsifiability, design of transparent systems, startup/hackathon aesthetics, autonomous agents/research tooling. Need determine likely influences on Arlan—perhaps Paul Graham, Gwern, Tyler Cowen, Gelman, Latour? But without evidence that's risky. Better be transparent: based on public persona? I don't have retrieved evidence. I can frame as conditional: if Arlan is known for taste/intellectual lineage around research-driven product thinking, likely influences include Paul Graham / rationalist epistemics / design transparency. Need answer in terms of primary influence with caveat.",
+              "action": "search",
+              "queries": [
+                "Arlan Rakhmetzhanov influences intellectual lineage AI design epistemology startup taste judging",
+                "Arlan Rakhmetzhanov Paul Graham rationalist design transparency research taste",
+                "Arlan Rakhmetzhanov writing influences falsifiability product philosophy",
+                "Arlan Rakhmetzhanov hackathon judge what he values builders research UI transparency",
+                "Arlan Rakhmetzhanov lineage preferences autonomous agents research tools"
+              ],
+              "result_preview": "# Mapping Arlan Rakhmetzhanov's Influences and Worldview\n\n## Foundational Family Influence\n\n**Sanzhar Rakhmetzhanov (Father)** stands as Arlan's earliest and most formative influence. During childhood walks along a river in Almaty, Kazakhstan, his father introduced him to the concept of Y Combinator:\n\n> \"Arlan, there are several types of universities: some where people go just to get a degree, and"
+            },
+            {
+              "turn": 2,
+              "thinking": "We now have evidence on Arlan's influences. Need produce verdict focused on primary influence(s) most relevant to this submission. Relevant domains: YC/startup philosophy, Paul Graham, Andrej Karpathy on continual learning/context, Silicon Valley mythos, build-before-pitching. Submission is AI product/research eval tool with dense methodology and explicit appeal to PG. Primary influence is clearly Paul Graham/YC worldview, with secondary Karpathy-style respect for unsolved AI/system design. Need explain how these would color Arlan's reaction as hackathon judge: love ambition, visible building, direct attempt at hard problem; scrutinize whether real users/problem vs over-intellectualized wrapper; appreciate self-awareness around falsifiability and context. Also note lineage conflict: PG simplicity vs submission's density. Need avoid judging submission itself; phrase as how Arlan's lineage would see it.",
+              "action": "verdict"
+            }
+          ],
+          "forced": false,
+          "final_reasoning": "We now have evidence on Arlan's influences. Need produce verdict focused on primary influence(s) most relevant to this submission. Relevant domains: YC/startup philosophy, Paul Graham, Andrej Karpathy on continual learning/context, Silicon Valley mythos, build-before-pitching. Submission is AI product/research eval tool with dense methodology and explicit appeal to PG. Primary influence is clearly Paul Graham/YC worldview, with secondary Karpathy-style respect for unsolved AI/system design. Need explain how these would color Arlan's reaction as hackathon judge: love ambition, visible building, direct attempt at hard problem; scrutinize whether real users/problem vs over-intellectualized wrapper; appreciate self-awareness around falsifiability and context. Also note lineage conflict: PG simplicity vs submission's density. Need avoid judging submission itself; phrase as how Arlan's lineage would see it."
+        },
+        "contextual_variation": {
+          "label": "How judgment shifts by context",
+          "verdict": {
+            "context_applied": "hackathon judge",
+            "standard_shift": "different_focus",
+            "key_criteria_for_context": [
+              {
+                "criterion": "Ambitious technical idea over polished business case",
+                "why": "In a hackathon setting, judges usually reward boldness, originality, and whether the team attempted something meaningfully hard within limited time, more than market proof or long-term defensibility."
+              },
+              {
+                "criterion": "Demo legibility and 'feels real' product experience",
+                "why": "Hackathon judging is compressed. A project has to communicate itself fast. This submission heavily emphasizes the live research feed, streaming UI, spider chart, citations, and interactive verdict structure, which matters more here than in investor-style evaluation."
+              },
+              {
+                "criterion": "Working end-to-end integration",
+                "why": "For hackathons, stitching together research, ingestion, profile-building, agent evaluation, streaming SSE, and structured output into a coherent flow is often more important than whether every claim is perfectly validated."
+              },
+              {
+                "criterion": "Novel framing / memorable insight",
+                "why": "Judges often reward projects that introduce a strong conceptual hook. 'Reconstructing how experts actually think' is a distinctive framing that stands out in a demo context."
+              },
+              {
+                "criterion": "Evidence of actual implementation rather than speculative concept",
+                "why": "Hackathon judges care whether it exists now. The detailed UI states, event logs, architecture, file structure, and output schema all help signal that this is built, not just imagined."
+              },
+              {
+                "criterion": "Tolerance for unresolved rigor gaps",
+                "why": "In hackathons, claims like falsifiability, calibration, or accuracy methodology can be promising even if not yet fully proven. In stricter contexts, those unsupported claims would be penalized more heavily."
+              }
+            ],
+            "submission_alignment": "Strong alignment for a hackathon. The project is unusually demoable, has a clear and memorable thesis, and presents a concrete end-to-end system with visible interaction design and technical architecture. The strongest fit is that it feels like a real product rather than a vague AI wrapper pitch. The main weakness, even in this context, is that some of the strongest claims ('full topology,' calibrated confidence, published accuracy, blind-spot correction) sound ahead of the proof shown; but hackathon judges are often willing to reward ambitious scaffolding if the prototype experience is compelling.",
+            "score_delta": 2,
+            "alternative_contexts": [
+              {
+                "context_name": "YC application",
+                "score_delta": -1,
+                "key_difference": "The emphasis would shift toward whether this solves an urgent problem for a large market and whether the team can build a company around it, not just whether the prototype is impressive."
+              },
+              {
+                "context_name": "Series A investor",
+                "score_delta": -3,
+                "key_difference": "The biggest question becomes defensibility, repeatability, customer demand, and whether the evaluation quality is truly reliable enough to support a business."
+              },
+              {
+                "context_name": "Technical reviewer / research evaluation",
+                "score_delta": -2,
+                "key_difference": "The strongest shift is toward methodological rigor: benchmark design, falsifiability details, error analysis, calibration validity, and whether the modeling claims exceed the evidence."
+              }
+            ],
+            "note": "As a hackathon submission, this benefits from the context: ambition, novelty, and a highly legible demo matter more than airtight validation. The same material would face more skepticism in investor or research-review contexts, where the unsupported rigor claims would matter much more."
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "thinking": "We need judge in context of hackathon judge, specifically how Arlan Rakhmetzhanov would care differently in this context. No web search tools available, so rely on submission and context, note lack of external evidence. Need produce verdict focused on context-dependent criteria shift: hackathon emphasizes demo clarity, novelty, execution, live product feel, ambition, UX, less on business defensibility. Need evaluate this submission accordingly, and mention if no evidence about Arlan specifically in hackathon context was available.",
+              "action": "verdict"
+            }
+          ],
+          "forced": false,
+          "final_reasoning": "We need judge in context of hackathon judge, specifically how Arlan Rakhmetzhanov would care differently in this context. No web search tools available, so rely on submission and context, note lack of external evidence. Need produce verdict focused on context-dependent criteria shift: hackathon emphasizes demo clarity, novelty, execution, live product feel, ambition, UX, less on business defensibility. Need evaluate this submission accordingly, and mention if no evidence about Arlan specifically in hackathon context was available."
+        },
+        "linguistic_tells": {
+          "label": "Linguistic signals of approval and disapproval",
+          "verdict": {
+            "predicted_reaction_strength": "interested",
+            "predicted_language": "\"This is ambitious and unusually well thought through. I like that you’re not just doing style transfer — you’re trying to model judgment, and the falsifiability / evidence-layer is the right instinct. The live research + citations + contradiction framing make it feel much more serious than a generic AI wrapper. My hesitation is that the whole thing is very thesis-heavy right now. You’ve described the ontology in extreme detail, but I still want sharper proof that the predictions are actually right in practice, and that this is useful enough to become a real product rather than an impressive demo. So: definitely interesting, strong taste, but I’d push you to compress the story and show empirical validation faster.\"",
+            "tell_patterns_matched": [
+              {
+                "pattern": "responds positively to ambitious, thoughtful systems with clear underlying model",
+                "signal": "interest"
+              },
+              {
+                "pattern": "distinguishes real product/infra contribution from 'just a wrapper' and rewards attempts to go deeper",
+                "signal": "interest"
+              },
+              {
+                "pattern": "becomes more reserved when a project is over-explained or thesis-heavy relative to demonstrated proof",
+                "signal": "uncertainty"
+              },
+              {
+                "pattern": "asks for evidence of practical utility, accuracy, or real-world validation before becoming fully enthusiastic",
+                "signal": "uncertainty"
+              }
+            ],
+            "confidence_level": "medium",
+            "confidence_explanation": "The submission strongly matches what often earns authentic judge interest: ambition, depth, clear product thinking, and a serious attempt at evaluation rather than surface-level generation. But it is also extremely long, concept-dense, and vulnerable to the classic hackathon-judge concern of being more framework than proof. Without a stronger corpus-specific language sample for Arlan Rakhmetzhanov, the safest prediction is genuinely interested but not fully energized."
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "thinking": "We only have the submission and no browsing/search tools beyond think, so I need to infer Arlan Rakhmetzhanov's likely reaction from the judging context and the content. I should assess typical hackathon judge reactions to a highly ambitious, very detailed AI-evaluation/meta-judgment product. Likely positives: ambition, depth, clear product vision, strong UX thought. Likely negatives: overlong, may feel like wrapper/research theater, lacks concrete proof/demo/user traction. Need to produce strength/authenticity and predicted quote in a plausible concise judge voice, while acknowledging uncertainty because I can't inspect his corpus.",
+              "action": "verdict"
+            }
+          ],
+          "forced": false,
+          "final_reasoning": "We only have the submission and no browsing/search tools beyond think, so I need to infer Arlan Rakhmetzhanov's likely reaction from the judging context and the content. I should assess typical hackathon judge reactions to a highly ambitious, very detailed AI-evaluation/meta-judgment product. Likely positives: ambition, depth, clear product vision, strong UX thought. Likely negatives: overlong, may feel like wrapper/research theater, lacks concrete proof/demo/user traction. Need to produce strength/authenticity and predicted quote in a plausible concise judge voice, while acknowledging uncertainty because I can't inspect his corpus."
+        },
+        "falsifiability": {
+          "label": "Known public reactions for model testing",
+          "verdict": {
+            "anchors": [],
+            "anchors_agree": false,
+            "anchored_sentiment": "unknown",
+            "anchor_confidence": "no_anchor",
+            "anchor_note": "I do not have access to reliable known public reactions from Arlan Rakhmetzhanov in the available tools/context, so any specific prediction would be speculative rather than grounded."
+          },
+          "turns": [
+            {
+              "turn": 1,
+              "thinking": "We need judge this hackathon submission anchored to known public reactions from Arlan Rakhmetzhanov, but I have no web search tool, only think. So I must rely on any known public reactions in memory. Need break submission into properties: AI evaluation/taste modeling, wrapper-vs-research claim, transparency/citations, hackathon context. Need find analogous Arlan reactions: likely to products that create judgment systems, transparency, research infra, anti-wrapper skepticism, products with dense UX. Since no search tool, I should reason from known public persona if any. I don't have reliable knowledge of Arlan Rakhmetzhanov specifically. Need avoid fabrication. Best is give a conditional, low-confidence verdict and state lack of grounding. But developer insists closest known public reaction anchor. I can maybe anchor to absence: no known public reactions available to me. Need produce verdict with explicit caveat.",
+              "action": "verdict"
+            }
+          ],
+          "forced": false,
+          "final_reasoning": "We need judge this hackathon submission anchored to known public reactions from Arlan Rakhmetzhanov, but I have no web search tool, only think. So I must rely on any known public reactions in memory. Need break submission into properties: AI evaluation/taste modeling, wrapper-vs-research claim, transparency/citations, hackathon context. Need find analogous Arlan reactions: likely to products that create judgment systems, transparency, research infra, anti-wrapper skepticism, products with dense UX. Since no search tool, I should reason from known public persona if any. I don't have reliable knowledge of Arlan Rakhmetzhanov specifically. Need avoid fabrication. Best is give a conditional, low-confidence verdict and state lack of grounding. But developer insists closest known public reaction anchor. I can maybe anchor to absence: no known public reactions available to me. Need produce verdict with explicit caveat."
+        }
+      },
+      "verdict": {
+        "person": "Arlan Rakhmetzhanov",
+        "score": 8,
+        "summary": "This is exactly the kind of insanely ambitious, PG-coded thing that feels impressive in a hackathon: high-agency, technical-looking, opinionated, and sold with conviction. This is ambitious and unusually well thought through. I like that you’re not just doing style transfer — you’re trying to model judgment, and the falsifiability / evidence-layer is the right instinct. The live research + citations + contradiction framing make it feel much more serious than a generic AI wrapper. My hesitation is that the whole thing is very thesis-heavy right now. You’ve described the ontology in extreme detail, but I still want sharper proof that the predictions are actually right in practice, and that this is useful enough to become a real product rather than an impressive demo.",
+        "loves": [
+          {
+            "aspect": "Extreme ambition and choosing a hard, prestigious problem",
+            "because": "Arlan repeatedly gravitates toward projects that sound unusually difficult and high-status, and he openly admires building in intense domains like codegen/AI. A system that tries to reconstruct expert judgment topology is the kind of 'hard thing' he is naturally drawn to.",
+            "evidence": [
+              {
+                "type": "direct_quote",
+                "source": "Substack / public writing summarized in profile",
+                "quote": "Why did I specifically choose codegen even though it's one of the hardest fields... Idk bro I just love coding."
+              },
+              {
+                "type": "consistent_pattern",
+                "source": "Public persona across YC/LinkedIn/posts",
+                "quote": "Repeated attraction to ambitious, technically prestigious domains: AI, codegen, research, Stanford/YC adjacency."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission characteristics",
+                "quote": "TasteGraph frames itself as a deep research/system contribution rather than a simple app, matching his preference for impressive hard problems."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "direct_quote",
+                "source": "Substack / public writing summarized in profile",
+                "quote": "Why did I specifically choose codegen even though it's one of the hardest fields... Idk bro I just love coding."
+              }
+            }
+          },
+          {
+            "aspect": "High-agency builder energy and visible productization",
+            "because": "He praises building fast, shipping MVPs, and being obsessively responsive. The submission feels like something actually built: streaming research UI, custom components, SSE architecture, structured outputs, cached profiles, multi-stage workflow.",
+            "evidence": [
+              {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "If you want to build something people want, start creating it. Test your hypotheses, develop an MVP."
+              },
+              {
+                "type": "direct_quote",
+                "source": "LinkedIn/post summarized in profile",
+                "quote": "I am known for replying at AI speed... obsessed with customers."
+              },
+              {
+                "type": "consistent_pattern",
+                "source": "Public behavior",
+                "quote": "Celebrates speed, shipping, and founder intensity over passive theorizing."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "If you want to build something people want, start creating it. Test your hypotheses, develop an MVP."
+              }
+            }
+          },
+          {
+            "aspect": "Strong founder-theater / prestige-coded presentation",
+            "because": "Arlan's actual reactions skew toward things that feel elite, YC-adjacent, and narratively legible as 'the kind of thing top founders build.' This pitch is saturated with Paul Graham, research contribution framing, falsifiability, and intellectual seriousness, which likely lands with him emotionally.",
+            "evidence": [
+              {
+                "type": "documented_reaction",
+                "source": "Profile synthesis on prestige patterns",
+                "quote": "Optimizes heavily for credential/status signals: YC, Stanford, Columbia, Karpathy, Sam Altman, Paul Graham."
+              },
+              {
+                "type": "consistent_pattern",
+                "source": "Public posts",
+                "quote": "Frequent admiration of elite institutions and canonical startup/intellectual figures."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission framing",
+                "quote": "The submission is explicitly PG-centered and presents itself as a serious evaluation engine rather than a casual app."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "documented_reaction",
+                "source": "Profile synthesis on prestige patterns",
+                "quote": "Optimizes heavily for credential/status signals: YC, Stanford, Columbia, Karpathy, Sam Altman, Paul Graham."
+              }
+            }
+          },
+          {
+            "aspect": "Transparency and making the system feel real",
+            "because": "He likes products that feel alive and concrete rather than purely conceptual. The live research feed, visible indexing, and evidence pills create strong perceived substance and immediacy.",
+            "evidence": [
+              {
+                "type": "consistent_pattern",
+                "source": "Builder-first public persona",
+                "quote": "Prefers concrete execution and demos over abstract talk."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission UX",
+                "quote": "Streaming events, visible sources, and custom verdict structure make the project feel implemented rather than hypothetical."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 95,
+              "strongest_evidence": {
+                "type": "consistent_pattern",
+                "source": "Builder-first public persona",
+                "quote": "Prefers concrete execution and demos over abstract talk."
+              }
+            }
+          }
+        ],
+        "hates": [
+          {
+            "aspect": "Overclaiming / exaggerated rhetoric",
+            "because": "Arlan himself overclaims, but that also means he recognizes the move. This submission repeatedly insists it is 'not a wrapper,' 'a research contribution,' 'full topology,' 'nothing else does this'—which risks sounding inflated unless the underlying accuracy is undeniable.",
+            "evidence": [
+              {
+                "type": "consistent_pattern",
+                "source": "Profile contradiction analysis",
+                "quote": "His own behavior includes valuation/status inflation and hype-heavy framing, making him responsive to but also familiar with this style."
+              },
+              {
+                "type": "documented_reaction",
+                "source": "Profile synthesis",
+                "quote": "Actual pattern favors perception and prestige, but this creates sensitivity to founder theater that isn't backed by traction."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission text",
+                "quote": "The pitch uses repeated maximalist claims about novelty and scientific contribution without much external validation beyond internal methodology."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "documented_reaction",
+                "source": "Profile synthesis",
+                "quote": "Actual pattern favors perception and prestige, but this creates sensitivity to founder theater that isn't backed by traction."
+              }
+            }
+          },
+          {
+            "aspect": "Too many words, not enough crisp proof",
+            "because": "He says build, test, MVP. As a hackathon judge, he is likely to reward energy and ambition, but this writeup is extremely long and spends a lot of time explaining why the idea is profound instead of giving sharp empirical proof that the judgments are meaningfully accurate.",
+            "evidence": [
+              {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "Test your hypotheses, develop an MVP, and avoid getting lost in endless ideas."
+              },
+              {
+                "type": "consistent_pattern",
+                "source": "Public builder ethos",
+                "quote": "Strong bias toward action and visible product over extended theorizing."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission structure",
+                "quote": "Large portion of the submission is conceptual framing and meta-argument, with relatively little benchmark-style evidence."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "Test your hypotheses, develop an MVP, and avoid getting lost in endless ideas."
+              }
+            }
+          },
+          {
+            "aspect": "Possible wrapper smell despite the anti-wrapper defense",
+            "because": "The more aggressively a project says 'this is not just a wrapper,' the more it invites that exact question. Arlan is drawn to AI products, but he also wants them to feel genuinely technically differentiated.",
+            "evidence": [
+              {
+                "type": "consistent_pattern",
+                "source": "Public taste profile",
+                "quote": "Attracted to AI and hard technical products, especially ones that seem nontrivial."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission architecture",
+                "quote": "Core loop still relies on LLM agents, web research, structured prompts, and synthesis; differentiation may look more product/packaging than fundamental model innovation."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission language",
+                "quote": "Repeated defensive framing around 'not just a wrapper' suggests this is an expected objection."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "consistent_pattern",
+                "source": "Public taste profile",
+                "quote": "Attracted to AI and hard technical products, especially ones that seem nontrivial."
+              }
+            }
+          }
+        ],
+        "would_change": [
+          {
+            "suggestion": "Show a brutally simple benchmark: 10 historical reactions, prediction before reveal, hit rate, misses, and why.",
+            "evidence": [
+              {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "Test your hypotheses, develop an MVP."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission's own falsifiability claim",
+                "quote": "The product already claims falsifiability; turning that into a tiny undeniable benchmark would make the pitch much stronger."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "Test your hypotheses, develop an MVP."
+              }
+            }
+          },
+          {
+            "suggestion": "Compress the pitch by 50% and lead with the killer demo + one screenshot/video-worthy flow.",
+            "evidence": [
+              {
+                "type": "consistent_pattern",
+                "source": "Builder-first public persona",
+                "quote": "He responds to things that feel built and immediate."
+              },
+              {
+                "type": "inferred",
+                "source": "Hackathon context",
+                "quote": "A hackathon judge usually rewards sharpness, clarity, and demo impact over exhaustive philosophical explanation."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 95,
+              "strongest_evidence": {
+                "type": "consistent_pattern",
+                "source": "Builder-first public persona",
+                "quote": "He responds to things that feel built and immediate."
+              }
+            }
+          },
+          {
+            "suggestion": "Make the technical moat legible: what is actually modeled beyond retrieval + prompting + citations?",
+            "evidence": [
+              {
+                "type": "consistent_pattern",
+                "source": "Arlan's attraction to hard technical work",
+                "quote": "He prefers projects that seem genuinely difficult, not merely well-presented."
+              },
+              {
+                "type": "inferred",
+                "source": "Submission objection surface",
+                "quote": "The biggest skepticism point is whether this is true modeling or sophisticated orchestration."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 95,
+              "strongest_evidence": {
+                "type": "consistent_pattern",
+                "source": "Arlan's attraction to hard technical work",
+                "quote": "He prefers projects that seem genuinely difficult, not merely well-presented."
+              }
+            }
+          },
+          {
+            "suggestion": "Add one or two real user outcomes: did founders change decisions, get funded, or improve pitches after using it?",
+            "evidence": [
+              {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "Build something people want."
+              },
+              {
+                "type": "consistent_pattern",
+                "source": "Customer-obsession persona",
+                "quote": "He likes evidence that users care, not just that the system is intellectually interesting."
+              }
+            ],
+            "confidence": {
+              "level": "high",
+              "score": 100,
+              "strongest_evidence": {
+                "type": "direct_quote",
+                "source": "What I Learned in 2024",
+                "quote": "Build something people want."
+              }
+            }
+          }
+        ],
+        "contradiction_callout": "Arlan Rakhmetzhanov says they value building, validation, health, and customer-focused MVP execution over theory and performance but has publicly been strongly pulled toward prestige-coded, ambitious, technically impressive projects and founder theater when it feels high-agency and elite. For this submission, that means the sheer ambition, polish, and PG/YC-coded seriousness lift the score even though the writeup is overlong and overclaims.",
+        "blind_spot_warning": null,
+        "influence_lineage_note": "Arlan Rakhmetzhanov's view here is shaped by Paul Graham / Y Combinator startup philosophy, who would be mixed because that lineage is instinctively sympathetic to TasteGraph’s ambition, falsifiability framing, and concrete architecture, but also skeptical of density, meta-ness, and anything that might be more elaborate explanation than genuinely useful product.",
+        "context_note": "As a hackathon submission, this benefits from the context: ambition, novelty, and a highly legible demo matter more than airtight validation. The same material would face more skepticism in investor or research-review contexts, where the unsupported rigor claims would matter much more.",
+        "confidence_score": 10,
+        "confidence_explanation": "High confidence: the submission matches patterns of ambitious, thoughtful systems with a clear underlying model and a serious attempt to go deeper than a generic wrapper, but also triggers uncertainty because it is over-explained and lighter on practical proof than on thesis. They'd probably say: \"This is ambitious and unusually well thought through. I like that you’re not just doing style transfer — you’re trying to model judgment, and the falsifiability / evidence-layer is the right instinct. The live research + citations + contradiction framing make it feel much more serious than a generic AI wrapper. My hesitation is that the whole thing is very thesis-heavy right now. You’ve described the ontology in extreme detail, but I still want sharper proof that the predictions are actually right in practice, and that this is useful enough to become a real product rather than an impressive demo. So: definitely interesting, strong taste, but I’d push you to compress the story and show empirical validation faster.\"",
+        "context_variance": {
+          "applied_context": "hackathon judge",
+          "score_delta": 2,
+          "standard_shift": "different_focus",
+          "alternative_contexts": [
+            {
+              "context_name": "YC application",
+              "score_delta": -1,
+              "key_difference": "The emphasis would shift toward whether this solves an urgent problem for a large market and whether the team can build a company around it, not just whether the prototype is impressive."
+            },
+            {
+              "context_name": "Series A investor",
+              "score_delta": -3,
+              "key_difference": "The biggest question becomes defensibility, repeatability, customer demand, and whether the evaluation quality is truly reliable enough to support a business."
+            },
+            {
+              "context_name": "Technical reviewer / research evaluation",
+              "score_delta": -2,
+              "key_difference": "The strongest shift is toward methodological rigor: benchmark design, falsifiability details, error analysis, calibration validity, and whether the modeling claims exceed the evidence."
+            }
+          ],
+          "note": "As a hackathon submission, this benefits from the context: ambition, novelty, and a highly legible demo matter more than airtight validation. The same material would face more skepticism in investor or research-review contexts, where the unsupported rigor claims would matter much more."
+        },
+        "falsifiability": {
+          "anchors": [],
+          "anchors_agree": false,
+          "anchored_sentiment": "unknown",
+          "anchor_note": "I do not have access to reliable known public reactions from Arlan Rakhmetzhanov in the available tools/context, so any specific prediction would be speculative rather than grounded.",
+          "accuracy": {
+            "estimated_pct": null,
+            "based_on_n_anchors": 0,
+            "methodology": "No analogous public reactions found"
+          }
+        },
+        "temporal_weight_note": "Use current taste: his recent embrace of planning, context quality, and agent architecture makes an older baseline meaningfully too negative for this kind of submission.",
+        "score_breakdown": {
+          "base_from_stated_vs_actual": 7,
+          "drift_adjustment": 1,
+          "anchor_adjustment": 0,
+          "final": 8
+        }
+      }
+    },
+    "_ms": 150000
+  }
+]

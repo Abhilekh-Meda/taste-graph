@@ -2,9 +2,9 @@ import { useState, useCallback, useRef } from 'react';
 import InputStage from './components/InputStage.jsx';
 import ResearchStage from './components/ResearchStage.jsx';
 import VerdictStage from './components/VerdictStage.jsx';
-import { startJudge } from './api.js';
+import demoTimeline from '../../demo-data/demo-timeline.json';
 
-export default function App() {
+export default function DemoApp() {
   const [stage, setStage] = useState('input');
   const [person, setPerson] = useState('');
   const [events, setEvents] = useState([]);
@@ -12,7 +12,7 @@ export default function App() {
   const [phase, setPhase] = useState('profile');
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
-  const connectionRef = useRef(null);
+  const timersRef = useRef([]);
 
   const addFeedEvent = useCallback((label, message) => {
     setEvents((prev) => {
@@ -34,45 +34,35 @@ export default function App() {
         setPhase('profile');
         addFeedEvent('Profile', `Starting taste profile for ${event.data.person}`);
         break;
-
       case 'profile:cached':
         addFeedEvent('Profile', event.data.message);
         break;
-
       case 'profile:discovery':
         addFeedEvent('Discovery', event.data.message);
         break;
-
       case 'profile:discovery_done':
         addFeedEvent('Discovery', `Found ${event.data.sources_found} sources`);
         break;
-
       case 'profile:indexing':
         addFeedEvent('Indexing', `Indexing ${event.data.count} sources...`);
         break;
-
       case 'profile:source_indexing':
         addFeedEvent('Indexing', `[${event.data.index + 1}/${event.data.total}] ${event.data.url}`);
         break;
-
       case 'profile:source_indexed':
         addFeedEvent('Indexed', `[${event.data.indexed}/${event.data.total}] ${event.data.url}`);
         break;
-
       case 'profile:indexing_done':
         addFeedEvent('Indexing', `${event.data.indexed} indexed, ${event.data.failed} failed`);
         break;
-
       case 'profile:aspect_start':
         updateDimension(event.data.key, { status: 'active', message: `Starting ${event.data.label}...` });
         addFeedEvent(event.data.label, 'Starting...');
         break;
-
       case 'profile:aspect_progress':
         updateDimension(event.data.key, { status: 'active', message: event.data.message });
         addFeedEvent(null, event.data.message);
         break;
-
       case 'profile:aspect_done':
         updateDimension(event.data.key, {
           status: 'done',
@@ -81,57 +71,45 @@ export default function App() {
         });
         addFeedEvent(event.data.label, event.data.error ? `Error: ${event.data.error}` : 'Complete');
         break;
-
       case 'profile:saving':
         addFeedEvent('Profile', event.data.message);
         break;
-
       case 'profile:done':
         addFeedEvent('Profile', event.data.cached ? 'Using cached profile' : 'Taste profile complete');
         break;
-
       case 'verdict:ingesting':
         setPhase('verdict-agents');
         addFeedEvent('Ingest', `Processing ${event.data.item_count} item(s)...`);
         break;
-
       case 'verdict:ingest_item':
-        addFeedEvent('Ingest', `Reading item ${event.data.index + 1}/${event.data.total}: ${event.data.item}`);
+        addFeedEvent('Ingest', `Reading item ${event.data.index + 1}/${event.data.total}: ${(event.data.item ?? '').slice(0, 60)}`);
         break;
-
       case 'verdict:ingest_progress':
         addFeedEvent('Ingest', event.data.message);
         break;
-
       case 'verdict:ingested':
         addFeedEvent('Ingest', `${event.data.blocks} content blocks ready`);
         break;
-
       case 'verdict:agent_start':
         updateDimension(event.data.key, { status: 'active', message: `Judging: ${event.data.label}` });
         addFeedEvent(event.data.label, 'Analyzing submission...');
         break;
-
       case 'verdict:agent_think':
         updateDimension(event.data.key, { status: 'active', message: event.data.reasoning_preview });
         addFeedEvent(null, event.data.reasoning_preview);
         break;
-
       case 'verdict:agent_turn':
         updateDimension(event.data.key, {
           status: 'active',
           message: `Turn ${event.data.turn}/${event.data.max}: ${event.data.phase === 'thinking' ? 'Reasoning...' : 'Deciding action...'}`,
         });
         break;
-
       case 'verdict:agent_search':
         addFeedEvent('Search', event.data.queries.join(' | '));
         break;
-
       case 'verdict:agent_search_done':
         addFeedEvent('Search', `Retrieved ${event.data.chars} chars of evidence`);
         break;
-
       case 'verdict:agent_done':
         updateDimension(event.data.key, {
           status: 'done',
@@ -139,29 +117,23 @@ export default function App() {
           error: event.data.error,
         });
         break;
-
       case 'verdict:synthesizing':
         setPhase('synthesizing');
         addFeedEvent('Synthesis', 'Synthesizing final verdict...');
         break;
-
       case 'verdict:synthesis_progress':
         addFeedEvent('Synthesis', event.data.message);
         break;
-
       case 'verdict:done':
         addFeedEvent('Done', 'Verdict complete');
         break;
-
       case 'complete':
         setResult(event.data);
         setStage('verdict');
         break;
-
       case 'error':
         setError(event.data.message);
         break;
-
       default:
         if (event.data?.message) {
           addFeedEvent(null, event.data.message);
@@ -178,12 +150,18 @@ export default function App() {
     setResult(null);
     setError(null);
 
-    if (connectionRef.current) connectionRef.current.abort();
-    connectionRef.current = startJudge(input, handleEvent);
+    const playable = demoTimeline.filter(e => e.type !== 'demo:input' && e.type !== 'demo:submit');
+    const baseMs = playable[0]?._ms ?? 0;
+
+    for (const entry of playable) {
+      const t = setTimeout(() => handleEvent(entry), entry._ms - baseMs);
+      timersRef.current.push(t);
+    }
   }
 
   function handleReset() {
-    if (connectionRef.current) connectionRef.current.abort();
+    timersRef.current.forEach(clearTimeout);
+    timersRef.current = [];
     setStage('input');
     setPerson('');
     setEvents([]);
