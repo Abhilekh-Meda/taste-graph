@@ -1,205 +1,316 @@
-import { useState, useCallback, useRef } from 'react';
-import InputStage from './components/InputStage.jsx';
-import ResearchStage from './components/ResearchStage.jsx';
+import { useState, useEffect, useRef } from 'react';
+import SpiderChart, { DIMENSIONS } from './components/SpiderChart.jsx';
 import VerdictStage from './components/VerdictStage.jsx';
-import demoTimeline from '../../demo-data/demo-timeline.json';
+
+const FEED = [
+  ['Profile', 'Starting taste profile for Arlan Rakhmetzhanov'],
+  ['Discovery', "Searching for Arlan Rakhmetzhanov's public presence..."],
+  ['Discovery', 'web_search: Arlan Rakhmetzhanov founder startup essays interviews'],
+  ['Discovery', 'web_search: Arlan Rakhmetzhanov YC Nozomi AI startup'],
+  ['Discovery', 'Completed: web_search'],
+  ['Discovery', 'read_url: reading arlanrakh.com'],
+  ['Discovery', 'Completed: read_url'],
+  ['Discovery', 'web_search: Arlan Rakhmetzhanov substack writing philosophy'],
+  ['Discovery', 'Completed: web_search'],
+  ['Discovery', 'read_url: reading LinkedIn profile and posts'],
+  ['Discovery', 'Completed: read_url'],
+  ['Discovery', 'Found 12 sources'],
+  ['Indexing', 'Indexing 12 sources...'],
+  ['Indexing', '[1/12] https://www.arlanrakh.com/'],
+  ['Indexed', '[2/12] https://substack.com/@arlanrakhmetzhanov'],
+  ['Indexed', '[3/12] https://x.com/arlanr'],
+  ['Indexed', '[4/12] https://www.linkedin.com/in/arlan-rakhmetzhanov'],
+  ['Indexed', '[5/12] https://github.com/arlanrakh'],
+  ['Indexed', '[6/12] https://www.producthunt.com/@arlanrakh'],
+  ['Indexed', '[7/12] https://skillful.sh/authors/arlanrakh'],
+  ['Indexed', '[8/12] linkedin post — YC S25 acceptance'],
+  ['Indexed', '[9/12] linkedin post — high schooler running company'],
+  ['Indexed', '[10/12] https://www.youtube.com/watch?v=7hukPKD4Bhs'],
+  ['Indexed', '[11/12] https://www.youtube.com/watch?v=KBY0z6jSQsA'],
+  ['Indexed', '[12/12] substack essay'],
+  ['Indexing', '12 indexed, 0 failed'],
+  ['Stated values vs actual reactions', 'Starting...'],
+  ['Taste drift over time', 'Starting...'],
+  ['Blind spots', 'Starting...'],
+  ['Influences', 'Starting...'],
+  ['Context', 'Starting...'],
+  ['Tells', 'Starting...'],
+  ['Falsifiability', 'Starting...'],
+  [null, 'Extracting stated principles from essays and posts...'],
+  [null, 'web_search: Arlan stated values entrepreneurship first principles'],
+  [null, 'Completed: web_search'],
+  [null, 'Analyzing early vs recent public statements...'],
+  [null, 'Searching for documented misjudgments...'],
+  [null, 'read_url: analyzing LinkedIn engagement patterns'],
+  [null, 'Completed: read_url'],
+  [null, 'Mapping influence topology: PG, Karpathy, YC culture...'],
+  [null, 'Indexing excitement and disapproval signals...'],
+  [null, 'Cross-referencing against documented reactions...'],
+  [null, 'Building ground-truth dataset of known reactions...'],
+  [null, 'web_search: Arlan Rakhmetzhanov wrong predictions errors'],
+  [null, 'Completed: web_search'],
+  [null, 'Comparing hackathon praise patterns vs serious critique...'],
+  [null, 'Mapping approval markers: hustle language, agency emphasis...'],
+  [null, 'Computing estimated model accuracy...'],
+  ['Contextual variation', 'Complete'],
+  ['Blind spots', 'Complete'],
+  [null, 'Mapping gap between stated meritocracy and prestige signals...'],
+  [null, 'Tracing aesthetic lineage from Silicon Valley canon...'],
+  [null, 'Mapping disapproval markers: wrapper skepticism, low-agency signals...'],
+  ['Linguistic tells', 'Complete'],
+  ['Falsifiability', 'Complete'],
+  [null, 'Mapping temporal shifts in domain interest...'],
+  ['Taste drift over time', 'Complete'],
+  ['Stated values vs actual reactions', 'Complete'],
+  ['Influences', 'Complete'],
+  ['Profile', 'Saving taste profile to memory...'],
+  ['Profile', 'Taste profile complete'],
+  ['Ingest', 'Processing 1 item(s)...'],
+  ['Ingest', 'Reading text (36541 chars)'],
+  ['Ingest', '2 content blocks ready'],
+  ['Stated values vs actual reactions', 'Analyzing submission...'],
+  ['Taste drift over time', 'Analyzing submission...'],
+  ['Blind spots', 'Analyzing submission...'],
+  ['Influences', 'Analyzing submission...'],
+  ['Context', 'Analyzing submission...'],
+  ['Tells', 'Analyzing submission...'],
+  ['Falsifiability', 'Analyzing submission...'],
+  [null, 'We need judge how Arlan Rakhmetzhanov would react as hackathon judge...'],
+  [null, 'We need assess whether verdict on this submission would rely on current vs stale taste...'],
+  [null, 'We need binary blind-spot check for Arlan Rakhmetzhanov as hackathon judge...'],
+  ['Search', 'Arlan Rakhmetzhanov hackathon judge AI tools wrappers research demos transparency'],
+  ['Search', 'Retrieved 11936 chars of evidence'],
+  [null, 'We have search_profile output with substantial evidence about endorsement patterns...'],
+  ['Search', 'Arlan Rakhmetzhanov taste drift autonomous agents visible reasoning streaming UI'],
+  ['Search', 'Retrieved 8765 chars of evidence'],
+  [null, 'We now have evidence on influences. Primary: YC/startup philosophy, Paul Graham, Karpathy...'],
+  ['Search', 'Retrieved 9712 chars of evidence'],
+  ['Synthesis', 'Synthesizing final verdict...'],
+  ['Synthesis', 'Weighing 7 dimensions against the submission...'],
+  ['Synthesis', 'Score determined: 8/10 — assembling final verdict'],
+  ['Done', 'Verdict complete'],
+];
+
+const SKIP_MILESTONES = [11, 35, 72, 75, 91, FEED.length];
+
+const DIM_KEYS = ['stated_vs_actual','taste_drift','blind_spots','influence_graph','contextual_variation','linguistic_tells','falsifiability'];
+
+function getDimsAtTick(tick, total) {
+  const pct = tick / total;
+  if (pct < 0.35) return {};
+  if (pct < 0.45) {
+    const active = {};
+    DIM_KEYS.forEach(k => { active[k] = { status: 'active', message: 'Researching...' }; });
+    return active;
+  }
+  if (pct < 0.55) {
+    const d = {};
+    DIM_KEYS.forEach((k, i) => {
+      d[k] = i < 3 ? { status: 'done', value: 0.7 } : { status: 'active', message: 'Researching...' };
+    });
+    return d;
+  }
+  if (pct < 0.65) {
+    const d = {};
+    DIM_KEYS.forEach(k => { d[k] = { status: 'done', value: 0.7 }; });
+    return d;
+  }
+  if (pct < 0.85) {
+    const d = {};
+    DIM_KEYS.forEach(k => { d[k] = { status: 'active', message: 'Judging submission...' }; });
+    return d;
+  }
+  const d = {};
+  DIM_KEYS.forEach(k => { d[k] = { status: 'done', value: 0.85 }; });
+  return d;
+}
+
+function getPhaseAtTick(tick, total) {
+  const pct = tick / total;
+  if (pct < 0.65) return 'profile';
+  if (pct < 0.9) return 'verdict-agents';
+  return 'synthesizing';
+}
 
 export default function DemoApp() {
   const [stage, setStage] = useState('input');
-  const [person, setPerson] = useState('');
-  const [events, setEvents] = useState([]);
-  const [dimensions, setDimensions] = useState({});
-  const [phase, setPhase] = useState('profile');
-  const [result, setResult] = useState(null);
-  const [error, setError] = useState(null);
-  const timersRef = useRef([]);
+  const [tick, setTick] = useState(0);
+  const [verdict, setVerdict] = useState(null);
+  const feedRef = useRef(null);
+  const intervalRef = useRef(null);
 
-  const addFeedEvent = useCallback((label, message) => {
-    setEvents((prev) => {
-      const next = [...prev, { label, message, ts: Date.now() }];
-      return next.length > 200 ? next.slice(-200) : next;
-    });
-  }, []);
-
-  const updateDimension = useCallback((key, update) => {
-    setDimensions((prev) => ({
-      ...prev,
-      [key]: { ...(prev[key] ?? {}), ...update },
-    }));
-  }, []);
-
-  const handleEvent = useCallback((event) => {
-    switch (event.type) {
-      case 'profile:start':
-        setPhase('profile');
-        addFeedEvent('Profile', `Starting taste profile for ${event.data.person}`);
-        break;
-      case 'profile:cached':
-        addFeedEvent('Profile', event.data.message);
-        break;
-      case 'profile:discovery':
-        addFeedEvent('Discovery', event.data.message);
-        break;
-      case 'profile:discovery_done':
-        addFeedEvent('Discovery', `Found ${event.data.sources_found} sources`);
-        break;
-      case 'profile:indexing':
-        addFeedEvent('Indexing', `Indexing ${event.data.count} sources...`);
-        break;
-      case 'profile:source_indexing':
-        addFeedEvent('Indexing', `[${event.data.index + 1}/${event.data.total}] ${event.data.url}`);
-        break;
-      case 'profile:source_indexed':
-        addFeedEvent('Indexed', `[${event.data.indexed}/${event.data.total}] ${event.data.url}`);
-        break;
-      case 'profile:indexing_done':
-        addFeedEvent('Indexing', `${event.data.indexed} indexed, ${event.data.failed} failed`);
-        break;
-      case 'profile:aspect_start':
-        updateDimension(event.data.key, { status: 'active', message: `Starting ${event.data.label}...` });
-        addFeedEvent(event.data.label, 'Starting...');
-        break;
-      case 'profile:aspect_progress':
-        updateDimension(event.data.key, { status: 'active', message: event.data.message });
-        addFeedEvent(null, event.data.message);
-        break;
-      case 'profile:aspect_done':
-        updateDimension(event.data.key, {
-          status: 'done',
-          value: event.data.error ? 0.1 : 0.7,
-          error: event.data.error,
-        });
-        addFeedEvent(event.data.label, event.data.error ? `Error: ${event.data.error}` : 'Complete');
-        break;
-      case 'profile:saving':
-        addFeedEvent('Profile', event.data.message);
-        break;
-      case 'profile:done':
-        addFeedEvent('Profile', event.data.cached ? 'Using cached profile' : 'Taste profile complete');
-        break;
-      case 'verdict:ingesting':
-        setPhase('verdict-agents');
-        addFeedEvent('Ingest', `Processing ${event.data.item_count} item(s)...`);
-        break;
-      case 'verdict:ingest_item':
-        addFeedEvent('Ingest', `Reading item ${event.data.index + 1}/${event.data.total}: ${(event.data.item ?? '').slice(0, 60)}`);
-        break;
-      case 'verdict:ingest_progress':
-        addFeedEvent('Ingest', event.data.message);
-        break;
-      case 'verdict:ingested':
-        addFeedEvent('Ingest', `${event.data.blocks} content blocks ready`);
-        break;
-      case 'verdict:agent_start':
-        updateDimension(event.data.key, { status: 'active', message: `Judging: ${event.data.label}` });
-        addFeedEvent(event.data.label, 'Analyzing submission...');
-        break;
-      case 'verdict:agent_think':
-        updateDimension(event.data.key, { status: 'active', message: event.data.reasoning_preview });
-        addFeedEvent(null, event.data.reasoning_preview);
-        break;
-      case 'verdict:agent_turn':
-        updateDimension(event.data.key, {
-          status: 'active',
-          message: `Turn ${event.data.turn}/${event.data.max}: ${event.data.phase === 'thinking' ? 'Reasoning...' : 'Deciding action...'}`,
-        });
-        break;
-      case 'verdict:agent_search':
-        addFeedEvent('Search', event.data.queries.join(' | '));
-        break;
-      case 'verdict:agent_search_done':
-        addFeedEvent('Search', `Retrieved ${event.data.chars} chars of evidence`);
-        break;
-      case 'verdict:agent_done':
-        updateDimension(event.data.key, {
-          status: 'done',
-          value: event.data.error ? 0.1 : 0.85,
-          error: event.data.error,
-        });
-        break;
-      case 'verdict:synthesizing':
-        setPhase('synthesizing');
-        addFeedEvent('Synthesis', 'Synthesizing final verdict...');
-        break;
-      case 'verdict:synthesis_progress':
-        addFeedEvent('Synthesis', event.data.message);
-        break;
-      case 'verdict:done':
-        addFeedEvent('Done', 'Verdict complete');
-        break;
-      case 'complete':
-        setResult(event.data);
-        setStage('verdict');
-        break;
-      case 'error':
-        setError(event.data.message);
-        break;
-      default:
-        if (event.data?.message) {
-          addFeedEvent(null, event.data.message);
-        }
-    }
-  }, [addFeedEvent, updateDimension]);
-
-  function handleSubmit(input) {
+  function startDemo() {
     setStage('research');
-    setPerson(input.person);
-    setEvents([]);
-    setDimensions({});
-    setPhase('profile');
-    setResult(null);
-    setError(null);
+    setTick(0);
+    setVerdict(null);
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setTick(prev => prev + 1);
+    }, 1000);
+  }
 
-    const playable = demoTimeline.filter(e => e.type !== 'demo:input' && e.type !== 'demo:submit');
-    const baseMs = playable[0]?._ms ?? 0;
+  function skipToNext() {
+    const next = SKIP_MILESTONES.find((m) => m > tick) ?? FEED.length;
+    setTick(next);
+  }
 
-    for (const entry of playable) {
-      const t = setTimeout(() => handleEvent(entry), entry._ms - baseMs);
-      timersRef.current.push(t);
+  useEffect(() => {
+    if (tick >= FEED.length && stage === 'research') {
+      clearInterval(intervalRef.current);
+      fetch('/demo-data/result.json')
+        .then(r => r.json())
+        .then(data => {
+          setVerdict(data);
+          setStage('verdict');
+        })
+        .catch(() => {
+          import('../../demo-data/result.json').then(m => {
+            setVerdict(m.default);
+            setStage('verdict');
+          });
+        });
     }
-  }
+  }, [tick, stage]);
 
-  function handleReset() {
-    timersRef.current.forEach(clearTimeout);
-    timersRef.current = [];
-    setStage('input');
-    setPerson('');
-    setEvents([]);
-    setDimensions({});
-    setResult(null);
-    setError(null);
-  }
+  useEffect(() => {
+    if (feedRef.current) feedRef.current.scrollTop = feedRef.current.scrollHeight;
+  }, [tick]);
+
+  useEffect(() => {
+    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
+  }, []);
+
+  const visibleFeed = FEED.slice(0, tick);
+  const dims = getDimsAtTick(tick, FEED.length);
+  const phase = getPhaseAtTick(tick, FEED.length);
+  const activeDims = Object.values(dims).filter(d => d.status === 'active').length;
+  const doneDims = Object.values(dims).filter(d => d.status === 'done').length;
+
+  const elapsed = tick;
+  const m = Math.floor(elapsed / 60);
+  const s = elapsed % 60;
+  const elapsedStr = m > 0 ? `${m}m ${s}s` : `${s}s`;
+
+  const phaseLabel = phase === 'profile' ? 'Building taste profile'
+    : phase === 'verdict-agents' ? 'Judging submission'
+    : 'Synthesizing verdict';
+
+  const DIMENSION_LABELS = {
+    stated_vs_actual: 'Values vs Reality',
+    taste_drift: 'Taste Drift',
+    blind_spots: 'Blind Spots',
+    influence_graph: 'Influences',
+    contextual_variation: 'Context',
+    linguistic_tells: 'Tells',
+    falsifiability: 'Falsifiability',
+  };
+
+  const DIMENSION_DESCS = {
+    stated_vs_actual: 'Stated values vs actual reactions',
+    taste_drift: 'How taste has shifted over time',
+    blind_spots: 'Systematic misjudgments',
+    influence_graph: 'Intellectual lineage',
+    contextual_variation: 'Judgment shifts by context',
+    linguistic_tells: 'Signals of approval & disapproval',
+    falsifiability: 'Anchoring against known reactions',
+  };
 
   return (
     <div className="app">
       <div className="app-header">
         <h1 className="app-title">TasteGraph</h1>
-        <p className="app-subtitle">
-          Index any expert's taste, then judge anything through their eyes
-        </p>
+        <p className="app-subtitle">Index any expert's taste, then judge anything through their eyes</p>
       </div>
 
-      {error && (
-        <div className="error-banner">
-          {error}
-          <br />
-          <button onClick={handleReset}>Start over</button>
+      {stage === 'input' && (
+        <div className="input-stage">
+          <div className="input-field input-person">
+            <label>Whose taste?</label>
+            <input type="text" defaultValue="Arlan Rakhmetzhanov" readOnly />
+          </div>
+          <div className="input-field">
+            <label>Judging context</label>
+            <input type="text" defaultValue="hackathon judge" readOnly />
+          </div>
+          <div className="attachments-section">
+            <label>What to judge</label>
+            <div className="attachment-list">
+              <div className="attachment-card">
+                <span className="type-badge">text</span>
+                <span className="value">TasteGraph hackathon submission (36,541 chars)</span>
+              </div>
+            </div>
+          </div>
+          <button className="judge-btn" onClick={startDemo}>Judge</button>
         </div>
       )}
 
-      {stage === 'input' && <InputStage onSubmit={handleSubmit} />}
-
       {stage === 'research' && (
-        <ResearchStage
-          person={person}
-          events={events}
-          dimensions={dimensions}
-          phase={phase}
-        />
+        <div className="research-stage" style={{ animation: 'fadeIn 400ms ease' }}>
+          <div className="research-header">
+            <h2>Arlan Rakhmetzhanov</h2>
+            <p>Reconstructing taste topology</p>
+          </div>
+          <div className="research-phase-label">
+            {phaseLabel}
+            <span className="elapsed-time">{elapsedStr}</span>
+          </div>
+          {(activeDims > 0 || doneDims > 0) && (
+            <div className="dimension-progress-summary">
+              {doneDims}/{DIMENSIONS.length} dimensions complete
+              {activeDims > 0 && ` · ${activeDims} active`}
+            </div>
+          )}
+          <SpiderChart dimensions={dims} />
+          <div className="dimension-grid">
+            {DIM_KEYS.map(key => {
+              const state = dims[key] ?? { status: 'waiting' };
+              return (
+                <div className={`dimension-card ${state.status}`} key={key}>
+                  <div className="dimension-card-header">
+                    <div className={`dimension-status ${state.status}`} />
+                    <span>{DIMENSION_LABELS[key]}</span>
+                  </div>
+                  <p>
+                    {state.status === 'active' ? (state.message || 'Working...')
+                      : state.status === 'done' ? 'Complete'
+                      : DIMENSION_DESCS[key]}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+          <div className="live-feed" ref={feedRef}>
+            {visibleFeed.map(([label, message], i) => (
+              <div className="feed-item" key={i}>
+                {label && <span className="feed-label">{label} </span>}
+                {message}
+              </div>
+            ))}
+          </div>
+          {tick < FEED.length && (
+            <button
+              type="button"
+              onClick={skipToNext}
+              style={{
+                display: 'block',
+                margin: '16px auto 0',
+                fontSize: '0.72rem',
+                color: 'var(--text-tertiary)',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                letterSpacing: '0.04em',
+              }}
+            >
+              skip to next →
+            </button>
+          )}
+        </div>
       )}
 
-      {stage === 'verdict' && result && (
-        <VerdictStage result={result} onReset={handleReset} />
+      {stage === 'verdict' && verdict && (
+        <VerdictStage result={verdict} onReset={() => { setStage('input'); setTick(0); setVerdict(null); }} />
       )}
     </div>
   );

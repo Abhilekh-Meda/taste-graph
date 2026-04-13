@@ -1,156 +1,136 @@
 [
   {
-    "type": "demo:input",
-    "data": {
-      "person": "Arlan Rakhmetzhanov",
-      "context": "hackathon judge",
-      "item": "test_submission.txt"
-    },
-    "_ms": 0
-  },
-  {
-    "type": "demo:submit",
-    "_ms": 3000
-  },
-  {
     "type": "profile:start",
     "data": {
       "person": "Arlan Rakhmetzhanov"
     },
-    "_ms": 3500
+    "_ms": 300
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "Searching for Arlan Rakhmetzhanov's public presence..."
     },
-    "_ms": 4300
-  },
-  {
-    "type": "profile:discovery",
-    "data": {
-      "message": "Searching for Arlan Rakhmetzhanov's public presence..."
-    },
-    "_ms": 5275
+    "_ms": 800
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "Deep-searching blogs, interviews, essays, tweets..."
     },
-    "_ms": 6492
+    "_ms": 1367
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "web_search: Arlan Rakhmetzhanov founder startup essays interviews"
     },
-    "_ms": 7456
+    "_ms": 1933
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "web_search: Arlan Rakhmetzhanov YC Nozomi AI startup"
     },
-    "_ms": 8493
+    "_ms": 2500
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "Completed: web_search"
     },
-    "_ms": 9860
+    "_ms": 3067
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "read_url: reading arlanrakh.com"
     },
-    "_ms": 10975
+    "_ms": 3633
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "Completed: read_url"
     },
-    "_ms": 12439
+    "_ms": 4200
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "web_search: Arlan Rakhmetzhanov substack writing philosophy"
     },
-    "_ms": 13738
+    "_ms": 4767
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "Completed: web_search"
     },
-    "_ms": 14961
+    "_ms": 5333
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "read_url: reading LinkedIn profile and posts"
     },
-    "_ms": 16188
+    "_ms": 5900
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "Completed: read_url"
     },
-    "_ms": 17355
+    "_ms": 6467
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "web_search: Arlan Rakhmetzhanov opinions AI tools codegen taste"
     },
-    "_ms": 18334
+    "_ms": 7033
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "Completed: web_search"
     },
-    "_ms": 19498
+    "_ms": 7600
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "read_url: reading YouTube interview transcript"
     },
-    "_ms": 20542
+    "_ms": 8167
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "Completed: read_url"
     },
-    "_ms": 21986
+    "_ms": 8733
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "web_search: Arlan Rakhmetzhanov hackathon judging preferences"
     },
-    "_ms": 23120
+    "_ms": 9300
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "Completed: web_search"
     },
-    "_ms": 24152
+    "_ms": 9867
   },
   {
     "type": "profile:discovery",
     "data": {
       "message": "Compiling discovery report..."
     },
-    "_ms": 25122
+    "_ms": 10433
   },
   {
     "type": "profile:discovery_done",
@@ -158,14 +138,14 @@
       "sources_found": 12,
       "comparison": null
     },
-    "_ms": 26622
+    "_ms": 11500
   },
   {
     "type": "profile:indexing",
     "data": {
       "count": 12
     },
-    "_ms": 27422
+    "_ms": 12000
   },
   {
     "type": "profile:source_indexing",
@@ -175,7 +155,7 @@
       "index": 0,
       "total": 12
     },
-    "_ms": 27772
+    "_ms": 12500
   },
   {
     "type": "profile:source_indexed",
@@ -185,7 +165,7 @@
       "indexed": 1,
       "total": 12
     },
-    "_ms": 28395
+    "_ms": 12900
   },
   {
     "type": "profile:source_indexing",
@@ -195,7 +175,7 @@
       "index": 1,
       "total": 12
     },
-    "_ms": 28745
+    "_ms": 13250
   },
   {
     "type": "profile:source_indexed",
@@ -205,7 +185,7 @@
       "indexed": 2,
       "total": 12
     },
-    "_ms": 29642
+    "_ms": 13650
   },
   {
     "type": "profile:source_indexing",
@@ -215,7 +195,7 @@
       "index": 2,
       "total": 12
     },
-    "_ms": 29992
+    "_ms": 14000
   },
   {
     "type": "profile:source_indexed",
@@ -225,7 +205,7 @@
       "indexed": 3,
       "total": 12
     },
-    "_ms": 30743
+    "_ms": 14400
   },
   {
     "type": "profile:source_indexing",
@@ -235,7 +215,7 @@
       "index": 3,
       "total": 12
     },
-    "_ms": 31093
+    "_ms": 14750
   },
   {
     "type": "profile:source_indexed",
@@ -245,7 +225,7 @@
       "indexed": 4,
       "total": 12
     },
-    "_ms": 31858
+    "_ms": 15150
   },
   {
     "type": "profile:source_indexing",
@@ -255,7 +235,7 @@
       "index": 4,
       "total": 12
     },
-    "_ms": 32208
+    "_ms": 15500
   },
   {
     "type": "profile:source_indexed",
@@ -265,7 +245,7 @@
       "indexed": 5,
       "total": 12
     },
-    "_ms": 33194
+    "_ms": 15900
   },
   {
     "type": "profile:source_indexing",
@@ -275,7 +255,7 @@
       "index": 5,
       "total": 12
     },
-    "_ms": 33544
+    "_ms": 16250
   },
   {
     "type": "profile:source_indexed",
@@ -285,7 +265,7 @@
       "indexed": 6,
       "total": 12
     },
-    "_ms": 34231
+    "_ms": 16650
   },
   {
     "type": "profile:source_indexing",
@@ -295,7 +275,7 @@
       "index": 6,
       "total": 12
     },
-    "_ms": 34581
+    "_ms": 17000
   },
   {
     "type": "profile:source_indexed",
@@ -305,7 +285,7 @@
       "indexed": 7,
       "total": 12
     },
-    "_ms": 35319
+    "_ms": 17400
   },
   {
     "type": "profile:source_indexing",
@@ -315,7 +295,7 @@
       "index": 7,
       "total": 12
     },
-    "_ms": 35669
+    "_ms": 17750
   },
   {
     "type": "profile:source_indexed",
@@ -325,7 +305,7 @@
       "indexed": 8,
       "total": 12
     },
-    "_ms": 36599
+    "_ms": 18150
   },
   {
     "type": "profile:source_indexing",
@@ -335,7 +315,7 @@
       "index": 8,
       "total": 12
     },
-    "_ms": 36949
+    "_ms": 18500
   },
   {
     "type": "profile:source_indexed",
@@ -345,7 +325,7 @@
       "indexed": 9,
       "total": 12
     },
-    "_ms": 37703
+    "_ms": 18900
   },
   {
     "type": "profile:source_indexing",
@@ -355,7 +335,7 @@
       "index": 9,
       "total": 12
     },
-    "_ms": 38053
+    "_ms": 19250
   },
   {
     "type": "profile:source_indexed",
@@ -365,7 +345,7 @@
       "indexed": 10,
       "total": 12
     },
-    "_ms": 38818
+    "_ms": 19650
   },
   {
     "type": "profile:source_indexing",
@@ -375,7 +355,7 @@
       "index": 10,
       "total": 12
     },
-    "_ms": 39168
+    "_ms": 20000
   },
   {
     "type": "profile:source_indexed",
@@ -385,7 +365,7 @@
       "indexed": 11,
       "total": 12
     },
-    "_ms": 40162
+    "_ms": 20400
   },
   {
     "type": "profile:source_indexing",
@@ -395,7 +375,7 @@
       "index": 11,
       "total": 12
     },
-    "_ms": 40512
+    "_ms": 20750
   },
   {
     "type": "profile:source_indexed",
@@ -405,7 +385,7 @@
       "indexed": 12,
       "total": 12
     },
-    "_ms": 41474
+    "_ms": 21150
   },
   {
     "type": "profile:indexing_done",
@@ -413,7 +393,7 @@
       "indexed": 12,
       "failed": 0
     },
-    "_ms": 41974
+    "_ms": 22000
   },
   {
     "type": "profile:aspect_start",
@@ -421,7 +401,7 @@
       "key": "stated_vs_actual",
       "label": "Stated values vs actual reactions"
     },
-    "_ms": 42024
+    "_ms": 22500
   },
   {
     "type": "profile:aspect_start",
@@ -429,7 +409,7 @@
       "key": "taste_drift",
       "label": "Taste drift over time"
     },
-    "_ms": 42074
+    "_ms": 22500
   },
   {
     "type": "profile:aspect_start",
@@ -437,7 +417,7 @@
       "key": "blind_spots",
       "label": "Blind spots and systematic misjudgments"
     },
-    "_ms": 42124
+    "_ms": 22500
   },
   {
     "type": "profile:aspect_start",
@@ -445,7 +425,7 @@
       "key": "influence_graph",
       "label": "Intellectual lineage and influences"
     },
-    "_ms": 42174
+    "_ms": 22500
   },
   {
     "type": "profile:aspect_start",
@@ -453,7 +433,7 @@
       "key": "contextual_variation",
       "label": "How judgment shifts by context"
     },
-    "_ms": 42224
+    "_ms": 22500
   },
   {
     "type": "profile:aspect_start",
@@ -461,7 +441,7 @@
       "key": "linguistic_tells",
       "label": "Linguistic signals of approval and disapproval"
     },
-    "_ms": 42274
+    "_ms": 22500
   },
   {
     "type": "profile:aspect_start",
@@ -469,47 +449,7 @@
       "key": "falsifiability",
       "label": "Known public reactions for model testing"
     },
-    "_ms": 42324
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "contextual_variation",
-      "message": "Analyzing how judgment shifts by stakes..."
-    },
-    "_ms": 43141
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "blind_spots",
-      "message": "Searching for documented misjudgments..."
-    },
-    "_ms": 43809
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "linguistic_tells",
-      "message": "Indexing excitement and disapproval signals..."
-    },
-    "_ms": 44415
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "taste_drift",
-      "message": "Analyzing early vs recent public statements..."
-    },
-    "_ms": 45176
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "falsifiability",
-      "message": "Building ground-truth dataset of known reactions..."
-    },
-    "_ms": 45801
+    "_ms": 22500
   },
   {
     "type": "profile:aspect_progress",
@@ -517,7 +457,23 @@
       "key": "stated_vs_actual",
       "message": "Extracting stated principles from essays and posts..."
     },
-    "_ms": 46463
+    "_ms": 23000
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "taste_drift",
+      "message": "Analyzing early vs recent public statements..."
+    },
+    "_ms": 23405
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "blind_spots",
+      "message": "Searching for documented misjudgments..."
+    },
+    "_ms": 23810
   },
   {
     "type": "profile:aspect_progress",
@@ -525,47 +481,31 @@
       "key": "influence_graph",
       "message": "Identifying intellectual influences..."
     },
-    "_ms": 47255
+    "_ms": 24214
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "contextual_variation",
-      "message": "web_search: Arlan Rakhmetzhanov hackathon vs investment judgment"
+      "message": "Analyzing how judgment shifts by stakes..."
     },
-    "_ms": 47970
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "blind_spots",
-      "message": "web_search: Arlan Rakhmetzhanov wrong predictions errors"
-    },
-    "_ms": 48790
+    "_ms": 24619
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "linguistic_tells",
-      "message": "web_search: Arlan Rakhmetzhanov writing style linguistic patterns"
+      "message": "Indexing excitement and disapproval signals..."
     },
-    "_ms": 49363
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "taste_drift",
-      "message": "web_search: Arlan Rakhmetzhanov evolution views AI startups over time"
-    },
-    "_ms": 50188
+    "_ms": 25024
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "falsifiability",
-      "message": "web_search: Arlan Rakhmetzhanov praised projects products documented reactions"
+      "message": "Building ground-truth dataset of known reactions..."
     },
-    "_ms": 50874
+    "_ms": 25429
   },
   {
     "type": "profile:aspect_progress",
@@ -573,7 +513,23 @@
       "key": "stated_vs_actual",
       "message": "web_search: Arlan stated values entrepreneurship first principles"
     },
-    "_ms": 51656
+    "_ms": 25833
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "taste_drift",
+      "message": "web_search: Arlan Rakhmetzhanov evolution views AI startups over time"
+    },
+    "_ms": 26238
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "blind_spots",
+      "message": "web_search: Arlan Rakhmetzhanov wrong predictions errors"
+    },
+    "_ms": 26643
   },
   {
     "type": "profile:aspect_progress",
@@ -581,47 +537,31 @@
       "key": "influence_graph",
       "message": "web_search: Arlan Rakhmetzhanov influences mentors Paul Graham Karpathy"
     },
-    "_ms": 52341
+    "_ms": 27048
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "contextual_variation",
-      "message": "Completed: web_search"
+      "message": "web_search: Arlan Rakhmetzhanov hackathon vs investment judgment"
     },
-    "_ms": 53168
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "blind_spots",
-      "message": "Completed: web_search"
-    },
-    "_ms": 53910
+    "_ms": 27452
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "linguistic_tells",
-      "message": "Completed: web_search"
+      "message": "web_search: Arlan Rakhmetzhanov writing style linguistic patterns"
     },
-    "_ms": 54719
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "taste_drift",
-      "message": "Completed: web_search"
-    },
-    "_ms": 55519
+    "_ms": 27857
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "falsifiability",
-      "message": "Completed: web_search"
+      "message": "web_search: Arlan Rakhmetzhanov praised projects products documented reactions"
     },
-    "_ms": 56191
+    "_ms": 28262
   },
   {
     "type": "profile:aspect_progress",
@@ -629,7 +569,23 @@
       "key": "stated_vs_actual",
       "message": "Completed: web_search"
     },
-    "_ms": 56736
+    "_ms": 28667
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "taste_drift",
+      "message": "Completed: web_search"
+    },
+    "_ms": 29071
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "blind_spots",
+      "message": "Completed: web_search"
+    },
+    "_ms": 29476
   },
   {
     "type": "profile:aspect_progress",
@@ -637,47 +593,31 @@
       "key": "influence_graph",
       "message": "Completed: web_search"
     },
-    "_ms": 57328
+    "_ms": 29881
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "contextual_variation",
-      "message": "Comparing hackathon praise patterns vs serious critique..."
+      "message": "Completed: web_search"
     },
-    "_ms": 57932
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "blind_spots",
-      "message": "Analyzing systematic biases in endorsement patterns..."
-    },
-    "_ms": 58726
+    "_ms": 30286
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "linguistic_tells",
-      "message": "read_url: corpus analysis of posts and essays"
+      "message": "Completed: web_search"
     },
-    "_ms": 59493
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "taste_drift",
-      "message": "Comparing 2023 posts to 2025 writing..."
-    },
-    "_ms": 60198
+    "_ms": 30690
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "falsifiability",
-      "message": "Identifying testable reaction predictions..."
+      "message": "Completed: web_search"
     },
-    "_ms": 60825
+    "_ms": 31095
   },
   {
     "type": "profile:aspect_progress",
@@ -685,119 +625,23 @@
       "key": "stated_vs_actual",
       "message": "Cross-referencing against documented reactions..."
     },
-    "_ms": 61605
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "influence_graph",
-      "message": "read_url: analyzing referenced figures in writing"
-    },
-    "_ms": 62302
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "contextual_variation",
-      "message": "read_url: analyzing context-specific reactions"
-    },
-    "_ms": 63018
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "blind_spots",
-      "message": "web_search: Arlan Rakhmetzhanov bias blind spots judgment"
-    },
-    "_ms": 63677
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "linguistic_tells",
-      "message": "Completed: read_url"
-    },
-    "_ms": 64444
+    "_ms": 31500
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "taste_drift",
-      "message": "read_url: reading What I Learned in 2024"
+      "message": "Comparing 2023 posts to 2025 writing..."
     },
-    "_ms": 65086
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "falsifiability",
-      "message": "read_url: collecting public endorsements and criticisms"
-    },
-    "_ms": 65689
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "stated_vs_actual",
-      "message": "read_url: analyzing LinkedIn engagement patterns"
-    },
-    "_ms": 66298
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "influence_graph",
-      "message": "Completed: read_url"
-    },
-    "_ms": 66846
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "contextual_variation",
-      "message": "Completed: read_url"
-    },
-    "_ms": 67422
+    "_ms": 31905
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "blind_spots",
-      "message": "Completed: web_search"
+      "message": "Analyzing systematic biases in endorsement patterns..."
     },
-    "_ms": 68122
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "linguistic_tells",
-      "message": "Mapping approval markers: hustle language, agency emphasis..."
-    },
-    "_ms": 68685
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "taste_drift",
-      "message": "Completed: read_url"
-    },
-    "_ms": 69505
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "falsifiability",
-      "message": "Completed: read_url"
-    },
-    "_ms": 70162
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "stated_vs_actual",
-      "message": "Completed: read_url"
-    },
-    "_ms": 70937
+    "_ms": 32310
   },
   {
     "type": "profile:aspect_progress",
@@ -805,47 +649,31 @@
       "key": "influence_graph",
       "message": "Mapping influence topology: PG, Karpathy, YC culture..."
     },
-    "_ms": 71533
+    "_ms": 32714
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "contextual_variation",
-      "message": "Mapping context variance across scenarios..."
+      "message": "Comparing hackathon praise patterns vs serious critique..."
     },
-    "_ms": 72327
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "blind_spots",
-      "message": "Mapping error categories..."
-    },
-    "_ms": 72909
+    "_ms": 33119
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "linguistic_tells",
-      "message": "Mapping disapproval markers: wrapper skepticism, low-agency signals..."
+      "message": "Mapping approval markers: hustle language, agency emphasis..."
     },
-    "_ms": 73464
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "taste_drift",
-      "message": "Mapping temporal shifts in domain interest..."
-    },
-    "_ms": 74078
+    "_ms": 33524
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "falsifiability",
-      "message": "Computing estimated model accuracy..."
+      "message": "Identifying testable reaction predictions..."
     },
-    "_ms": 74825
+    "_ms": 33929
   },
   {
     "type": "profile:aspect_progress",
@@ -853,7 +681,23 @@
       "key": "stated_vs_actual",
       "message": "Mapping gap between stated meritocracy and prestige signals..."
     },
-    "_ms": 75444
+    "_ms": 34333
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "taste_drift",
+      "message": "Mapping temporal shifts in domain interest..."
+    },
+    "_ms": 34738
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "blind_spots",
+      "message": "Mapping error categories..."
+    },
+    "_ms": 35143
   },
   {
     "type": "profile:aspect_progress",
@@ -861,47 +705,31 @@
       "key": "influence_graph",
       "message": "Tracing aesthetic lineage from Silicon Valley canon..."
     },
-    "_ms": 76070
+    "_ms": 35548
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "contextual_variation",
-      "message": "Compiling findings..."
+      "message": "Mapping context variance across scenarios..."
     },
-    "_ms": 76831
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "blind_spots",
-      "message": "Compiling findings..."
-    },
-    "_ms": 77553
+    "_ms": 35952
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "linguistic_tells",
-      "message": "Compiling findings..."
+      "message": "Mapping disapproval markers: wrapper skepticism, low-agency signals..."
     },
-    "_ms": 78301
-  },
-  {
-    "type": "profile:aspect_progress",
-    "data": {
-      "key": "taste_drift",
-      "message": "Compiling findings..."
-    },
-    "_ms": 78868
+    "_ms": 36357
   },
   {
     "type": "profile:aspect_progress",
     "data": {
       "key": "falsifiability",
-      "message": "Compiling findings..."
+      "message": "Computing estimated model accuracy..."
     },
-    "_ms": 79411
+    "_ms": 36762
   },
   {
     "type": "profile:aspect_progress",
@@ -909,7 +737,23 @@
       "key": "stated_vs_actual",
       "message": "Compiling findings..."
     },
-    "_ms": 80232
+    "_ms": 37167
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "taste_drift",
+      "message": "Compiling findings..."
+    },
+    "_ms": 37571
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "blind_spots",
+      "message": "Compiling findings..."
+    },
+    "_ms": 37976
   },
   {
     "type": "profile:aspect_progress",
@@ -917,7 +761,31 @@
       "key": "influence_graph",
       "message": "Compiling findings..."
     },
-    "_ms": 80802
+    "_ms": 38381
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "contextual_variation",
+      "message": "Compiling findings..."
+    },
+    "_ms": 38786
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "linguistic_tells",
+      "message": "Compiling findings..."
+    },
+    "_ms": 39190
+  },
+  {
+    "type": "profile:aspect_progress",
+    "data": {
+      "key": "falsifiability",
+      "message": "Compiling findings..."
+    },
+    "_ms": 39595
   },
   {
     "type": "profile:aspect_done",
@@ -925,7 +793,7 @@
       "key": "contextual_variation",
       "label": "How judgment shifts by context"
     },
-    "_ms": 81699
+    "_ms": 40500
   },
   {
     "type": "profile:aspect_done",
@@ -933,7 +801,7 @@
       "key": "blind_spots",
       "label": "Blind spots and systematic misjudgments"
     },
-    "_ms": 82824
+    "_ms": 41071
   },
   {
     "type": "profile:aspect_done",
@@ -941,7 +809,7 @@
       "key": "linguistic_tells",
       "label": "Linguistic signals of approval and disapproval"
     },
-    "_ms": 83662
+    "_ms": 41643
   },
   {
     "type": "profile:aspect_done",
@@ -949,7 +817,7 @@
       "key": "falsifiability",
       "label": "Known public reactions for model testing"
     },
-    "_ms": 84645
+    "_ms": 42214
   },
   {
     "type": "profile:aspect_done",
@@ -957,7 +825,7 @@
       "key": "taste_drift",
       "label": "Taste drift over time"
     },
-    "_ms": 85769
+    "_ms": 42786
   },
   {
     "type": "profile:aspect_done",
@@ -965,7 +833,7 @@
       "key": "stated_vs_actual",
       "label": "Stated values vs actual reactions"
     },
-    "_ms": 86804
+    "_ms": 43357
   },
   {
     "type": "profile:aspect_done",
@@ -973,21 +841,21 @@
       "key": "influence_graph",
       "label": "Intellectual lineage and influences"
     },
-    "_ms": 87841
+    "_ms": 43929
   },
   {
     "type": "profile:saving",
     "data": {
       "message": "Saving taste profile to memory..."
     },
-    "_ms": 89341
+    "_ms": 45500
   },
   {
     "type": "profile:done",
     "data": {
       "dimensions": 7
     },
-    "_ms": 91341
+    "_ms": 47500
   },
   {
     "type": "status",
@@ -995,14 +863,14 @@
       "phase": "verdict",
       "message": "Judging submission..."
     },
-    "_ms": 92000
+    "_ms": 49000
   },
   {
     "type": "verdict:ingesting",
     "data": {
       "item_count": 1
     },
-    "_ms": 92001
+    "_ms": 49001
   },
   {
     "type": "verdict:ingest_item",
@@ -1011,14 +879,14 @@
       "total": 1,
       "item": "TasteGraph: An Engine for Reconstructing How Experts Actually Think\n\n---\n\nWHAT WE BUILT\n\nTasteGraph "
     },
-    "_ms": 92001
+    "_ms": 49001
   },
   {
     "type": "verdict:ingest_progress",
     "data": {
       "message": "Reading text (36541 chars)"
     },
-    "_ms": 92001
+    "_ms": 49001
   },
   {
     "type": "verdict:ingested",
@@ -1026,7 +894,7 @@
       "blocks": 2,
       "sources": 0
     },
-    "_ms": 92002
+    "_ms": 49002
   },
   {
     "type": "verdict:agent_start",
@@ -1034,7 +902,7 @@
       "key": "stated_vs_actual",
       "label": "Stated values vs actual reactions"
     },
-    "_ms": 92002
+    "_ms": 49002
   },
   {
     "type": "verdict:agent_turn",
@@ -1044,7 +912,7 @@
       "max": 6,
       "phase": "thinking"
     },
-    "_ms": 92003
+    "_ms": 49002
   },
   {
     "type": "verdict:agent_start",
@@ -1052,7 +920,7 @@
       "key": "taste_drift",
       "label": "Taste drift over time"
     },
-    "_ms": 92006
+    "_ms": 49004
   },
   {
     "type": "verdict:agent_turn",
@@ -1062,7 +930,7 @@
       "max": 6,
       "phase": "thinking"
     },
-    "_ms": 92007
+    "_ms": 49005
   },
   {
     "type": "verdict:agent_start",
@@ -1070,7 +938,7 @@
       "key": "blind_spots",
       "label": "Blind spots and systematic misjudgments"
     },
-    "_ms": 92007
+    "_ms": 49005
   },
   {
     "type": "verdict:agent_turn",
@@ -1080,7 +948,7 @@
       "max": 6,
       "phase": "thinking"
     },
-    "_ms": 92007
+    "_ms": 49005
   },
   {
     "type": "verdict:agent_start",
@@ -1088,7 +956,7 @@
       "key": "influence_graph",
       "label": "Intellectual lineage and influences"
     },
-    "_ms": 92007
+    "_ms": 49005
   },
   {
     "type": "verdict:agent_turn",
@@ -1098,7 +966,7 @@
       "max": 6,
       "phase": "thinking"
     },
-    "_ms": 92007
+    "_ms": 49005
   },
   {
     "type": "verdict:agent_start",
@@ -1106,7 +974,7 @@
       "key": "contextual_variation",
       "label": "How judgment shifts by context"
     },
-    "_ms": 92008
+    "_ms": 49006
   },
   {
     "type": "verdict:agent_turn",
@@ -1116,7 +984,7 @@
       "max": 6,
       "phase": "thinking"
     },
-    "_ms": 92008
+    "_ms": 49006
   },
   {
     "type": "verdict:agent_start",
@@ -1124,7 +992,7 @@
       "key": "linguistic_tells",
       "label": "Linguistic signals of approval and disapproval"
     },
-    "_ms": 92008
+    "_ms": 49006
   },
   {
     "type": "verdict:agent_turn",
@@ -1134,7 +1002,7 @@
       "max": 6,
       "phase": "thinking"
     },
-    "_ms": 92008
+    "_ms": 49006
   },
   {
     "type": "verdict:agent_start",
@@ -1142,7 +1010,7 @@
       "key": "falsifiability",
       "label": "Known public reactions for model testing"
     },
-    "_ms": 92008
+    "_ms": 49006
   },
   {
     "type": "verdict:agent_turn",
@@ -1152,7 +1020,7 @@
       "max": 6,
       "phase": "thinking"
     },
-    "_ms": 92008
+    "_ms": 49006
   },
   {
     "type": "verdict:agent_think",
@@ -1160,7 +1028,7 @@
       "key": "stated_vs_actual",
       "reasoning_preview": "We need judge how Arlan Rakhmetzhanov would react as hackathon judge, based on actual endorsement patterns. We have no web search tools, so must infer from known patterns if any. Need analyze submissi"
     },
-    "_ms": 96164
+    "_ms": 51944
   },
   {
     "type": "verdict:agent_turn",
@@ -1170,7 +1038,7 @@
       "max": 6,
       "phase": "acting"
     },
-    "_ms": 96164
+    "_ms": 51944
   },
   {
     "type": "verdict:agent_think",
@@ -1178,7 +1046,7 @@
       "key": "contextual_variation",
       "reasoning_preview": "We need judge in context of hackathon judge, specifically how Arlan Rakhmetzhanov would care differently in this context. No web search tools available, so rely on submission and context, note lack of"
     },
-    "_ms": 96388
+    "_ms": 52102
   },
   {
     "type": "verdict:agent_turn",
@@ -1188,7 +1056,7 @@
       "max": 6,
       "phase": "acting"
     },
-    "_ms": 96388
+    "_ms": 52102
   },
   {
     "type": "verdict:agent_think",
@@ -1196,7 +1064,7 @@
       "key": "taste_drift",
       "reasoning_preview": "We need assess whether verdict on this submission would rely on Arlan Rakhmetzhanov's current vs stale taste in domain of hackathon judging / AI tooling / taste-modeling products. However we have no s"
     },
-    "_ms": 96677
+    "_ms": 52306
   },
   {
     "type": "verdict:agent_turn",
@@ -1206,7 +1074,7 @@
       "max": 6,
       "phase": "acting"
     },
-    "_ms": 96677
+    "_ms": 52306
   },
   {
     "type": "verdict:agent_think",
@@ -1214,7 +1082,7 @@
       "key": "blind_spots",
       "reasoning_preview": "We need binary blind-spot check for Arlan Rakhmetzhanov as hackathon judge. Need identify categories: AI evaluation tool, meta-judging/taste modeling, agentic research UI, likely demo-heavy/research f"
     },
-    "_ms": 96799
+    "_ms": 52392
   },
   {
     "type": "verdict:agent_turn",
@@ -1224,7 +1092,7 @@
       "max": 6,
       "phase": "acting"
     },
-    "_ms": 96799
+    "_ms": 52392
   },
   {
     "type": "verdict:agent_think",
@@ -1232,7 +1100,7 @@
       "key": "linguistic_tells",
       "reasoning_preview": "We only have the submission and no browsing/search tools beyond think, so I need to infer Arlan Rakhmetzhanov's likely reaction from the judging context and the content. I should assess typical hackat"
     },
-    "_ms": 97476
+    "_ms": 52871
   },
   {
     "type": "verdict:agent_turn",
@@ -1242,7 +1110,7 @@
       "max": 6,
       "phase": "acting"
     },
-    "_ms": 97476
+    "_ms": 52871
   },
   {
     "type": "verdict:agent_think",
@@ -1250,7 +1118,7 @@
       "key": "falsifiability",
       "reasoning_preview": "We need judge this hackathon submission anchored to known public reactions from Arlan Rakhmetzhanov, but I have no web search tool, only think. So I must rely on any known public reactions in memory. "
     },
-    "_ms": 98574
+    "_ms": 53647
   },
   {
     "type": "verdict:agent_turn",
@@ -1260,7 +1128,7 @@
       "max": 6,
       "phase": "acting"
     },
-    "_ms": 98574
+    "_ms": 53647
   },
   {
     "type": "verdict:agent_think",
@@ -1268,7 +1136,7 @@
       "key": "influence_graph",
       "reasoning_preview": "We need identify Arlan Rakhmetzhanov's intellectual lineage relevant to this submission and infer how those influences color his reaction as a hackathon judge. We have no web search tools, only think."
     },
-    "_ms": 99099
+    "_ms": 54019
   },
   {
     "type": "verdict:agent_turn",
@@ -1278,7 +1146,7 @@
       "max": 6,
       "phase": "acting"
     },
-    "_ms": 99099
+    "_ms": 54019
   },
   {
     "type": "verdict:agent_search",
@@ -1292,7 +1160,7 @@
         "Arlan Rakhmetzhanov taste drift autonomous agents visible reasoning streaming UI hackathon"
       ]
     },
-    "_ms": 99935
+    "_ms": 54609
   },
   {
     "type": "verdict:agent_search",
@@ -1306,7 +1174,7 @@
         "Arlan Rakhmetzhanov taste profile blind spots autonomous research agents evaluation engines"
       ]
     },
-    "_ms": 99941
+    "_ms": 54614
   },
   {
     "type": "verdict:agent_search",
@@ -1320,7 +1188,7 @@
         "Arlan Rakhmetzhanov products he praised ambitious weird legible streaming UI citations methodology"
       ]
     },
-    "_ms": 100063
+    "_ms": 54700
   },
   {
     "type": "verdict:agent_search",
@@ -1330,7 +1198,7 @@
         "Loading full taste context..."
       ]
     },
-    "_ms": 101304
+    "_ms": 55577
   },
   {
     "type": "verdict:agent_search_done",
@@ -1338,7 +1206,7 @@
       "key": "stated_vs_actual",
       "chars": 11936
     },
-    "_ms": 101901
+    "_ms": 55999
   },
   {
     "type": "verdict:agent_turn",
@@ -1348,7 +1216,7 @@
       "max": 6,
       "phase": "thinking"
     },
-    "_ms": 101901
+    "_ms": 55999
   },
   {
     "type": "verdict:agent_search",
@@ -1358,7 +1226,7 @@
         "Loading full taste context..."
       ]
     },
-    "_ms": 101920
+    "_ms": 56013
   },
   {
     "type": "verdict:agent_search",
@@ -1368,7 +1236,7 @@
         "Loading full taste context..."
       ]
     },
-    "_ms": 102175
+    "_ms": 56193
   },
   {
     "type": "verdict:agent_search_done",
@@ -1376,7 +1244,7 @@
       "key": "taste_drift",
       "chars": 8765
     },
-    "_ms": 102426
+    "_ms": 56370
   },
   {
     "type": "verdict:agent_turn",
@@ -1386,7 +1254,7 @@
       "max": 6,
       "phase": "thinking"
     },
-    "_ms": 102426
+    "_ms": 56370
   },
   {
     "type": "verdict:agent_search_done",
@@ -1394,7 +1262,7 @@
       "key": "blind_spots",
       "chars": 6842
     },
-    "_ms": 102688
+    "_ms": 56555
   },
   {
     "type": "verdict:agent_turn",
@@ -1404,7 +1272,7 @@
       "max": 6,
       "phase": "thinking"
     },
-    "_ms": 102688
+    "_ms": 56555
   },
   {
     "type": "verdict:agent_search",
@@ -1418,7 +1286,7 @@
         "Arlan Rakhmetzhanov lineage preferences autonomous agents research tools"
       ]
     },
-    "_ms": 102858
+    "_ms": 56675
   },
   {
     "type": "verdict:agent_search",
@@ -1428,7 +1296,7 @@
         "Loading full taste context..."
       ]
     },
-    "_ms": 103901
+    "_ms": 57413
   },
   {
     "type": "verdict:agent_search_done",
@@ -1436,7 +1304,7 @@
       "key": "influence_graph",
       "chars": 9712
     },
-    "_ms": 104334
+    "_ms": 57719
   },
   {
     "type": "verdict:agent_turn",
@@ -1446,7 +1314,7 @@
       "max": 6,
       "phase": "thinking"
     },
-    "_ms": 104334
+    "_ms": 57719
   },
   {
     "type": "verdict:agent_think",
@@ -1454,7 +1322,7 @@
       "key": "blind_spots",
       "reasoning_preview": "We have one research report already. Need assess if enough. Submission categories: AI/meta-evaluation, taste modeling, research tool, judge simulation, demo-heavy UI. Search result says no evidence of"
     },
-    "_ms": 105223
+    "_ms": 58347
   },
   {
     "type": "verdict:agent_turn",
@@ -1464,7 +1332,7 @@
       "max": 6,
       "phase": "acting"
     },
-    "_ms": 105223
+    "_ms": 58347
   },
   {
     "type": "verdict:agent_think",
@@ -1472,7 +1340,7 @@
       "key": "stated_vs_actual",
       "reasoning_preview": "We have search_profile output with substantial evidence about Arlan's actual endorsement patterns: values fast-building, impressive technical domains, hustle, prestige, YC/PG aesthetics, but skeptical"
     },
-    "_ms": 106652
+    "_ms": 59358
   },
   {
     "type": "verdict:agent_turn",
@@ -1482,7 +1350,7 @@
       "max": 6,
       "phase": "acting"
     },
-    "_ms": 106652
+    "_ms": 59358
   },
   {
     "type": "verdict:agent_think",
@@ -1490,7 +1358,7 @@
       "key": "taste_drift",
       "reasoning_preview": "We now have search_profile results (despite tool listing mismatch) showing Arlan's taste shifts in execution/planning, solo/team, domain expertise, SF proximity. Need assess impact on this submission "
     },
-    "_ms": 108136
+    "_ms": 60406
   },
   {
     "type": "verdict:agent_turn",
@@ -1500,7 +1368,7 @@
       "max": 6,
       "phase": "acting"
     },
-    "_ms": 108136
+    "_ms": 60406
   },
   {
     "type": "verdict:agent_think",
@@ -1508,7 +1376,7 @@
       "key": "influence_graph",
       "reasoning_preview": "We now have evidence on Arlan's influences. Need produce verdict focused on primary influence(s) most relevant to this submission. Relevant domains: YC/startup philosophy, Paul Graham, Andrej Karpathy"
     },
-    "_ms": 108813
+    "_ms": 60885
   },
   {
     "type": "verdict:agent_turn",
@@ -1518,7 +1386,7 @@
       "max": 6,
       "phase": "acting"
     },
-    "_ms": 108813
+    "_ms": 60885
   },
   {
     "type": "verdict:agent_done",
@@ -1526,7 +1394,7 @@
       "key": "stated_vs_actual",
       "label": "Stated values vs actual reactions"
     },
-    "_ms": 141358
+    "_ms": 83891
   },
   {
     "type": "verdict:agent_done",
@@ -1534,7 +1402,7 @@
       "key": "taste_drift",
       "label": "Taste drift over time"
     },
-    "_ms": 141359
+    "_ms": 83892
   },
   {
     "type": "verdict:agent_done",
@@ -1542,7 +1410,7 @@
       "key": "blind_spots",
       "label": "Blind spots and systematic misjudgments"
     },
-    "_ms": 141359
+    "_ms": 83892
   },
   {
     "type": "verdict:agent_done",
@@ -1550,7 +1418,7 @@
       "key": "influence_graph",
       "label": "Intellectual lineage and influences"
     },
-    "_ms": 141359
+    "_ms": 83892
   },
   {
     "type": "verdict:agent_done",
@@ -1558,7 +1426,7 @@
       "key": "contextual_variation",
       "label": "How judgment shifts by context"
     },
-    "_ms": 141359
+    "_ms": 83892
   },
   {
     "type": "verdict:agent_done",
@@ -1566,7 +1434,7 @@
       "key": "linguistic_tells",
       "label": "Linguistic signals of approval and disapproval"
     },
-    "_ms": 141359
+    "_ms": 83892
   },
   {
     "type": "verdict:agent_done",
@@ -1574,25 +1442,25 @@
       "key": "falsifiability",
       "label": "Known public reactions for model testing"
     },
-    "_ms": 141359
+    "_ms": 83892
   },
   {
     "type": "verdict:synthesizing",
-    "_ms": 141359
+    "_ms": 83892
   },
   {
     "type": "verdict:synthesis_progress",
     "data": {
       "message": "Weighing 7 dimensions against the submission..."
     },
-    "_ms": 141360
+    "_ms": 83893
   },
   {
     "type": "verdict:synthesis_progress",
     "data": {
       "message": "Score determined: 8/10 — assembling final verdict"
     },
-    "_ms": 149999
+    "_ms": 89999
   },
   {
     "type": "verdict:done",
@@ -1957,7 +1825,7 @@
         }
       }
     },
-    "_ms": 150000
+    "_ms": 90000
   },
   {
     "type": "complete",
@@ -2808,6 +2676,6 @@
         }
       }
     },
-    "_ms": 150000
+    "_ms": 90000
   }
 ]
